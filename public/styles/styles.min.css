@@ -1,0 +1,27 @@
+body {
+  background-color: blue;
+}
+
+@font-face {
+  font-family: "MB1";
+  src: url(../fonts/mngltitleotf.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MB1";
+  src: url(../fonts/mnglwhiteotf.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MB1";
+  src: url(../fonts/mnglwritingotf.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*# sourceMappingURL=styles.min.css.map */
