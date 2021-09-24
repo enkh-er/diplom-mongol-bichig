@@ -1,5 +1,35 @@
-body {
-  background-color: blue;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p {
+  color: white;
+  font-size: 1rem;
+}
+
+.adminForm {
+  margin-top: 20vh;
+}
+
+.admin-menu {
+  position: relative;
+  height: 100vh;
+}
+.admin-menu .logo {
+  width: 100%;
+  padding: 1rem 1rem 0rem 1rem;
+}
+.admin-menu li {
+  padding-left: 1rem !important;
+}
+.admin-menu .ant-menu {
+  margin: 2rem 0;
+}
+.admin-menu .logout {
+  text-align: center;
 }
 
 @font-face {
@@ -24,4 +54,4 @@ body {
   font-display: swap;
 }
 
-/*# sourceMappingURL=styles.min.css.map */
+/*# sourceMappingURL=style.min.css.map */
