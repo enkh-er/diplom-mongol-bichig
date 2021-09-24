@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import { Route, Redirect } from "react-router-dom";
+import React from "react";
+import { Route } from "react-router-dom";
 import PropTypes from "prop-types";
-import Context from "./Contexts/GlobalContext";
+// import Context from "./Contexts/GlobalContext";
 
 const RouteWithLayout = (props) => {
   const { layout: Layout, component: Component, auth, ...rest } = props;

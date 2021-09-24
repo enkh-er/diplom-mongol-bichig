@@ -6,12 +6,140 @@ h5,
 h6,
 div,
 p {
-  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+h6 {
   font-size: 1rem;
 }
 
+.bg-container {
+  padding: 3rem 0;
+}
+
+.md-container {
+  padding: 2rem 0;
+}
+
+.sm-container {
+  padding: 1rem 0;
+}
+
+/*----padding top----*/
+.pt-10 {
+  padding-top: 0.625;
+}
+
+.pt-15 {
+  padding-top: 0.938;
+}
+
+.pt-20 {
+  padding-top: 1.25;
+}
+
+.pt-30 {
+  padding-top: 1.875;
+}
+
+/*----padding bottom----*/
+.pb-10 {
+  padding-bottom: 0.625;
+}
+
+.pb-15 {
+  padding-bottom: 0.938;
+}
+
+.pb-20 {
+  padding-bottom: 1.25;
+}
+
+.pb-30 {
+  padding-bottom: 1.875;
+}
+
+/*----margin bottom----*/
+.mb-10 {
+  margin-bottom: 0.625;
+}
+
+.mb-15 {
+  margin-bottom: 0.938;
+}
+
+.mb-20 {
+  margin-bottom: 1.25;
+}
+
+.mb-30 {
+  margin-bottom: 1.875;
+}
+
+/*----margin top----*/
+.mt-10 {
+  margin-top: 0.625;
+}
+
+.mt-15 {
+  margin-top: 0.938;
+}
+
+.mt-20 {
+  margin-top: 1.25;
+}
+
+.mt-30 {
+  margin-top: 1.875;
+}
+
+.ds-flex {
+  display: flex;
+}
+
+.ds-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*----admin css----*/
 .adminForm {
   margin-top: 20vh;
+}
+
+.admin .ant-layout-header {
+  height: 40px;
+  text-align: right;
+  position: relative;
+}
+.admin .ant-layout-header .ant-btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  position: absolute;
+  top: 5px;
+  right: 1rem;
+  cursor: pointer;
 }
 
 .admin-menu {
@@ -20,16 +148,22 @@ p {
 }
 .admin-menu .logo {
   width: 100%;
-  padding: 1rem 1rem 0rem 1rem;
+  padding: 40px 1rem 0rem 1rem;
+  color: white;
 }
 .admin-menu li {
-  padding-left: 1rem !important;
+  padding-left: 0.5rem !important;
+  font-size: 0.8rem;
 }
 .admin-menu .ant-menu {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 .admin-menu .logout {
   text-align: center;
+}
+
+.back {
+  background-color: red;
 }
 
 @font-face {

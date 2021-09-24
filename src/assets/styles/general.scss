@@ -1,0 +1,99 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p {
+  font-family: "Montserrat", sans-serif;
+}
+h1 {
+  font-size: 1.5rem;
+}
+h2 {
+  font-size: 1.4rem;
+}
+h3 {
+  font-size: 1.3rem;
+}
+h4 {
+  font-size: 1.2rem;
+}
+h5 {
+  font-size: 1.1rem;
+}
+h6 {
+  font-size: 1rem;
+}
+//================ space ===============
+.bg-container {
+  padding: 3rem 0;
+}
+.md-container {
+  padding: 2rem 0;
+}
+.sm-container {
+  padding: 1rem 0;
+}
+/*----padding top----*/
+.pt-10 {
+  padding-top: 0.625;
+}
+.pt-15 {
+  padding-top: 0.938;
+}
+.pt-20 {
+  padding-top: 1.25;
+}
+.pt-30 {
+  padding-top: 1.875;
+}
+/*----padding bottom----*/
+.pb-10 {
+  padding-bottom: 0.625;
+}
+.pb-15 {
+  padding-bottom: 0.938;
+}
+.pb-20 {
+  padding-bottom: 1.25;
+}
+.pb-30 {
+  padding-bottom: 1.875;
+}
+/*----margin bottom----*/
+.mb-10 {
+  margin-bottom: 0.625;
+}
+.mb-15 {
+  margin-bottom: 0.938;
+}
+.mb-20 {
+  margin-bottom: 1.25;
+}
+.mb-30 {
+  margin-bottom: 1.875;
+}
+/*----margin top----*/
+.mt-10 {
+  margin-top: 0.625;
+}
+.mt-15 {
+  margin-top: 0.938;
+}
+.mt-20 {
+  margin-top: 1.25;
+}
+.mt-30 {
+  margin-top: 1.875;
+}
+
+//=============display============
+.ds-flex {
+  display: flex;
+}
+.ds-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}

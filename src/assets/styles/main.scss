@@ -1,31 +1,42 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-div,
-p {
-  color: white;
-  font-size: 1rem;
-}
+/*----admin css----*/
 .adminForm {
   margin-top: 20vh;
+}
+.admin {
+  .ant-layout-header {
+    height: 40px;
+    text-align: right;
+    position: relative;
+    .ant-btn {
+      background-color: transparent;
+      color: white;
+      border: none;
+      position: absolute;
+      top: 5px;
+      right: 1rem;
+      cursor: pointer;
+    }
+  }
 }
 .admin-menu {
   .logo {
     width: 100%;
-    padding: 1rem 1rem 0rem 1rem;
+    padding: 40px 1rem 0rem 1rem;
+    color: white;
   }
   li {
-    padding-left: 1rem !important;
+    padding-left: 0.5rem !important;
+    font-size: 0.8rem;
   }
   .ant-menu {
-    margin: 2rem 0;
+    margin: 1rem 0;
   }
   position: relative;
   height: 100vh;
   .logout {
     text-align: center;
   }
+}
+.back {
+  background-color: red;
 }
