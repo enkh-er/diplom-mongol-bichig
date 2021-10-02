@@ -8,91 +8,117 @@ div,
 p {
   font-family: "Montserrat", sans-serif;
 }
+
 h1 {
   font-size: 1.5rem;
 }
+
 h2 {
   font-size: 1.4rem;
 }
+
 h3 {
   font-size: 1.3rem;
 }
+
 h4 {
   font-size: 1.2rem;
 }
+
 h5 {
   font-size: 1.1rem;
 }
+
 h6 {
   font-size: 1rem;
 }
+
 //================ space ===============
 .bg-container {
   padding: 3rem 0;
 }
+
 .md-container {
   padding: 2rem 0;
 }
+
 .sm-container {
   padding: 1rem 0;
 }
+
 /*----padding top----*/
 .pt-10 {
-  padding-top: 0.625;
+  padding-top: 0.625rem;
 }
+
 .pt-15 {
-  padding-top: 0.938;
+  padding-top: 0.938rem;
 }
+
 .pt-20 {
-  padding-top: 1.25;
+  padding-top: 1.25rem;
 }
+
 .pt-30 {
-  padding-top: 1.875;
+  padding-top: 1.875rem;
 }
+
 /*----padding bottom----*/
 .pb-10 {
-  padding-bottom: 0.625;
+  padding-bottom: 0.625rem;
 }
+
 .pb-15 {
-  padding-bottom: 0.938;
+  padding-bottom: 0.938rem;
 }
+
 .pb-20 {
-  padding-bottom: 1.25;
+  padding-bottom: 1.25rem;
 }
+
 .pb-30 {
-  padding-bottom: 1.875;
+  padding-bottom: 1.875rem;
 }
+
 /*----margin bottom----*/
 .mb-10 {
-  margin-bottom: 0.625;
+  margin-bottom: 0.625rem;
 }
+
 .mb-15 {
-  margin-bottom: 0.938;
+  margin-bottom: 0.938rem;
 }
+
 .mb-20 {
-  margin-bottom: 1.25;
+  margin-bottom: 1.25rem;
 }
+
 .mb-30 {
-  margin-bottom: 1.875;
+  margin-bottom: 1.875rem;
 }
+
 /*----margin top----*/
 .mt-10 {
-  margin-top: 0.625;
+  margin-top: 0.625rem;
 }
+
 .mt-15 {
-  margin-top: 0.938;
+  margin-top: 0.938rem;
 }
+
 .mt-20 {
-  margin-top: 1.25;
+  margin-top: 1.25rem;
 }
+
 .mt-30 {
-  margin-top: 1.875;
+  margin-top: 1.875rem;
 }
 
 //=============display============
 .ds-flex {
   display: flex;
 }
+
 .ds-flex-wrap {
   display: flex;
   flex-wrap: wrap;

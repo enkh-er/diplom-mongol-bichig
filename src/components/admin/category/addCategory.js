@@ -1,5 +1,6 @@
-import { Form, Input,  Button, Select, Upload } from "antd";
+import { Form, Input, Button, Select, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
+
 const { Option } = Select;
 
 const layout = {
@@ -27,6 +28,7 @@ const normFile = (e) => {
 };
 
 const AddCategory = () => {
+  const [form] = Form.useForm();
   const onFinish = (values) => {
     console.log(values);
   };
@@ -35,6 +37,7 @@ const AddCategory = () => {
       <h5>Ангилал нэмэх</h5>
       <Form
         {...layout}
+        form={form}
         name="nest-messages"
         onFinish={onFinish}
         validateMessages={validateMessages}
