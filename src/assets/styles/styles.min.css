@@ -122,6 +122,10 @@ h6 {
   flex-wrap: wrap;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 /*----admin css----*/
 .adminForm {
   margin-top: 20vh;
@@ -170,6 +174,21 @@ h6 {
 
 .back {
   background-color: red;
+}
+
+.ck-editor__editable_inline {
+  min-height: 400px !important;
+}
+
+.menu-db {
+  width: 400px;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color: white;
+}
+.menu-db span {
+  float: right;
 }
 
 @font-face {

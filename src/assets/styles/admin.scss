@@ -1,0 +1,72 @@
+/*----admin css----*/
+.adminForm {
+  margin-top: 20vh;
+}
+
+.admin {
+  .ant-layout-header {
+    height: 40px;
+    text-align: right;
+    position: relative;
+
+    .ant-btn {
+      background-color: transparent;
+      color: white;
+      border: none;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    .left {
+      top: 5px;
+      left: 1rem;
+    }
+
+    .right {
+      top: 5px;
+      right: 1rem;
+    }
+  }
+}
+
+.admin-menu {
+  .logo {
+    width: 100%;
+    padding: 40px 1rem 0rem 1rem;
+    color: white;
+  }
+
+  li {
+    padding-left: 0.5rem !important;
+    font-size: 0.8rem;
+  }
+
+  .ant-menu {
+    margin: 1rem 0;
+  }
+
+  position: relative;
+  height: 100vh;
+
+  .logout {
+    text-align: center;
+  }
+}
+
+.back {
+  background-color: red;
+}
+.ck-editor__editable_inline {
+  min-height: 400px !important;
+}
+
+.menu-db {
+  width: 400px;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color: white;
+  span {
+    float: right;
+  }
+}

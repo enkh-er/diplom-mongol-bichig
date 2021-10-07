@@ -1,6 +1,6 @@
+import React from "react";
 import { Form, Input, Button, Select, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-import { addCategory } from "../../../restAPI";
 
 const { Option } = Select;
 
@@ -21,9 +21,9 @@ const normFile = (e) => {
   return e && e.fileList;
 };
 
-const AddCategory = (props) => {
+const UpdateCategory = (props) => {
   const [form] = Form.useForm();
-  const { getData, datas } = props;
+  const { categories, category } = props;
 
   const onFinish = async (values) => {
     let formData = new FormData();
@@ -38,8 +38,15 @@ const AddCategory = (props) => {
     formData.append("image", values.image ? values.image : "");
     console.log(formData);
     console.log(values.name);
-    addCategory(formData);
-    getData();
+    // datas.array.forEach(element => {
+    //   if(element.name===values.name){
+    //     return false;
+    //   }
+    // });
+    // const dat = await addCategory(formData);
+    // if (dat.length !== 0) {
+    //   getData();
+    // }
   };
   const onChange = (e) => {
     console.log(e.target.value);
@@ -49,15 +56,31 @@ const AddCategory = (props) => {
       link: defaultLink,
     });
   };
+  React.useEffect(() => {
+    form.setFieldsValue({
+      category,
+    });
+  }, []);
+  //   form.setFieldsValue({
+  //     name: category.name,
+  //   });
+  console.log(category.name);
   return (
     <div>
-      <h5>Ангилал нэмэх</h5>
+      <h5>Ангилал өөрчлөх</h5>
       <Form
         {...layout}
         form={form}
         name="nest-messages"
         onFinish={onFinish}
         validateMessages={validateMessages}
+        initialValues={{
+          name: category.name,
+          link: category.link,
+          code: category.code,
+          description: category.description,
+          parent: category.parent,
+        }}
       >
         <Form.Item
           name={"name"}
@@ -67,8 +90,8 @@ const AddCategory = (props) => {
           <Input onChange={onChange} />
         </Form.Item>
         <Form.Item name="parent" label="Эцэг ангилал">
-          <Select placeholder="None">
-            {props.datas.map((el) => (
+          <Select>
+            {props.categories.map((el) => (
               <Option value={el.id} key={el.id}>
                 {el.name}
               </Option>
@@ -103,4 +126,4 @@ const AddCategory = (props) => {
     </div>
   );
 };
-export default AddCategory;
+export default UpdateCategory;

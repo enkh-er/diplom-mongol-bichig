@@ -9,7 +9,28 @@ export async function getCategories() {
     return res.data;
   });
 }
+export async function getCategory(id) {
+  return await api.get("/category/" + id).then((res) => {
+    return res.data;
+  });
+}
+export function deleteCategory(id) {
+  api.delete("/delete-category/" + id);
+}
 
-export const addCategory = (category) => {
+export async function addCategory(category) {
   api.post("/create-category", category);
-};
+}
+export function updateCategory(category) {
+  api.post("/update-category", category);
+}
+
+export function addMenu(menu) {
+  api.post("/create-menu", menu);
+}
+
+export async function getMenus() {
+  return await api.get("/menus").then((res) => {
+    return res.data;
+  });
+}
