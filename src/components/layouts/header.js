@@ -1,19 +1,36 @@
-import React from "react";
-import {Menu} from "antd";
+import React, { useEffect, useState } from "react";
+import { Menu, Input } from "antd";
+import { getMenus } from "../../restAPI";
 
-const {SubMenu} = Menu;
+const { Search } = Input;
 
 const Header = () => {
-    <Menu mode="horizontal">
-        <Menu.Item key="mail" icon={<MailOutlined/>}>
-            Navigation One
-        </Menu.Item>
-        <Menu.Item key="mail" icon={<MailOutlined/>}>
-            Navigation One
-        </Menu.Item>
-        <Menu.Item key="mail" icon={<MailOutlined/>}>
-            Navigation One
-        </Menu.Item>
-    </Menu>;
+  const [menus, setMenus] = useState({});
+  const getData = async () => {
+    const dat = await getMenus("main_menu");
+    setMenus(dat[0]);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+  console.log(menus);
+  if (!menus) {
+    return null;
+  }
+
+  const onSearch = (value) => console.log(value);
+
+  return (
+    <div className="menu">
+      <Menu mode="horizontal">
+        {menus.child_items &&
+          menus.child_items.map((item) => (
+            <Menu.Item key={item.link}>
+              <a href={item.link}>{item.name}</a>
+            </Menu.Item>
+          ))}
+      </Menu>
+    </div>
+  );
 };
 export default Header;

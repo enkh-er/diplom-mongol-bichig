@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Input, Button, Select, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
+import { updateCategory } from "../../../restAPI";
 
 const { Option } = Select;
 
@@ -27,6 +28,7 @@ const UpdateCategory = (props) => {
 
   const onFinish = async (values) => {
     let formData = new FormData();
+    formData.append("id", category.id);
     formData.append("name", values.name);
     formData.append("parent", values.parent ? values.parent : "");
     formData.append(
@@ -43,9 +45,9 @@ const UpdateCategory = (props) => {
     //     return false;
     //   }
     // });
-    // const dat = await addCategory(formData);
+    updateCategory(formData);
     // if (dat.length !== 0) {
-    //   getData();
+    // getData();
     // }
   };
   const onChange = (e) => {

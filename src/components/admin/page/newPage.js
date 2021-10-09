@@ -1,7 +1,8 @@
-import { Form, Select } from "antd";
+import { useState } from "react";
+import { Form } from "antd";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { useState } from "react";
+
 
 /* eslint-disable no-template-curly-in-string */
 const validateMessages = {
@@ -39,6 +40,7 @@ const NewPage = (props) => {
   const handleChange = (e, editor) => {
     const data = editor.getData();
     setContent(data);
+    console.log(data);
   };
 
   return (

@@ -39,12 +39,13 @@ const AddCategory = (props) => {
     console.log(formData);
     console.log(values.name);
     addCategory(formData);
+    form.resetFields();
     getData();
   };
   const onChange = (e) => {
     console.log(e.target.value);
     let defaultLink = e.target.value.toString().toLowerCase();
-    defaultLink = defaultLink.replace(" ", "-");
+    defaultLink = defaultLink.split(" ").join("-");
     form.setFieldsValue({
       link: defaultLink,
     });

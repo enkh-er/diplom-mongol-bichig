@@ -15,18 +15,14 @@ const validateMessages = {
 
 const MenuAdd = (props) => {
   const [form] = Form.useForm();
-  const { datas, getData } = props;
+  const { datas, getData, categories } = props;
   const onFinish = (values) => {
-    if (values.parent) {
-      console.log("non");
-    } else {
-      console.log("yes");
-    }
     let formData = new FormData();
     formData.append("name", values.name);
     formData.append("parent", values.parent ? values.parent : "");
     formData.append("type", values.type);
     formData.append("link", values.link);
+    formData.append("typeId", values.typeId);
     formData.append("code", values.code ? values.code : "");
     addMenu(formData);
     form.resetFields();
@@ -56,8 +52,8 @@ const MenuAdd = (props) => {
         </Form.Item>
         <Form.Item name="parent" label="Эцэг">
           <Select placeholder="None">
-            {datas.map((el) => (
-              <Option value={el.id} key={el.id}>
+            {datas.map((el, i) => (
+              <Option value={el.id} key={i}>
                 {el.name}
               </Option>
             ))}
@@ -69,6 +65,15 @@ const MenuAdd = (props) => {
             <Option value="article">Нийтлэл</Option>
             <Option value="page">Нуудас</Option>
             <Option value="custom-link">URL</Option>
+          </Select>
+        </Form.Item>
+        <Form.Item name="typeId" label="Ангилал">
+          <Select placeholder="None">
+            {categories.map((el, i) => (
+              <Option value={el.id} key={i}>
+                {el.name}
+              </Option>
+            ))}
           </Select>
         </Form.Item>
         <Form.Item name={"link"} label="Холбоос" rules={[{ required: true }]}>

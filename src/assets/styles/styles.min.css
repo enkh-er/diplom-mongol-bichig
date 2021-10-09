@@ -6,7 +6,7 @@ h5,
 h6,
 div,
 p {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 h1 {
@@ -126,6 +126,46 @@ h6 {
   cursor: pointer;
 }
 
+.top {
+  background-color: #ffca2a;
+}
+
+.topHeader {
+  padding: 1rem 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.topHeader .logo {
+  font-family: "Pacifico", cursive;
+  font-size: 2rem;
+  padding: 0 20px;
+}
+.topHeader .right-menu {
+  float: right;
+  position: absolute;
+  right: 0;
+}
+.topHeader .right-menu a {
+  margin: 0 0.5rem;
+  color: #2f353f;
+  font-weight: 600;
+  text-shadow: 0px 0.5px 0.5px rgba(0, 0, 0, 0.1);
+}
+
+.menu .ant-menu-horizontal {
+  padding-left: 4.16%;
+}
+.menu .ant-menu-item-active a,
+.menu .ant-menu-item:hover a,
+.menu .ant-menu-item:active a {
+  color: #fdba00 !important;
+}
+.menu .ant-menu-item:hover::after {
+  border-color: #fdba00 !important;
+  color: #fdba00 !important;
+}
+
 /*----admin css----*/
 .adminForm {
   margin-top: 20vh;
@@ -181,7 +221,7 @@ h6 {
 }
 
 .menu-db {
-  width: 400px;
+  width: 450px;
   margin-bottom: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 10px;
@@ -189,6 +229,7 @@ h6 {
 }
 .menu-db span {
   float: right;
+  margin: 0 3px;
 }
 
 @font-face {

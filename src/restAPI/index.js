@@ -29,8 +29,12 @@ export function addMenu(menu) {
   api.post("/create-menu", menu);
 }
 
-export async function getMenus() {
-  return await api.get("/menus").then((res) => {
+export function deleteMenu(id, name) {
+  api.delete("/delete-menu/" + id + "/" + name);
+}
+
+export async function getMenus(code) {
+  return await api.get("/menus/" + code).then((res) => {
     return res.data;
   });
 }

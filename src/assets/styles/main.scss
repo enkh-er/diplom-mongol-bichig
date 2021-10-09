@@ -1,0 +1,43 @@
+.top {
+  background-color: $back-yellow20;
+}
+.topHeader {
+  padding: 1rem 0;
+  display: flex;
+  position: relative;
+  align-items: center;
+  .logo {
+    font-family: "Pacifico", cursive;
+    font-size: 2rem;
+    padding: 0 20px;
+  }
+  .right-menu {
+    float: right;
+    position: absolute;
+    right: 0;
+
+    a {
+      margin: 0 0.5rem;
+      color: $black;
+      font-weight: 600;
+      text-shadow: 0px 0.5px 0.5px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.menu {
+  .ant-menu-horizontal {
+    padding-left: 4.16%;
+  }
+  .ant-menu-item-active,
+  .ant-menu-item:hover,
+  .ant-menu-item:active {
+    a {
+      color: $back-yellow10 !important;
+    }
+  }
+  .ant-menu-item:hover::after {
+    border-color: $back-yellow10 !important;
+    color: $back-yellow10 !important;
+  }
+}
