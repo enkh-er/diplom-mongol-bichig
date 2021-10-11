@@ -14,17 +14,21 @@ export async function getCategory(id) {
     return res.data;
   });
 }
-export function deleteCategory(id) {
-  api.delete("/delete-category/" + id);
+export async function deleteCategory(id) {
+  return await api.delete("/delete-category/" + id).then((res) => {
+    return res.data;
+  });
 }
-
 export async function addCategory(category) {
-  api.post("/create-category", category);
+  return await api.post("/create-category", category).then((res) => {
+    return res.data;
+  });
 }
-export function updateCategory(category) {
-  api.post("/update-category", category);
+export async function updateCategory(category) {
+  return await api.post("/update-category", category).then((res) => {
+    return res.data;
+  });
 }
-
 export function addMenu(menu) {
   api.post("/create-menu", menu);
 }

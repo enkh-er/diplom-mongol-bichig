@@ -4,19 +4,20 @@ import Routes from "./routes";
 import AdminRoutes from "./adminRoutes";
 import { createBrowserHistory } from "history";
 import "./assets/styles/styles.min.css";
-import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-import moduleName from "module";
-
+import store from "./redux/store";
+// const store = createStore(rootReducer, applyMiddleware(thunk));
+// store.dispatch(fetchCategories());
 const browserHistory = createBrowserHistory();
 
 function App() {
   return (
-    <Router history={browserHistory}>
-      <Routes />
-      <AdminRoutes />
-    </Router>
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        <Routes />
+        <AdminRoutes />
+      </Router>
+    </Provider>
   );
 }
 
