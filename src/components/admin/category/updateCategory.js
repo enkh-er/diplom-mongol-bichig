@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Input, Button, Select, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { updateCategory } from "../../../restAPI";
+import { msg } from "../general/msg";
 
 const { Option } = Select;
 
@@ -46,6 +47,7 @@ const UpdateCategory = (props) => {
     //   }
     // });
     updateCategory(formData);
+    msg("success", "Амжилттай өөрчиллөө");
     // if (dat.length !== 0) {
     // getData();
     // }

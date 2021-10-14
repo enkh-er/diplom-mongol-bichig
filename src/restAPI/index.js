@@ -42,3 +42,30 @@ export async function getMenus(code) {
     return res.data;
   });
 }
+export async function addCf(customField) {
+  return await api.post("/create-custom-fields", customField).then((res) => {
+    return res.data;
+  });
+}
+
+export async function getCfs() {
+  return await api.get("/custom-fields").then((res) => {
+    return res.data;
+  });
+}
+
+export function deleteCf(id) {
+  api.delete("/delete-custom-fields/" + id);
+}
+
+export function deleteCFField(id, name) {
+  api.delete("/delete-custom-fields/" + id + "/" + name);
+}
+
+export function deleteCFCat(id, catID) {
+  api.delete("/delete-custom-fields/" + id + "/" + catID);
+}
+
+export function updateCF(customField) {
+  api.post("/update-custom-fields", customField);
+}

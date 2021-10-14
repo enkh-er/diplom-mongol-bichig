@@ -7,6 +7,7 @@ import {
 import { Table, Input, Modal } from "antd";
 import { deleteCategory } from "../../../restAPI";
 import UpdateCategory from "./updateCategory";
+import { msg } from "../general/msg";
 
 const { Search } = Input;
 const { confirm } = Modal;
@@ -74,6 +75,7 @@ const Categories = (props) => {
       onOk() {
         deleteCategory(id);
         setCategories((datas) => datas.filter((item) => item.id !== id));
+        msg("success", "Амжилттай устгалаа");
       },
       onCancel() {},
     });

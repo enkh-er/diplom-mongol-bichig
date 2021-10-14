@@ -1,5 +1,6 @@
 import { Form, Input, Button, Select } from "antd";
 import { addMenu } from "../../../restAPI";
+import { msg } from "../general/msg";
 
 const { Option } = Select;
 
@@ -26,6 +27,7 @@ const MenuAdd = (props) => {
     formData.append("code", values.code ? values.code : "");
     addMenu(formData);
     form.resetFields();
+    msg("success", "Амжилттай хадгаллаа");
     getData();
     // console.log(values);
   };

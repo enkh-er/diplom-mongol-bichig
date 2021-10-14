@@ -6,6 +6,7 @@ import {
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import { Modal } from "antd";
+import { msg } from "../general/msg";
 
 const { confirm } = Modal;
 
@@ -23,6 +24,7 @@ const Menus = (props) => {
       onOk() {
         deleteMenu(id, name);
         getData();
+        msg("success", "Амжилттай устгалаа");
       },
       onCancel() {},
     });

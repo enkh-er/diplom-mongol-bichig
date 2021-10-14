@@ -1,6 +1,7 @@
 import { Form, Input, Button, Select, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { addCategory } from "../../../restAPI";
+import { msg } from "../general/msg";
 
 const { Option } = Select;
 
@@ -39,6 +40,7 @@ const AddCategory = (props) => {
     console.log(formData);
     console.log(values.name);
     addCategory(formData);
+    msg("success", "Амжилттай хадгаллаа");
     form.resetFields();
     getData();
   };
