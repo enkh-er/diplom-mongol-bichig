@@ -37,11 +37,18 @@ export function deleteMenu(id, name) {
   api.delete("/delete-menu/" + id + "/" + name);
 }
 
-export async function getMenus(code) {
+export async function getMenusByCode(code) {
   return await api.get("/menus/" + code).then((res) => {
     return res.data;
   });
 }
+
+export async function getMenus() {
+  return await api.get("/menus").then((res) => {
+    return res.data;
+  });
+}
+
 export async function addCf(customField) {
   return await api.post("/create-custom-fields", customField).then((res) => {
     return res.data;

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Menu, Input } from "antd";
-import { getMenus } from "../../restAPI";
+import { getMenusByCode } from "../../restAPI";
 
 const { Search } = Input;
 
 const Header = () => {
   const [menus, setMenus] = useState({});
   const getData = async () => {
-    const dat = await getMenus("main_menu");
+    const dat = await getMenusByCode("main_menu");
     setMenus(dat[0]);
   };
   useEffect(() => {

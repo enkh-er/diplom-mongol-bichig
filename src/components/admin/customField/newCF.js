@@ -32,9 +32,6 @@ const NewCF = (props) => {
     addCf(customField);
     msg("success", "Амжилттай хадгаллаа");
     form.resetFields();
-
-    console.log(fields);
-    console.log(categories);
   };
 
   const getData = async () => {

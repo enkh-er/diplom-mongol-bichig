@@ -54,7 +54,8 @@ for (let i = 0; i < 46; i++) {
     category: "example",
   });
 }
-const Post = (props) => {
+const Post = () => {
+
   function handleChange(value) {
     console.log(`selected ${value}`);
   }

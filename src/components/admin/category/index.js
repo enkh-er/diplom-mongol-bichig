@@ -1,5 +1,5 @@
-import { Col, Row } from "antd";
 import { useState, useEffect } from "react";
+import { Col, Row } from "antd";
 import AddCategory from "./addCategory";
 import Categories from "./categories";
 import { getCategories } from "../../../restAPI";
