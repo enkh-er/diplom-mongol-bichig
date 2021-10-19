@@ -54,11 +54,12 @@ const MenuAdd = (props) => {
         </Form.Item>
         <Form.Item name="parent" label="Эцэг">
           <Select placeholder="None">
-            {datas.map((el, i) => (
-              <Option value={el.id} key={i}>
-                {el.name}
-              </Option>
-            ))}
+            {datas &&
+              datas.map((el, i) => (
+                <Option value={el.id} key={i}>
+                  {el.name}
+                </Option>
+              ))}
           </Select>
         </Form.Item>
         <Form.Item name="type" label="Төрөл" rules={[{ required: true }]}>
@@ -71,11 +72,12 @@ const MenuAdd = (props) => {
         </Form.Item>
         <Form.Item name="typeId" label="Ангилал">
           <Select placeholder="None">
-            {categories.map((el, i) => (
-              <Option value={el.id} key={i}>
-                {el.name}
-              </Option>
-            ))}
+            {categories &&
+              categories.map((el, i) => (
+                <Option value={el.id} key={i}>
+                  {el.name}
+                </Option>
+              ))}
           </Select>
         </Form.Item>
         <Form.Item name={"link"} label="Холбоос" rules={[{ required: true }]}>

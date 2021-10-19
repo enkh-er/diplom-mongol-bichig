@@ -30,7 +30,7 @@ const Menus = (props) => {
     });
   }
 
-  if (datas.length === 0) {
+  if (!datas) {
     return null;
   }
   console.log(datas);

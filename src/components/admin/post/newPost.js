@@ -2,15 +2,15 @@ import { useState, useEffect } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { getCategories } from "../../../restAPI";
-import { Button, Select, Upload, Space } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
+import { Button, Select, Space } from "antd";
+import UploadImage from "../general/UploadImage";
 
 const { Option } = Select;
 
 const NewPost = () => {
   const [content, setContent] = useState("");
   const [categories, setCategories] = useState([]);
-  const [image, setImage] = useState({});
+  const [image, setImage] = useState(null);
 
   useEffect(() => {
     getData();
@@ -29,6 +29,12 @@ const NewPost = () => {
   const getData = async () => {
     const dat = await getCategories();
     setCategories(dat);
+  };
+
+  const onChangeImage = (e) => {
+    e.preventDefault();
+    setImage(e.target.files[0]);
+    console.log(e.target.files[0]);
   };
 
   const onSubmit = () => {
@@ -56,13 +62,7 @@ const NewPost = () => {
           ))}
         </Select>
 
-        <Upload
-          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-          listType="picture"
-          maxCount={1}
-        >
-          <Button icon={<UploadOutlined />}>Upload</Button>
-        </Upload>
+        <UploadImage onChange={onChangeImage} />
 
         <Button type="primary" onClick={onSubmit}>
           Хадгалах

@@ -28,6 +28,10 @@ const Categories = (props) => {
   const onSearch = (value) => console.log(value);
   const { categories, setCategories } = props;
 
+  if (!categories) {
+    return null;
+  }
+
   const columns = [
     {
       title: "Нэр",

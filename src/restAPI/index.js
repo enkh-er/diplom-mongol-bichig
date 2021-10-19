@@ -61,6 +61,12 @@ export async function getCfs() {
   });
 }
 
+export async function getCfByCategory(catId) {
+  return await api.get("/custom-fields-by-cat/" + catId).then((res) => {
+    return res.data;
+  });
+}
+
 export function deleteCf(id) {
   api.delete("/delete-custom-fields/" + id);
 }

@@ -95,11 +95,12 @@ const UpdateCategory = (props) => {
         </Form.Item>
         <Form.Item name="parent" label="Эцэг ангилал">
           <Select>
-            {props.categories.map((el) => (
-              <Option value={el.id} key={el.id}>
-                {el.name}
-              </Option>
-            ))}
+            {props.categories &&
+              props.categories.map((el) => (
+                <Option value={el.id} key={el.id}>
+                  {el.name}
+                </Option>
+              ))}
           </Select>
         </Form.Item>
         <Form.Item name={"link"} label="Холбоос" rules={[{ required: true }]}>

@@ -150,11 +150,12 @@ const NewCF = (props) => {
                       ]}
                     >
                       <Select style={{ width: 130 }}>
-                        {categories.map((el, i) => (
-                          <Option value={el.id} key={el.id}>
-                            {el.name}
-                          </Option>
-                        ))}
+                        {categories &&
+                          categories.map((el, i) => (
+                            <Option value={el.id} key={el.id}>
+                              {el.name}
+                            </Option>
+                          ))}
                       </Select>
                     </Form.Item>
                   </Form.Item>

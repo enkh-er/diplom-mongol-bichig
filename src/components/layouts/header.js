@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Menu, Input } from "antd";
+import { Menu } from "antd";
 import { getMenusByCode } from "../../restAPI";
-
-const { Search } = Input;
 
 const Header = () => {
   const [menus, setMenus] = useState({});
@@ -17,8 +15,6 @@ const Header = () => {
   if (!menus) {
     return null;
   }
-
-  const onSearch = (value) => console.log(value);
 
   return (
     <div className="menu">

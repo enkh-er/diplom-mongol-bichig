@@ -52,6 +52,7 @@ const AddCategory = (props) => {
       link: defaultLink,
     });
   };
+  console.log(datas);
   return (
     <div>
       <h5>Ангилал нэмэх</h5>
@@ -71,11 +72,12 @@ const AddCategory = (props) => {
         </Form.Item>
         <Form.Item name="parent" label="Эцэг ангилал">
           <Select placeholder="None">
-            {props.datas.map((el) => (
-              <Option value={el.id} key={el.id}>
-                {el.name}
-              </Option>
-            ))}
+            {datas &&
+              datas.map((el) => (
+                <Option value={el.id} key={el.id}>
+                  {el.name}
+                </Option>
+              ))}
           </Select>
         </Form.Item>
         <Form.Item name={"link"} label="Холбоос" rules={[{ required: true }]}>
