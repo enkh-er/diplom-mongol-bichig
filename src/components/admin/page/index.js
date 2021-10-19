@@ -78,7 +78,7 @@ const Page = (props) => {
       {/* <Button type="secondary">Цуцлах</Button>
      <Button type="primary">Хадгалах</Button>
       <Button type="primary">Нийтлэх</Button> */}
-      <Table columns={columns} dataSource={data} />
+      <Table columns={columns} dataSource={data} rowKey="id" />
     </section>
   );
 };

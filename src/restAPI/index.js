@@ -72,13 +72,31 @@ export function deleteCf(id) {
 }
 
 export function deleteCFField(id, name) {
-  api.delete("/delete-custom-fields/" + id + "/" + name);
+  api.delete("/delete-cf-by-name/" + id + "/" + name);
 }
 
 export function deleteCFCat(id, catID) {
-  api.delete("/delete-custom-fields/" + id + "/" + catID);
+  api.delete("/delete-cf-by-catid/" + id + "/" + catID);
 }
 
 export function updateCF(customField) {
   api.post("/update-custom-fields", customField);
+}
+
+export async function addPost(post) {
+  return await api.post("/post", post).then((res) => {
+    return res.data;
+  });
+}
+
+export async function checkLink(link) {
+  return await api.get("/post-link/" + link).then((res) => {
+    return res.data;
+  });
+}
+
+export async function getPosts() {
+  return await api.get("/posts").then((res) => {
+    return res.data;
+  });
 }

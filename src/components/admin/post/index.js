@@ -1,64 +1,26 @@
-import { Table, Select, Space, Input } from "antd";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-
+import { useState, useEffect } from "react";
+import { Select, Space, Input } from "antd";
+import { getPosts } from "../../../restAPI";
+import Posts from "./posts";
 const { Option } = Select;
 const { Search } = Input;
 
-const columns = [
-  {
-    title: "Гарчиг",
-    dataIndex: "title",
-    key: "title",
-  },
-  {
-    title: "Ангилал",
-    dataIndex: "category",
-    key: "category",
-    width: "20%",
-  },
-  {
-    title: "Нийтлэгч",
-    dataIndex: "author",
-    key: "author",
-    width: "12%",
-  },
-  {
-    title: "Нийтэлсэн огноо",
-    dataIndex: "postDate",
-    key: "postDate",
-    width: "15%",
-  },
-  {
-    title: "",
-    dataIndex: "",
-    key: "edit",
-    width: "3%",
-    render: () => <EditOutlined />,
-  },
-  {
-    title: "",
-    dataIndex: "",
-    key: "delete",
-    width: "3%",
-    render: () => <DeleteOutlined />,
-  },
-];
-const data = [];
-for (let i = 0; i < 46; i++) {
-  data.push({
-    key: i,
-    title: `Edward King ${i}`,
-    author: "enh",
-    postDate: "2021-08-19 13:31",
-    content: "blah1",
-    category: "example",
-  });
-}
 const Post = () => {
+  const [posts, setPosts] = useState([]);
 
   function handleChange(value) {
     console.log(`selected ${value}`);
   }
+
+  const getData = async () => {
+    const dat = await getPosts();
+    setPosts(dat);
+    console.log(dat);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const onSearch = (value) => console.log(value);
   return (
@@ -92,7 +54,7 @@ const Post = () => {
           <a href="/mb-admin/new-post">Нийтлэл бичих</a>
         </Space>
       </div>
-      <Table columns={columns} dataSource={data} />
+      <Posts data={posts} />
     </section>
   );
 };
