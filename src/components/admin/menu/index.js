@@ -29,7 +29,7 @@ const Menu = (props) => {
           />
         </Col>
         <Col lg={15}>
-          <Menus datas={menus} getData={getData} />
+          <Menus datas={menus} getData={getData}  categories={categories}/>
         </Col>
       </Row>
     </section>

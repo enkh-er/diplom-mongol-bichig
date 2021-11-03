@@ -13,7 +13,7 @@ const Category = (props) => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(categories);
+
   return (
     <section className="md-container">
       <h1>Ангилал</h1>

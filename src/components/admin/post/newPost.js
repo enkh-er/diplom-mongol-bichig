@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { getCategories, checkLink, addPost } from "../../../restAPI";
-import { Button, Input, Select, Space, DatePicker } from "antd";
-import UploadImage from "../general/UploadImage";
+import {
+  getCategories,
+  checkLink,
+  addPost,
+  getCfByCategory,addFile
+} from "../../../restAPI";
+import { Button, Input, Select, Space, DatePicker, Checkbox } from "antd";
+import UploadFile from "../general/UploadFile";
 import { msg } from "../general/msg";
 
 const { Option } = Select;
+const { TextArea } = Input;
 
 const NewPost = () => {
   const [content, setContent] = useState("");
@@ -14,9 +20,11 @@ const NewPost = () => {
   const [link, setLink] = useState("");
   const [categories, setCategories] = useState([]);
   const [chooseCats, setChooseCats] = useState([]);
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
   const [date, setDate] = useState(new Date());
   const [author, setAuthor] = useState("");
+  const [fields, setFields] = useState([]);
+  const [fieldValues, setFieldValues] = useState([]); 
 
   useEffect(() => {
     const today = new Date();
@@ -39,13 +47,34 @@ const NewPost = () => {
   const handleChange = (e, editor) => {
     const data = editor.getData();
     setContent(data);
-    console.log(data);
   };
 
-  function catChange(value) {
-    console.log(`selected ${value}`);
-    chooseCats.push(value);
-    setChooseCats(chooseCats);
+  async function catChange(value) {
+    setChooseCats(value);
+    if (value.length === 0) {
+      setFields([]);
+      return;
+    }
+    let f = [];
+    for (let i = 0; i < value.length; i++) {
+      const dat = await getCfByCategory(value[i]);
+      if (dat.length !== 0) {
+        for (let j = 0; j < dat.length; j++) {
+          const cf = dat[j].fields;
+          for (let k = 0; k < cf.length; k++) {
+            let obj = {
+              name: cf[k].name,
+              key: cf[k].key,
+              type: cf[k].type,
+              value: null,
+            };
+            f.push(obj);
+          }
+        }
+      }
+      // console.log(f);
+    }
+    setFields(f);
   }
 
   const getData = async () => {
@@ -53,20 +82,23 @@ const NewPost = () => {
     setCategories(dat);
   };
 
-  const onChangeImage = (e) => {
+  const onChangeImage =async (e) => {
     e.preventDefault();
-    setImage(e.target.files[0]);
-    if (image) {
-      if (this.state.file.size >= 2000000) {
+     if (e.target.files[0]) {
+      if (e.target.files[0].size >= 2000000) {
         msg("error", "Image size exceeds limit of 2MB.");
         return;
       }
     }
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
+    const formData = new FormData();
+    formData.append('file', e.target.files[0]);
+    const imgId=await addFile(formData);
+    // console.log(imgId);
+    setImage(imgId);
   };
 
   const onChangeTitle = (e) => {
-    console.log(e.target.value);
     setTitle(e.target.value.toString());
     let defaultLink = e.target.value.toString().toLowerCase();
     defaultLink = defaultLink.replace(" ", "-");
@@ -74,23 +106,63 @@ const NewPost = () => {
   };
 
   const onSubmit = async () => {
-    console.log("submit");
     if (title.length > 0 && link.length > 0) {
       const p = await checkLink(link);
       if (!p) {
         msg("error", "Холбоос давхцаж байна");
         return;
       }
+      const f={
+        title,
+        categories: chooseCats,content,image,link,date,author,acf:fields
+      };
+      // console.log(f);
+      addPost(f);
+    }
+  };
+
+  const onChangeFields = async(item, i, e) => {
+    e.preventDefault();
+    if (item.type === "file" || item.type === "image") {
       const formData = new FormData();
-      formData.append("title", title);
-      formData.append("categories", chooseCats);
-      formData.append("content", content);
-      formData.append("link", link);
-      formData.append("date", date);
-      formData.append("author", author);
-      formData.append("image", image);
-      console.log(image);
-      addPost(formData);
+      formData.append('file', e.target.files[0]);
+      const imgId=await addFile(formData);
+      fields[i].value=imgId;
+    } else if (item.type === "text" || item.type === "textArea") {
+      fields[i].value = e.target.value;
+    } else {
+      fields[i].value = e.target.checked;
+    }
+    setFields(fields);
+    // console.log(fields);
+  };
+
+  const getFields = () => {
+    // console.log(fields);
+    if (fields.length !== 0) {
+      return fields.map((item, i) => {
+        return (
+          <div key={i}>
+            <h6>{item.name}</h6>
+            {item.type === "text" ? (
+              <Input
+                name={item.key}
+                onChange={(e) => onChangeFields(item, i,e)}
+              />
+            ) : item.type === "textArea" ? (
+              <TextArea rows={4} onChange={(e) => onChangeFields(item, i, e)} />
+            ) : item.type === "image" ? (
+              <UploadFile onChange={(e) => onChangeFields(item, i, e)} />
+            ) : item.type === "file" ? (
+              <UploadFile onChange={(e) => onChangeFields(item, i, e)} />
+            ) : item.type === "boolean" ? (
+              <Checkbox onChange={(e) => onChangeFields(item, i, e)}>
+                {item.name}
+              </Checkbox>
+            ) : null}
+          </div>
+        );
+      });
     }
   };
   return (
@@ -135,7 +207,9 @@ const NewPost = () => {
           ))}
         </Select>
 
-        <UploadImage onChange={onChangeImage} />
+        <UploadFile onChange={onChangeImage} />
+
+        {getFields()}
 
         <Button type="primary" onClick={onSubmit}>
           Хадгалах

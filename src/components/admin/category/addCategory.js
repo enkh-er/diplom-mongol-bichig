@@ -1,5 +1,4 @@
-import { Form, Input, Button, Select, Upload } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
+import { Form, Input, Button, Select } from "antd";
 import { addCategory } from "../../../restAPI";
 import { msg } from "../general/msg";
 
@@ -13,13 +12,6 @@ const layout = {
 /* eslint-disable no-template-curly-in-string */
 const validateMessages = {
   required: "${label} талбарыг заавал бөглөх шаарлагатай!",
-};
-const normFile = (e) => {
-  console.log("Upload event:", e);
-  if (Array.isArray(e)) {
-    return e;
-  }
-  return e && e.fileList;
 };
 
 const AddCategory = (props) => {
@@ -36,7 +28,6 @@ const AddCategory = (props) => {
     );
     formData.append("link", values.link);
     formData.append("code", values.code ? values.code : "");
-    formData.append("image", values.image ? values.image : "");
     console.log(formData);
     console.log(values.name);
     addCategory(formData);
@@ -52,7 +43,7 @@ const AddCategory = (props) => {
       link: defaultLink,
     });
   };
-  console.log(datas);
+  
   return (
     <div>
       <h5>Ангилал нэмэх</h5>
@@ -88,16 +79,6 @@ const AddCategory = (props) => {
         </Form.Item>
         <Form.Item name={"description"} label="Дурын агуулга">
           <Input.TextArea />
-        </Form.Item>
-        <Form.Item
-          name="image"
-          label="Зураг"
-          valuePropName="fileList"
-          getValueFromEvent={normFile}
-        >
-          <Upload name="logo" action="/upload.do" listType="picture">
-            <Button icon={<UploadOutlined />}>Файл сонгох</Button>
-          </Upload>
         </Form.Item>
         <Form.Item wrapperCol={{ span: 12 }}>
           <Button type="primary" htmlType="submit">

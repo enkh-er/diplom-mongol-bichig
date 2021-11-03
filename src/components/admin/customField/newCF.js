@@ -44,7 +44,7 @@ const NewCF = (props) => {
 
   return (
     <section className="md-container">
-      CustomField
+      Хэрэглэгчийн талбар
       <Form
         {...layout}
         form={form}

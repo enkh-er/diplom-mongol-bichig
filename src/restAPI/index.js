@@ -33,6 +33,10 @@ export function addMenu(menu) {
   api.post("/create-menu", menu);
 }
 
+export function changeMenu(menu) {
+  api.post("/update-menu", menu);
+}
+
 export function deleteMenu(id, name) {
   api.delete("/delete-menu/" + id + "/" + name);
 }
@@ -97,6 +101,29 @@ export async function checkLink(link) {
 
 export async function getPosts() {
   return await api.get("/posts").then((res) => {
+    return res.data;
+  });
+}
+export async function getPostByName(title) {
+  return await api.get("/post-by-name/" + title).then((res) => {
+    return res.data;
+  });
+}
+
+export async function getPostByCat(cat) {
+  return await api.get("/post-by-cat/" + cat).then((res) => {
+    return res.data;
+  });
+}
+
+export async function addFile(file) {
+  return await api.post("/upload", file).then((res) => {
+    return res.data;
+  });
+}
+
+export async function getFileById(id) {
+  return await api.get("/download/" + id).then((res) => {
     return res.data;
   });
 }

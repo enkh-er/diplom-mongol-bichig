@@ -1,5 +1,5 @@
 import { Layout, Menu } from "antd";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   BranchesOutlined,
   DashboardOutlined,
@@ -45,11 +45,6 @@ const menuItems = [
     logo: <PicRightOutlined />,
   },
   {
-    name: "Форм",
-    link: "/mb-admin/form",
-    logo: <ProfileOutlined />,
-  },
-  {
     name: "Хэрэглэгчид",
     link: "/mb-admin/users",
     logo: <UserOutlined />,
@@ -61,7 +56,7 @@ const Sidebar = (props) => {
   return (
     <Sider>
       <div className="admin-menu">
-        <div className="logo">Эрдэни апп</div>
+        <div className="logo">Logo</div>
         <Menu selectedKeys={[location.pathname]} theme="dark">
           {menuItems.map((item) => (
             <Menu.Item key={item.link} icon={item.logo}>

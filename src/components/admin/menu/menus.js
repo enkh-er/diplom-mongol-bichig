@@ -7,11 +7,23 @@ import {
 } from "@ant-design/icons";
 import { Modal } from "antd";
 import { msg } from "../general/msg";
+import UpdateMenu from "./updateMenu";
 
 const { confirm } = Modal;
 
 const Menus = (props) => {
-  const { datas, getData } = props;
+  const { datas, getData, categories } = props;
+  const [visible, setVisible] = React.useState(false);
+  const [updateData, setUpdateData] = React.useState({});
+
+  const showModal = (record) => {
+    setUpdateData(record);
+    setVisible(true);
+  };
+
+  const handleCancel = () => {
+    setVisible(false);
+  };
 
   function showDeleteConfirm(id, name) {
     confirm({
@@ -33,7 +45,7 @@ const Menus = (props) => {
   if (!datas) {
     return null;
   }
-  console.log(datas);
+
   return (
     <section className="menu-lists">
       {datas.map((el) => (
@@ -46,7 +58,7 @@ const Menus = (props) => {
               />
             </span>
             <span className="pointer">
-              <EditOutlined />
+              <EditOutlined onClick={() => showModal(el)} />
             </span>
           </div>
           {el.child_items
@@ -63,7 +75,7 @@ const Menus = (props) => {
                         onClick={() => showDeleteConfirm(el.id, child.name)}
                       />
                     </span>
-                    <span className="pointer">
+                    <span className="pointer" onClick={() => showModal(child)}>
                       <EditOutlined />
                     </span>
                   </div>
@@ -72,6 +84,19 @@ const Menus = (props) => {
             : null}
         </div>
       ))}
+      <Modal
+        title="Цэс"
+        visible={visible}
+        onCancel={handleCancel}
+        footer={false}
+      >
+        <UpdateMenu
+          menu={updateData}
+          categories={categories}
+          datas={datas}
+          onCancel={handleCancel}
+        />
+      </Modal>
     </section>
   );
 };

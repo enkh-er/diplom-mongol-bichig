@@ -1,5 +1,6 @@
-import { Form, Input, Button, Select } from "antd";
-import { addMenu } from "../../../restAPI";
+import React from "react";
+import { Form, Select, Input, Button } from "antd";
+import { changeMenu } from "../../../restAPI";
 import { msg } from "../general/msg";
 
 const { Option } = Select;
@@ -14,22 +15,23 @@ const validateMessages = {
   required: "${label} талбарыг заавал бөглөх шаарлагатай!",
 };
 
-const MenuAdd = (props) => {
+const UpdateMenu = (props) => {
   const [form] = Form.useForm();
-  const { datas, getData, categories } = props;
+  const { datas, getData, categories, menu } = props;
   const onFinish = (values) => {
     let formData = new FormData();
+    formData.append("id", menu.id);
     formData.append("name", values.name);
     formData.append("parent", values.parent ? values.parent : "");
     formData.append("type", values.type);
     formData.append("link", values.link);
     formData.append("typeId", values.typeId);
     formData.append("code", values.code ? values.code : "");
-    addMenu(formData);
-    form.resetFields();
+    changeMenu(formData);
     msg("success", "Амжилттай хадгаллаа");
     getData();
   };
+
   const onChange = (e) => {
     console.log(e.target.value);
     let defaultLink = e.target.value.toString().toLowerCase();
@@ -38,15 +40,33 @@ const MenuAdd = (props) => {
       link: defaultLink,
     });
   };
+
+  form.setFieldsValue({
+    name: props.menu.name,
+    link: props.menu.link,
+    code: props.menu.code,
+    type: props.menu.type,
+    typeId: props.menu.typeId,
+    parent: props.menu.parent,
+  });
+
   return (
     <div>
-      <h5>Цэс нэмэх</h5>
+      <h5>Цэс өөрчлөх</h5>
       <Form
         {...layout}
-        name="menu"
+        name="menus"
         onFinish={onFinish}
         validateMessages={validateMessages}
         form={form}
+        initialValues={{
+          name: menu.name,
+          link: menu.link,
+          code: menu.code,
+          type: menu.type,
+          typeId: menu.typeId,
+          parent: menu.parent,
+        }}
       >
         <Form.Item name={"name"} label="Нэр" rules={[{ required: true }]}>
           <Input onChange={onChange} />
@@ -94,4 +114,4 @@ const MenuAdd = (props) => {
     </div>
   );
 };
-export default MenuAdd;
+export default UpdateMenu;

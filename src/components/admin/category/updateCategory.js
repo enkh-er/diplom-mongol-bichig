@@ -1,6 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Select, Upload } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
+import { Form, Input, Button, Select } from "antd";
 import { updateCategory } from "../../../restAPI";
 import { msg } from "../general/msg";
 
@@ -14,13 +13,6 @@ const layout = {
 /* eslint-disable no-template-curly-in-string */
 const validateMessages = {
   required: "${label} талбарыг заавал бөглөх шаарлагатай!",
-};
-const normFile = (e) => {
-  console.log("Upload event:", e);
-  if (Array.isArray(e)) {
-    return e;
-  }
-  return e && e.fileList;
 };
 
 const UpdateCategory = (props) => {
@@ -38,19 +30,8 @@ const UpdateCategory = (props) => {
     );
     formData.append("link", values.link);
     formData.append("code", values.code ? values.code : "");
-    formData.append("image", values.image ? values.image : "");
-    console.log(formData);
-    console.log(values.name);
-    // datas.array.forEach(element => {
-    //   if(element.name===values.name){
-    //     return false;
-    //   }
-    // });
     updateCategory(formData);
     msg("success", "Амжилттай өөрчиллөө");
-    // if (dat.length !== 0) {
-    // getData();
-    // }
   };
   const onChange = (e) => {
     console.log(e.target.value);
@@ -60,15 +41,15 @@ const UpdateCategory = (props) => {
       link: defaultLink,
     });
   };
-  React.useEffect(() => {
-    form.setFieldsValue({
-      category,
-    });
-  }, []);
-  //   form.setFieldsValue({
-  //     name: category.name,
-  //   });
-  console.log(category.name);
+
+  form.setFieldsValue({
+    name: props.category.name,
+    link: props.category.link,
+    code: props.category.code,
+    description: props.category.description,
+    parent: props.category.parent,
+  });
+
   return (
     <div>
       <h5>Ангилал өөрчлөх</h5>
@@ -79,11 +60,11 @@ const UpdateCategory = (props) => {
         onFinish={onFinish}
         validateMessages={validateMessages}
         initialValues={{
-          name: category.name,
-          link: category.link,
-          code: category.code,
-          description: category.description,
-          parent: category.parent,
+          name: props.category.name,
+          link: props.category.link,
+          code: props.category.code,
+          description: props.category.description,
+          parent: props.category.parent,
         }}
       >
         <Form.Item
@@ -95,8 +76,8 @@ const UpdateCategory = (props) => {
         </Form.Item>
         <Form.Item name="parent" label="Эцэг ангилал">
           <Select>
-            {props.categories &&
-              props.categories.map((el) => (
+            {categories &&
+              categories.map((el) => (
                 <Option value={el.id} key={el.id}>
                   {el.name}
                 </Option>
@@ -111,16 +92,6 @@ const UpdateCategory = (props) => {
         </Form.Item>
         <Form.Item name={"description"} label="Дурын агуулга">
           <Input.TextArea />
-        </Form.Item>
-        <Form.Item
-          name="image"
-          label="Зураг"
-          valuePropName="fileList"
-          getValueFromEvent={normFile}
-        >
-          <Upload name="logo" action="/upload.do" listType="picture">
-            <Button icon={<UploadOutlined />}>Файл сонгох</Button>
-          </Upload>
         </Form.Item>
         <Form.Item wrapperCol={{ span: 12 }}>
           <Button type="primary" htmlType="submit">
