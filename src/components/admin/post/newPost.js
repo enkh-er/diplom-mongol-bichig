@@ -5,7 +5,9 @@ import {
   getCategories,
   checkLink,
   addPost,
-  getCfByCategory,addFile
+  getCfByCategory,
+  getFileByName,
+  addFile,
 } from "../../../restAPI";
 import { Button, Input, Select, Space, DatePicker, Checkbox } from "antd";
 import UploadFile from "../general/UploadFile";
@@ -22,9 +24,8 @@ const NewPost = () => {
   const [chooseCats, setChooseCats] = useState([]);
   const [image, setImage] = useState("");
   const [date, setDate] = useState(new Date());
-  const [author, setAuthor] = useState("");
+  const [author, setAuthor] = useState("admin");
   const [fields, setFields] = useState([]);
-  const [fieldValues, setFieldValues] = useState([]); 
 
   useEffect(() => {
     const today = new Date();
@@ -47,6 +48,7 @@ const NewPost = () => {
   const handleChange = (e, editor) => {
     const data = editor.getData();
     setContent(data);
+    // console.log(data);
   };
 
   async function catChange(value) {
@@ -72,7 +74,6 @@ const NewPost = () => {
           }
         }
       }
-      // console.log(f);
     }
     setFields(f);
   }
@@ -82,20 +83,23 @@ const NewPost = () => {
     setCategories(dat);
   };
 
-  const onChangeImage =async (e) => {
+  const onChangeImage = async (e) => {
     e.preventDefault();
-     if (e.target.files[0]) {
-      if (e.target.files[0].size >= 2000000) {
-        msg("error", "Image size exceeds limit of 2MB.");
+    if (e.target.files[0]) {
+      if (e.target.files[0].size >= 4000000) {
+        msg("error", "Image size exceeds limit of 4MB.");
         return;
       }
     }
     // console.log(e.target.files[0]);
-    const formData = new FormData();
-    formData.append('file', e.target.files[0]);
-    const imgId=await addFile(formData);
-    // console.log(imgId);
-    setImage(imgId);
+    const imgId = await getFileByName(e.target.files[0].name);
+    if (!imgId || imgId.length === "") {
+      const formData = new FormData();
+      formData.append("file", e.target.files[0]);
+      setImage(await addFile(formData));
+    } else {
+      setImage(imgId);
+    }
   };
 
   const onChangeTitle = (e) => {
@@ -112,22 +116,34 @@ const NewPost = () => {
         msg("error", "Холбоос давхцаж байна");
         return;
       }
-      const f={
+      const f = {
         title,
-        categories: chooseCats,content,image,link,date,author,acf:fields
+        categories: chooseCats,
+        content,
+        image: image,
+        link,
+        date,
+        author,
+        acf: fields,
       };
-      // console.log(f);
       addPost(f);
+      console.log(f);
+      msg("success", "Амжилттай хадгалагдлаа");
     }
   };
 
-  const onChangeFields = async(item, i, e) => {
-    e.preventDefault();
+  const onChangeFields = async (item, i, e) => {
+    // e.preventDefault();
+    console.log(e.target.files);
     if (item.type === "file" || item.type === "image") {
-      const formData = new FormData();
-      formData.append('file', e.target.files[0]);
-      const imgId=await addFile(formData);
-      fields[i].value=imgId;
+      if (e.target.files[0]) {
+        const formData = new FormData();
+        formData.append("file", e.target.files[0]);
+        const imgId = await addFile(formData);
+        fields[i].value = imgId;
+      } else {
+        fields[i].value = "";
+      }
     } else if (item.type === "text" || item.type === "textArea") {
       fields[i].value = e.target.value;
     } else {
@@ -147,7 +163,7 @@ const NewPost = () => {
             {item.type === "text" ? (
               <Input
                 name={item.key}
-                onChange={(e) => onChangeFields(item, i,e)}
+                onChange={(e) => onChangeFields(item, i, e)}
               />
             ) : item.type === "textArea" ? (
               <TextArea rows={4} onChange={(e) => onChangeFields(item, i, e)} />

@@ -14,6 +14,11 @@ export async function getCategory(id) {
     return res.data;
   });
 }
+export async function getCategoryByCode(code) {
+  return await api.get("/category-code/" + code).then((res) => {
+    return res.data;
+  });
+}
 export async function deleteCategory(id) {
   return await api.delete("/delete-category/" + id).then((res) => {
     return res.data;
@@ -116,6 +121,16 @@ export async function getPostByCat(cat) {
   });
 }
 
+export async function getPostById(id) {
+  return await api.get("/post/" + id).then((res) => {
+    return res.data;
+  });
+}
+
+export function deletePost(id) {
+  api.delete("/post/" + id);
+}
+
 export async function addFile(file) {
   return await api.post("/upload", file).then((res) => {
     return res.data;
@@ -124,6 +139,12 @@ export async function addFile(file) {
 
 export async function getFileById(id) {
   return await api.get("/download/" + id).then((res) => {
+    return res.data;
+  });
+}
+
+export async function getFileByName(name) {
+  return await api.get("/image/" + name).then((res) => {
     return res.data;
   });
 }

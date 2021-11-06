@@ -77,7 +77,7 @@ const Post = () => {
           </Button>
         </Space>
       </div>
-      <Posts data={posts} />
+      <Posts data={posts} setPosts={setPosts} />
     </section>
   );
 };

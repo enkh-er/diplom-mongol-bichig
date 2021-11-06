@@ -8,6 +8,7 @@ import Page from "./components/admin/page";
 import NewPage from "./components/admin/page/newPage";
 import Post from "./components/admin/post";
 import NewPost from "./components/admin/post/newPost";
+import UpdatePost from "./components/admin/post/updatePost";
 import NewCF from "./components/admin/customField/newCF";
 import Menu from "./components/admin/menu";
 import Users from "./components/admin/users";
@@ -52,6 +53,12 @@ const AdminRoutes = () => {
           exact
           layout={AdminLayout}
           path="/mb-admin/new-page"
+        />
+        <RouteWithLayout
+          component={UpdatePost}
+          exact
+          layout={AdminLayout}
+          path="/mb-admin/update-post/:id"
         />
         <RouteWithLayout
           component={NewPost}
