@@ -6,9 +6,11 @@ const Layout = (props) => {
   console.log(props);
   return (
     <>
-      <TopHeader />
-      <Header />
-      {props.children}
+      <header>
+        <TopHeader />
+        <Header />
+      </header>
+      <main className="relative">{props.children}</main>
     </>
   );
 };

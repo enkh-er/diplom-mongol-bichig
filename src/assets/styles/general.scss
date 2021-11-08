@@ -8,6 +8,22 @@ div,
 p {
   font-family: "Roboto", sans-serif;
 }
+body {
+  margin: 0;
+  // color: $text-color;
+  // font-family: Circle, Helvetica Neue, Arial, Noto Sans, sans-serif;
+  word-wrap: break-word;
+  font-kerning: normal;
+  line-height: 1.75;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+  font-feature-settings: "kern", "liga", "clig", "calt";
+  overflow-x: hidden;
+}
+
 a,
 button {
   cursor: pointer;
@@ -129,4 +145,30 @@ h6 {
 
 .pointer {
   cursor: pointer;
+}
+
+// -----------position
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+
+// ===========text
+
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+.mb-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

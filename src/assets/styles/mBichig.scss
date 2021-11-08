@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "MB1";
+  font-family: "Mongolian Art";
   src: url(../fonts/mngltitleotf.ttf) format("truetype");
   font-weight: 300;
   font-style: normal;
@@ -7,7 +7,7 @@
 }
 
 @font-face {
-  font-family: "MB1";
+  font-family: "Mongolian White";
   src: url(../fonts/mnglwhiteotf.ttf) format("truetype");
   font-weight: 300;
   font-style: normal;
@@ -15,9 +15,64 @@
 }
 
 @font-face {
-  font-family: "MB1";
+  font-family: "Mongolian Writing";
   src: url(../fonts/mnglwritingotf.ttf) format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
+}
+
+.bichig {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian White";
+  font-size: 22px;
+  font-weight: 500;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
+
+.bichigw {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian Writing";
+  font-size: 22px;
+  font-weight: 700;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
+
+.bichigwH1 {
+  font-size: 4rem;
+}
+
+.bichigH2 {
+  font-size: 3rem;
+}
+
+.bichiga {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian Art";
+  font-size: 3rem;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
 }

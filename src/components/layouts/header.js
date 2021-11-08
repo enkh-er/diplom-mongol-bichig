@@ -4,14 +4,16 @@ import { getMenusByCode } from "../../restAPI";
 
 const Header = () => {
   const [menus, setMenus] = useState({});
+
   const getData = async () => {
     const dat = await getMenusByCode("main_menu");
     setMenus(dat[0]);
   };
+
   useEffect(() => {
     getData();
   }, []);
-  console.log(menus);
+
   if (!menus) {
     return null;
   }

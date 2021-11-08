@@ -116,6 +116,10 @@ const NewPost = () => {
         msg("error", "Холбоос давхцаж байна");
         return;
       }
+      let acf = {};
+      for (let i = 0; i < fields.length; i++) {
+        acf[fields[i].key] = fields[i].value;
+      }
       const f = {
         title,
         categories: chooseCats,
@@ -124,10 +128,10 @@ const NewPost = () => {
         link,
         date,
         author,
-        acf: fields,
+        acf,
       };
       addPost(f);
-      console.log(f);
+      // console.log(f);
       msg("success", "Амжилттай хадгалагдлаа");
     }
   };

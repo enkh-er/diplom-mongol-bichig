@@ -9,6 +9,20 @@ p {
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  margin: 0;
+  word-wrap: break-word;
+  font-kerning: normal;
+  line-height: 1.75;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+  font-feature-settings: "kern", "liga", "clig", "calt";
+  overflow-x: hidden;
+}
+
 a,
 button {
   cursor: pointer;
@@ -131,20 +145,54 @@ h6 {
   cursor: pointer;
 }
 
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.mb-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .top {
-  background-color: #ffca2a;
+  background-color: #0a314d;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  border-bottom: 1px solid white;
 }
 
 .topHeader {
-  padding: 1rem 0;
+  padding: 0.3rem 0;
+  height: 70px;
   display: flex;
   position: relative;
   align-items: center;
 }
 .topHeader .logo {
   font-family: "Pacifico", cursive;
-  font-size: 2rem;
+  font-size: 1.8rem;
   padding: 0 20px;
+  color: #ffffff;
 }
 .topHeader .right-menu {
   float: right;
@@ -153,22 +201,118 @@ h6 {
 }
 .topHeader .right-menu a {
   margin: 0 0.5rem;
-  color: #2f353f;
-  font-weight: 600;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 14px;
   text-shadow: 0px 0.5px 0.5px rgba(0, 0, 0, 0.1);
 }
 
+.menu {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
 .menu .ant-menu-horizontal {
   padding-left: 4.16%;
+}
+.menu .ant-menu-title-content {
+  text-transform: uppercase;
+  font-weight: 600;
+  word-spacing: 0px;
 }
 .menu .ant-menu-item-active a,
 .menu .ant-menu-item:hover a,
 .menu .ant-menu-item:active a {
-  color: #fdba00 !important;
+  color: #005a87 !important;
 }
 .menu .ant-menu-item:hover::after {
-  border-color: #fdba00 !important;
-  color: #fdba00 !important;
+  border-color: #005a87 !important;
+  color: #005a87 !important;
+}
+
+.slider-main .slider-cont {
+  position: relative;
+}
+.slider-main .slider-cont img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(50%);
+}
+.slider-main .slider-cont h1 {
+  font-size: 3.5rem;
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  color: #f1f4fa;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.slider-main .slider-cont .search {
+  position: absolute;
+  top: 45vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.slider-main .slider-cont .search .ant-select-selector {
+  background-color: #005a87;
+  color: white;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.slider-main .slider-cont .search .ant-input,
+.slider-main .slider-cont .search .ant-select-selector {
+  height: 40px;
+}
+.slider-main .slider-cont .search .ant-select-selection-item {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.slider-main .slider-cont .search .ant-select-single .ant-select-selector::after {
+  color: white;
+  background-color: white;
+}
+.slider-main .slider-cont .search .ant-input-group > .ant-input:first-child {
+  border-radius: 0;
+}
+.slider-main .slider-cont .search .ant-input-search > .ant-input-group > .ant-input-group-addon:last-child,
+.slider-main .slider-cont .search .ant-input-search > .ant-input-group > .ant-input-group-addon:last-child .ant-input-search-button {
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #005a87;
+}
+.slider-main .slider-desc {
+  position: absolute;
+  top: 20vh;
+  left: 0;
+}
+.slider-main .detail .desc h2 {
+  font-size: 4rem;
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+}
+.slider-main .detail .desc p {
+  font-weight: 600;
+}
+.slider-main .detail .desc button {
+  margin-top: 2rem;
+  background-color: #fdbac5;
+  border-radius: 20px;
+  padding: 10px 40px;
+  border: none;
+  outline: none;
+}
+.slider-main .detail .desc button a {
+  color: black;
+}
+.slider-main .detail .mb-home {
+  line-height: 2rem;
 }
 
 /*----admin css----*/
@@ -238,25 +382,79 @@ h6 {
 }
 
 @font-face {
-  font-family: "MB1";
+  font-family: "Mongolian Art";
   src: url(../fonts/mngltitleotf.ttf) format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "MB1";
+  font-family: "Mongolian White";
   src: url(../fonts/mnglwhiteotf.ttf) format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "MB1";
+  font-family: "Mongolian Writing";
   src: url(../fonts/mnglwritingotf.ttf) format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
+}
+.bichig {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian White";
+  font-size: 22px;
+  font-weight: 500;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
+
+.bichigw {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian Writing";
+  font-size: 22px;
+  font-weight: 700;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
+
+.bichigwH1 {
+  font-size: 4rem;
+}
+
+.bichigH2 {
+  font-size: 3rem;
+}
+
+.bichiga {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian Art";
+  font-size: 3rem;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
 }
 
 /*# sourceMappingURL=styles.min.css.map */

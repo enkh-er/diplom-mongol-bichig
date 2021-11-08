@@ -138,9 +138,13 @@ export async function addFile(file) {
 }
 
 export async function getFileById(id) {
-  return await api.get("/download/" + id).then((res) => {
-    return res.data;
-  });
+  return await api
+    .get("/download/" + id, {
+      responseType: "arraybuffer",
+    })
+    .then((response) =>
+      Buffer.from(response.data, "binary").toString("base64")
+    );
 }
 
 export async function getFileByName(name) {
