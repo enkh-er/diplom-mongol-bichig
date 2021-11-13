@@ -7,7 +7,10 @@ const TopHeader = () => {
       <Row justify="center" align="middle">
         <Col span={22}>
           <div className="topHeader">
-            <div className="logo">Эрдэни</div>
+            <a href="/">
+              <span className="logo">Эрдэни</span>
+            </a>
+
             <div className="right-menu">
               <a href="/">Тухай</a>
               <a href="/">Холбоо барих</a>

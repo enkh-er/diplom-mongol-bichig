@@ -30,14 +30,14 @@ const MenuAdd = (props) => {
     msg("success", "Амжилттай хадгаллаа");
     getData();
   };
-  const onChange = (e) => {
-    console.log(e.target.value);
-    let defaultLink = e.target.value.toString().toLowerCase();
-    defaultLink = defaultLink.split(" ").join("-");
-    form.setFieldsValue({
-      link: defaultLink,
-    });
-  };
+  // const onChange = (e) => {
+  //   console.log(e.target.value);
+  //   let defaultLink = e.target.value.toString().toLowerCase();
+  //   defaultLink = defaultLink.split(" ").join("-");
+  //   form.setFieldsValue({
+  //     link: defaultLink,
+  //   });
+  // };
   return (
     <div>
       <h5>Цэс нэмэх</h5>
@@ -49,7 +49,7 @@ const MenuAdd = (props) => {
         form={form}
       >
         <Form.Item name={"name"} label="Нэр" rules={[{ required: true }]}>
-          <Input onChange={onChange} />
+          <Input />
         </Form.Item>
         <Form.Item name="parent" label="Эцэг">
           <Select placeholder="None">

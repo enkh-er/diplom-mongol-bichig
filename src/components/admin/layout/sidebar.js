@@ -1,12 +1,11 @@
 import { Layout, Menu } from "antd";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   BranchesOutlined,
   DashboardOutlined,
   FileTextOutlined,
   SwitcherOutlined,
   UserOutlined,
-  ProfileOutlined,
   PicRightOutlined,
   BarsOutlined,
 } from "@ant-design/icons";

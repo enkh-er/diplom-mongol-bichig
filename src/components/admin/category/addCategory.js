@@ -35,15 +35,15 @@ const AddCategory = (props) => {
     form.resetFields();
     getData();
   };
-  const onChange = (e) => {
-    console.log(e.target.value);
-    let defaultLink = e.target.value.toString().toLowerCase();
-    defaultLink = defaultLink.split(" ").join("-");
-    form.setFieldsValue({
-      link: defaultLink,
-    });
-  };
-  
+  // const onChange = (e) => {
+  //   console.log(e.target.value);
+  //   let defaultLink = e.target.value.toString().toLowerCase();
+  //   defaultLink = defaultLink.split(" ").join("-");
+  //   form.setFieldsValue({
+  //     link: defaultLink,
+  //   });
+  // };
+
   return (
     <div>
       <h5>Ангилал нэмэх</h5>
@@ -59,7 +59,7 @@ const AddCategory = (props) => {
           label="Ангиллын нэр"
           rules={[{ required: true }]}
         >
-          <Input onChange={onChange} />
+          <Input />
         </Form.Item>
         <Form.Item name="parent" label="Эцэг ангилал">
           <Select placeholder="None">

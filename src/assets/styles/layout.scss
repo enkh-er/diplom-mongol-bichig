@@ -1,0 +1,110 @@
+// ================header==================
+.top {
+  background-color: $darkest-blue;
+  // background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  border-bottom: 1px solid white;
+}
+.topHeader {
+  padding: 0.3rem 0;
+  height: 70px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  .logo {
+    font-family: "Pacifico", cursive;
+    font-size: 1.8rem;
+    padding: 0 20px;
+    color: $white;
+  }
+  .right-menu {
+    float: right;
+    position: absolute;
+    right: 0;
+    a {
+      margin: 0 0.5rem;
+      color: $white;
+      font-weight: 500;
+      font-size: 14px;
+      text-shadow: 0px 0.5px 0.5px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.menu {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  .ant-menu {
+    // background-color: transparent;
+  }
+  .ant-menu-horizontal {
+    padding-left: 4.16%;
+  }
+  .ant-menu-title-content {
+    text-transform: uppercase;
+    font-weight: 600;
+    word-spacing: 0px;
+  }
+  .ant-menu-item-active,
+  .ant-menu-item:hover,
+  .ant-menu-item:active {
+    a {
+      color: $darker-blue20 !important;
+    }
+  }
+  .ant-menu-item:hover::after {
+    border-color: $darker-blue20 !important;
+    color: $darker-blue20 !important;
+  }
+}
+.sub-menu {
+  margin-top: 11px;
+}
+
+// =============footer css=================
+
+footer {
+  color: white;
+  h3,
+  p,
+  a {
+    color: white;
+    opacity: 0.9;
+  }
+  a,
+  p {
+    font-weight: 300;
+  }
+  p {
+    line-height: 1.5;
+    padding-right: 20px;
+  }
+  hr {
+    border-top: none;
+    opacity: 0.5;
+  }
+}
+.socials {
+  span {
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-right: 5px;
+  }
+  span:hover {
+    @include transform(scale(1.06));
+  }
+}
+.useful-links {
+  a:hover {
+    text-decoration: underline;
+    color: white;
+  }
+}

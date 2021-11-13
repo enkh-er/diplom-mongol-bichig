@@ -53,6 +53,15 @@ h6 {
 }
 
 //================ space ===============
+
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
 .bg-container {
   padding: 3rem 0;
 }
@@ -81,7 +90,9 @@ h6 {
 .pt-30 {
   padding-top: 1.875rem;
 }
-
+.pt-90 {
+  padding-top: 6rem;
+}
 /*----padding bottom----*/
 .pb-10 {
   padding-bottom: 0.625rem;
@@ -147,6 +158,10 @@ h6 {
   cursor: pointer;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 // -----------position
 .relative {
   position: relative;
@@ -171,4 +186,57 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.text-white {
+  color: white;
+}
+
+// ===========font=============
+.bg-font {
+  font-size: 3rem !important;
+}
+.bg-font {
+  font-size: 3rem !important;
+}
+.xl-font {
+  font-size: 2.5rem !important;
+}
+.lg-font {
+  font-size: 2rem !important;
+}
+.md-font {
+  font-size: 1.5rem !important;
+}
+.xs {
+  font-size: 0.8rem !important;
+}
+.font-300 {
+  font-weight: 300;
+}
+.opacity-8 {
+  opacity: 0.8;
+}
+.opacity-9 {
+  opacity: 0.9;
+}
+
+// ================back
+.back-main1 {
+  background-color: $darkest-blue;
+}
+.back-main2 {
+  background-color: $darker-blue10;
+}
+.back-main3 {
+  background-color: #004263;
+}
+
+// ======list styles============
+
+li {
+  list-style: none;
+}
+ul {
+  padding-left: 0;
 }

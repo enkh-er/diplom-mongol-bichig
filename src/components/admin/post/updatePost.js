@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { getCategories, getPostById } from "../../../restAPI";
-import { Button, Input, Select, Space, DatePicker, Checkbox } from "antd";
+import { getCategories, getPostById, getCfByCategory } from "../../../restAPI";
+import { Input, Select, Space, DatePicker } from "antd";
 // import UploadFile from "../general/UploadFile";
 // import { msg } from "../general/msg";
 // import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 
-// const { Option } = Select;
+const { Option } = Select;
 // const { TextArea } = Input;
 
 const UpdatePost = (props) => {
@@ -36,6 +36,7 @@ const UpdatePost = (props) => {
     setCategories(dat);
     setTitle(post.title || "");
     setContent(post.content || "");
+    setLink(post.link || "");
     setChooseCats(post.categories || []);
     setImage(post.image || "");
     setDate(post.date || "");
@@ -52,40 +53,40 @@ const UpdatePost = (props) => {
   console.log(image);
   console.log(date);
   console.log(author);
-  console.log(fields);
+  console.log(chooseCats);
 
   const handleChange = (e, editor) => {
     const data = editor.getData();
     setContent(data);
   };
 
-  // async function catChange(value) {
-  //   setChooseCats(value);
-  //   if (value.length === 0) {
-  //     setFields([]);
-  //     return;
-  //   }
-  //   let f = [];
-  //   for (let i = 0; i < value.length; i++) {
-  //     const dat = await getCfByCategory(value[i]);
-  //     if (dat.length !== 0) {
-  //       for (let j = 0; j < dat.length; j++) {
-  //         const cf = dat[j].fields;
-  //         for (let k = 0; k < cf.length; k++) {
-  //           let obj = {
-  //             name: cf[k].name,
-  //             key: cf[k].key,
-  //             type: cf[k].type,
-  //             value: null,
-  //           };
-  //           f.push(obj);
-  //         }
-  //       }
-  //     }
-  //     // console.log(f);
-  //   }
-  //   setFields(f);
-  // }
+  async function catChange(value) {
+    setChooseCats(value);
+    if (value.length === 0) {
+      setFields([]);
+      return;
+    }
+    let f = [];
+    for (let i = 0; i < value.length; i++) {
+      const dat = await getCfByCategory(value[i]);
+      if (dat.length !== 0) {
+        for (let j = 0; j < dat.length; j++) {
+          const cf = dat[j].fields;
+          for (let k = 0; k < cf.length; k++) {
+            let obj = {
+              name: cf[k].name,
+              key: cf[k].key,
+              type: cf[k].type,
+              value: null,
+            };
+            f.push(obj);
+          }
+        }
+      }
+      // console.log(f);
+    }
+    setFields(f);
+  }
   // const onChangeImage = async (e) => {
   //   e.preventDefault();
   //   if (e.target.files[0]) {
@@ -211,9 +212,9 @@ const UpdatePost = (props) => {
           onChange={(date, dateString) => setDate(dateString)}
           defaultValue={date}
         />
-        {/*  <Input
+        <Input
           placeholder="Нийтлэгч"
-          defaultValue={author}
+          value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
         <Select
@@ -229,7 +230,7 @@ const UpdatePost = (props) => {
           ))}
         </Select>
 
-        <UploadFile onChange={onChangeImage} defaultValue={image} />
+        {/* <UploadFile onChange={onChangeImage} defaultValue={image} />
 
         {getFields()}
 

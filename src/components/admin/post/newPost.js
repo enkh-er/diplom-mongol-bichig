@@ -102,12 +102,12 @@ const NewPost = () => {
     }
   };
 
-  const onChangeTitle = (e) => {
-    setTitle(e.target.value.toString());
-    let defaultLink = e.target.value.toString().toLowerCase();
-    defaultLink = defaultLink.replace(" ", "-");
-    setLink(defaultLink);
-  };
+  // const onChangeTitle = (e) => {
+  //   setTitle(e.target.value.toString());
+  // let defaultLink = e.target.value.toString().toLowerCase();
+  // defaultLink = defaultLink.replace(" ", "-");
+  // setLink(defaultLink);
+  // };
 
   const onSubmit = async () => {
     if (title.length > 0 && link.length > 0) {
@@ -194,7 +194,10 @@ const NewPost = () => {
         size="middle"
         className="mt-20"
       >
-        <Input placeholder="Гарчиг" onChange={onChangeTitle} />
+        <Input
+          placeholder="Гарчиг"
+          onChange={(e) => setTitle(e.target.value)}
+        />
         <CKEditor
           editor={ClassicEditor}
           data={content}
