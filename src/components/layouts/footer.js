@@ -135,7 +135,9 @@ const Footer = ({ menus }) => {
         </Row>
       </div>
       <div className="pt-10 pb-10 text-center back-main1">
-        <p className="no-margin name text-white">Created by Enkherdene</p>
+        <p className="no-margin name text-white shadow1">
+          Created by Enkherdene
+        </p>
       </div>
     </footer>
   );

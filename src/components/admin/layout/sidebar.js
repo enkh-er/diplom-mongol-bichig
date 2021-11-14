@@ -1,5 +1,5 @@
 import { Layout, Menu } from "antd";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   BranchesOutlined,
   DashboardOutlined,
@@ -59,7 +59,7 @@ const Sidebar = (props) => {
         <Menu selectedKeys={[location.pathname]} theme="dark">
           {menuItems.map((item) => (
             <Menu.Item key={item.link} icon={item.logo}>
-              <a href={item.link}>{item.name}</a>
+              <Link to={item.link}>{item.name}</Link>
             </Menu.Item>
           ))}
         </Menu>

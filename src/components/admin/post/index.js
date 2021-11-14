@@ -7,6 +7,7 @@ import {
   getPostByCat,
 } from "../../../restAPI";
 import Posts from "./posts";
+import { Link } from "react-router-dom";
 const { Option } = Select;
 const { Search } = Input;
 
@@ -73,7 +74,7 @@ const Post = () => {
             ))}
           </Select>
           <Button type="primary">
-            <a href="/mb-admin/new-post">Нийтлэл бичих</a>
+            <Link to="/mb-admin/new-post">Нийтлэл бичих</Link>
           </Button>
         </Space>
       </div>

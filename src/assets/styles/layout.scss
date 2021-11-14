@@ -18,7 +18,7 @@
   .logo {
     font-family: "Pacifico", cursive;
     font-size: 1.8rem;
-    padding: 0 20px;
+    padding: 0;
     color: $white;
   }
   .right-menu {
@@ -30,7 +30,7 @@
       color: $white;
       font-weight: 500;
       font-size: 14px;
-      text-shadow: 0px 0.5px 0.5px rgba(0, 0, 0, 0.1);
+      text-shadow: black 0.1em 0.1em 0.2em;
     }
   }
 }
@@ -45,7 +45,10 @@
     // background-color: transparent;
   }
   .ant-menu-horizontal {
-    padding-left: 4.16%;
+    padding-left: calc(8.33% - 20px);
+    // box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    border-bottom: none !important;
   }
   .ant-menu-title-content {
     text-transform: uppercase;
@@ -72,6 +75,9 @@
 
 footer {
   color: white;
+  h3 {
+    text-shadow: $shadow2;
+  }
   h3,
   p,
   a {
@@ -81,6 +87,7 @@ footer {
   a,
   p {
     font-weight: 300;
+    text-shadow: black 0.02em 0.02em 0.04em;
   }
   p {
     line-height: 1.5;

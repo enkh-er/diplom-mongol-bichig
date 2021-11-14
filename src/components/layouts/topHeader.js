@@ -5,7 +5,7 @@ const TopHeader = () => {
   return (
     <div className="top">
       <Row justify="center" align="middle">
-        <Col span={22}>
+        <Col span={20}>
           <div className="topHeader">
             <a href="/">
               <span className="logo">Эрдэни</span>

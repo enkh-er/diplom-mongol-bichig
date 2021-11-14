@@ -1,6 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
-import { Switch } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 // import GlobalContext from "./Contexts/GlobalContext";
 import AdminLayout from "./components/admin/layout/adminLayout";
 import Category from "./components/admin/category";
@@ -22,7 +22,7 @@ import RouteWithLayout from "./RouteWithLayout";
 const AdminRoutes = () => {
   //   const ctx = useContext(GlobalContext);
   return (
-    <Fragment>
+    <BrowserRouter>
       <Switch>
         <RouteWithLayout
           component={Admin}
@@ -103,7 +103,7 @@ const AdminRoutes = () => {
           path="/admin"
         />
       </Switch>
-    </Fragment>
+    </BrowserRouter>
   );
 };
 

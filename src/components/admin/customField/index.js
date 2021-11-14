@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "antd";
 import { getCfs } from "../../../restAPI";
 import CustomFields from "./customFields";
+import { Link } from "react-router-dom";
 
 const CustomField = (props) => {
   const [fiels, setFields] = useState([]);
@@ -15,7 +16,7 @@ const CustomField = (props) => {
   return (
     <section className="md-container">
       <Button type="primary">
-        <a href="/mb-admin/new-cf">Хэрэглэгчийн талбар нэмэх</a>
+        <Link to="/mb-admin/new-cf">Хэрэглэгчийн талбар нэмэх</Link>
       </Button>
       <CustomFields datas={fiels} setFields={setFields} />
     </section>

@@ -49,7 +49,7 @@ export const Home = () => {
           className="slider-img"
         />
         <div className="search">
-          <div className="flip-cont">
+          <div className="flip-cont mb-20">
             Та монгол бичгийн
             <div id="flip">
               <div>
@@ -63,13 +63,6 @@ export const Home = () => {
               </div>
             </div>
             эндээс үзээрэй!
-            {/* <p className="bichigw text-left xl-font mb-logo">
-              ᠮᠥᠨᠭᠭᠡ
-              <br />
-              ᠲᠡᠭᠷᠢ ᠢᠢᠨ
-              <br />
-              ᠪᠢᠴᠢᠭ
-            </p> */}
           </div>
 
           <Select defaultValue="Дүрэм" style={{ width: 170 }}>

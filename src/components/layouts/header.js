@@ -1,5 +1,6 @@
 import React from "react";
-import { Menu, Dropdown } from "antd";
+import { Menu, Dropdown, Row, Col } from "antd";
+import { Link } from "react-router-dom";
 
 // const { SubMenu } = Menu;
 
@@ -27,10 +28,11 @@ const Header = ({ subMenus, menus }) => {
             <Menu.Item key={item.link}>
               {subMenus[i] && subMenus[i].length !== 0 ? (
                 <Dropdown overlay={menu(subMenus[i])} placement="bottomLeft">
-                  <a href={item.link}>{item.name}</a>
+                  <Link to={item.link}>{item.name}</Link>
                 </Dropdown>
               ) : (
-                <a href={item.link}>{item.name}</a>
+                <Link to={item.link}>{item.name}</Link>
+                // <a href={item.link}>{item.name}</a>
               )}
             </Menu.Item>
           ))}

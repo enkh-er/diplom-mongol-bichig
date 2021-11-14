@@ -133,6 +133,8 @@ const NewPost = () => {
       addPost(f);
       // console.log(f);
       msg("success", "Амжилттай хадгалагдлаа");
+    } else {
+      msg("error", "Холбоос эсвэл гарчигийн утгыг заавал бөглөх ёстой!");
     }
   };
 

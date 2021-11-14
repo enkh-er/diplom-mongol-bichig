@@ -1,6 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
-import { Switch } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 // import GlobalContext from "./Contexts/GlobalContext";
 import Layout from "./components/layouts/layout";
 import { Home } from "./pages/Home";
@@ -11,27 +11,17 @@ import RouteWithLayout from "./RouteWithLayout";
 const Routes = () => {
   //   const ctx = useContext(GlobalContext);
   return (
-    <Fragment>
+    <BrowserRouter>
       <Switch>
         <RouteWithLayout component={Home} exact layout={Layout} path="/" />
-        <RouteWithLayout
-          component={Durem}
-          exact
-          layout={Layout}
-          path="/durem"
-        />
-        <RouteWithLayout
-          component={Durem}
-          exact
-          layout={Layout}
-          path="/durem/:id"
-        />
+        <RouteWithLayout component={Durem} layout={Layout} path="/durem" />
+        <RouteWithLayout component={Durem} layout={Layout} path="/durem/:id" />
 
         {/* <RouteWithLayout component={Home} exact layout={Layout} path="/home" /> */}
 
         {/* <Redirect to="/not-found" /> */}
       </Switch>
-    </Fragment>
+    </BrowserRouter>
   );
 };
 

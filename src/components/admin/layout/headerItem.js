@@ -1,6 +1,7 @@
 import { Menu, Dropdown, Button } from "antd";
 import { UserOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const menu = (
   <Menu>
@@ -27,16 +28,16 @@ const menu = (
 const menuAdd = (
   <Menu>
     <Menu.Item key={1}>
-      <a href="/mb-admin/new-post">Нийтлэл</a>
+      <Link to="/mb-admin/new-post">Нийтлэл</Link>
     </Menu.Item>
     <Menu.Item key={2}>
-      <a href="/mb-admin/page">Хуудас</a>
+      <Link to="/mb-admin/page">Хуудас</Link>
     </Menu.Item>
     <Menu.Item key={3}>
-      <a href="/mb-admin/users">Хэрэглэгч</a>
+      <Link to="/mb-admin/users">Хэрэглэгч</Link>
     </Menu.Item>
     <Menu.Item key={4}>
-      <a href="/mb-admin/new-cf">Хэрэглэгчийн талбар</a>
+      <Link to="/mb-admin/new-cf">Хэрэглэгчийн талбар</Link>
     </Menu.Item>
   </Menu>
 );
