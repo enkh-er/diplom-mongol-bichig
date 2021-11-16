@@ -23,35 +23,11 @@
 }
 
 .bichig {
-  margin: 2px 1px 0px 1px;
-  padding: 0px;
-  font-family: "Mongolian White";
-  font-size: 22px;
-  font-weight: 500;
-  -moz-writing-mode: vertical-lr;
-  writing-mode: vertical-lr;
-  -webkit-writing-mode: vertical-lr;
-  -o-writing-mode: vertical-lr;
-  -ms-writing-mode: tb-lr;
-  writing-mode: tb-lr;
-  -webkit-text-orientation: sideways-right;
-  text-justify: inter-ideograph;
+  @include mb;
 }
 
 .bichigw {
-  margin: 2px 1px 0px 1px;
-  padding: 0px;
-  font-family: "Mongolian Writing";
-  font-size: 22px;
-  font-weight: 700;
-  -moz-writing-mode: vertical-lr;
-  writing-mode: vertical-lr;
-  -webkit-writing-mode: vertical-lr;
-  -o-writing-mode: vertical-lr;
-  -ms-writing-mode: tb-lr;
-  writing-mode: tb-lr;
-  -webkit-text-orientation: sideways-right;
-  text-justify: inter-ideograph;
+  @include mb-w;
 }
 
 .bichigwH1 {
@@ -63,16 +39,5 @@
 }
 
 .bichiga {
-  margin: 2px 1px 0px 1px;
-  padding: 0px;
-  font-family: "Mongolian Art";
-  font-size: 3rem;
-  -moz-writing-mode: vertical-lr;
-  writing-mode: vertical-lr;
-  -webkit-writing-mode: vertical-lr;
-  -o-writing-mode: vertical-lr;
-  -ms-writing-mode: tb-lr;
-  writing-mode: tb-lr;
-  -webkit-text-orientation: sideways-right;
-  text-justify: inter-ideograph;
+  @include mb-a;
 }

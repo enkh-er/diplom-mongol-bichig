@@ -1,0 +1,145 @@
+// ====================durem huudas style ===============
+.durmvvd {
+  h1 {
+    text-align: center;
+  }
+}
+.back-light-blue {
+  background-color: $light-blue;
+}
+.back-white {
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+.br-7 {
+  border-radius: 7px;
+}
+.side-bar {
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: $box-shadow1;
+  margin-bottom: 0;
+  height: 100%;
+  li {
+    border-bottom: 1px dotted $light-gray;
+  }
+  .title {
+    background-color: $darker-blue30;
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    border-bottom: none !important;
+    padding: 3px 20px;
+    margin-bottom: 0;
+  }
+  a {
+    display: inline-block;
+    color: $black;
+    width: 100%;
+    height: 100%;
+    padding: 3px 20px;
+  }
+  .title:hover {
+    background-color: $darker-blue30 !important;
+  }
+
+  .ul-link > li:hover {
+    background-color: $light-gray;
+    border-bottom: 1px solid $light-gray;
+  }
+}
+
+.post-durem {
+  table {
+    border-radius: 7px;
+  }
+  table,
+  th,
+  td {
+    border: 1px solid $light-gray;
+    border-collapse: collapse;
+  }
+  td {
+    padding: 5px;
+  }
+  strong {
+    text-align: center;
+  }
+  h3,
+  h4 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+  }
+  h3 {
+    @include mb;
+  }
+  h4 {
+    @include mb-w;
+  }
+}
+
+.useg-box {
+  box-shadow: $box-shadow1;
+  border-radius: 7px;
+  padding: 15px;
+  @include transition(0.1s);
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0rem;
+    text-align: center;
+    color: $darker-blue10;
+    font-weight: bold;
+  }
+}
+.useg-box th,
+.useg-box td {
+  padding: 5px;
+}
+.vseg-table-del {
+  width: 100%;
+}
+.vseg-table-del th,
+.vseg-table-del td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid $light-gray;
+  border-collapse: collapse;
+}
+
+.useg-box:hover {
+  background-color: $light-blue;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.vseg-del {
+  display: flex;
+  p {
+    margin-right: 10px;
+    @include display-center;
+    strong {
+      @include mb;
+    }
+  }
+}
+
+.ant-modal-content {
+  border-radius: 7px;
+  //   background-color: $light-blue;
+}
+.ant-modal-header {
+  border-radius: 7px 7px 0 0;
+  text-align: center;
+  //   background-color: $light-blue;
+}
+.ant-modal-title {
+  color: $darker-blue10;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.description {
+  background-color: $light-blue;
+  padding: 10px;
+  border-radius: 7px;
+  margin-top: 30px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}

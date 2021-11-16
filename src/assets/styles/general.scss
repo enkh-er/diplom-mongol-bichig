@@ -110,6 +110,12 @@ h6 {
   padding-bottom: 1.875rem;
 }
 
+.pr-15 {
+  padding-right: 15px;
+}
+.pr-30 {
+  padding-right: 30px;
+}
 /*----margin bottom----*/
 .mb-10 {
   margin-bottom: 0.625rem;
@@ -242,4 +248,20 @@ ul {
 }
 .shadow1 {
   text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+// ============display=============
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.gap30 {
+  gap: 30px;
+}
+.gap20 {
+  gap: 20px;
 }

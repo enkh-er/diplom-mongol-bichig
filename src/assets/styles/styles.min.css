@@ -111,6 +111,14 @@ h6 {
   padding-bottom: 1.875rem;
 }
 
+.pr-15 {
+  padding-right: 15px;
+}
+
+.pr-30 {
+  padding-right: 30px;
+}
+
 /*----margin bottom----*/
 .mb-10 {
   margin-bottom: 0.625rem;
@@ -250,6 +258,24 @@ ul {
 
 .shadow1 {
   text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gap30 {
+  gap: 30px;
+}
+
+.gap20 {
+  gap: 20px;
 }
 
 .slider-main .slider-cont {
@@ -401,50 +427,6 @@ ul {
     margin-top: -270px;
   }
 }
-.back-light-blue {
-  background-color: #cee6f1;
-}
-
-.back-white {
-  background-color: white;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-}
-
-.br-7 {
-  border-radius: 7px;
-}
-
-.side-bar {
-  border-radius: 7px;
-  overflow: hidden;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  margin-bottom: 0;
-}
-.side-bar li {
-  border-bottom: 1px dotted #f0f0f0;
-}
-.side-bar .title {
-  background-color: #004263;
-  color: white;
-  text-shadow: black 0.1em 0.1em 0.2em;
-  border-bottom: none !important;
-  padding: 3px 20px;
-}
-.side-bar a {
-  display: inline-block;
-  color: #2f353f;
-  width: 100%;
-  height: 100%;
-  padding: 3px 20px;
-}
-.side-bar .title:hover {
-  background-color: #004263 !important;
-}
-.side-bar li:hover {
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
 .top {
   background-color: #0a314d;
   position: absolute;
@@ -618,6 +600,194 @@ footer hr {
   margin: 0 3px;
 }
 
+.durmvvd h1 {
+  text-align: center;
+}
+
+.back-light-blue {
+  background-color: #cee6f1;
+}
+
+.back-white {
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.br-7 {
+  border-radius: 7px;
+}
+
+.side-bar {
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  margin-bottom: 0;
+  height: 100%;
+}
+.side-bar li {
+  border-bottom: 1px dotted #f0f0f0;
+}
+.side-bar .title {
+  background-color: #004263;
+  color: white;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  border-bottom: none !important;
+  padding: 3px 20px;
+  margin-bottom: 0;
+}
+.side-bar a {
+  display: inline-block;
+  color: #2f353f;
+  width: 100%;
+  height: 100%;
+  padding: 3px 20px;
+}
+.side-bar .title:hover {
+  background-color: #004263 !important;
+}
+.side-bar .ul-link > li:hover {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.post-durem table {
+  border-radius: 7px;
+}
+.post-durem table,
+.post-durem th,
+.post-durem td {
+  border: 1px solid #f0f0f0;
+  border-collapse: collapse;
+}
+.post-durem td {
+  padding: 5px;
+}
+.post-durem strong {
+  text-align: center;
+}
+.post-durem h3,
+.post-durem h4 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+}
+.post-durem h3 {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian White";
+  font-size: 22px;
+  font-weight: 500;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
+.post-durem h4 {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian Writing";
+  font-size: 22px;
+  font-weight: 700;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
+
+.useg-box {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 7px;
+  padding: 15px;
+  -moz-transition: 0.1s;
+  -o-transition: 0.1s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+.useg-box h3 {
+  margin-top: 0;
+  margin-bottom: 0rem;
+  text-align: center;
+  color: #006ba1;
+  font-weight: bold;
+}
+
+.useg-box th,
+.useg-box td {
+  padding: 5px;
+}
+
+.vseg-table-del {
+  width: 100%;
+}
+
+.vseg-table-del th,
+.vseg-table-del td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #f0f0f0;
+  border-collapse: collapse;
+}
+
+.useg-box:hover {
+  background-color: #cee6f1;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.vseg-del {
+  display: flex;
+}
+.vseg-del p {
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vseg-del p strong {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian White";
+  font-size: 22px;
+  font-weight: 500;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
+
+.ant-modal-content {
+  border-radius: 7px;
+}
+
+.ant-modal-header {
+  border-radius: 7px 7px 0 0;
+  text-align: center;
+}
+
+.ant-modal-title {
+  color: #006ba1;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.description {
+  background-color: #cee6f1;
+  padding: 10px;
+  border-radius: 7px;
+  margin-top: 30px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
 @font-face {
   font-family: "Mongolian Art";
   src: url(../fonts/mngltitleotf.ttf) format("truetype");
@@ -683,7 +853,7 @@ footer hr {
   margin: 2px 1px 0px 1px;
   padding: 0px;
   font-family: "Mongolian Art";
-  font-size: 3rem;
+  font-size: 22px;
   -moz-writing-mode: vertical-lr;
   writing-mode: vertical-lr;
   -webkit-writing-mode: vertical-lr;

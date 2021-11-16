@@ -1,25 +1,30 @@
 import { useState, useEffect } from "react";
-import { getMenusByCode, getCategoryByCode, getPostByCat } from "../restAPI";
+import {
+  getMenusByCode,
+  getCategoryByLink,
+  getPostByCat,
+  getCategory,
+} from "../restAPI";
 import { useLocation } from "react-router-dom";
 import SideMenu from "../components/durem/sideMenu";
+import Useg from "../components/durem/useg";
 
 const Durem = () => {
   const [sideMenus, setSideMenus] = useState([]);
   const [pathLast, setPathLast] = useState("");
   const [posts, setPosts] = useState([]);
+  const [category, setCategory] = useState({});
   // const [childPosts, setChildPosts] = useState([]);
   let location = useLocation();
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [location.pathname]);
 
   const getData = async () => {
     const dat = await getMenusByCode("durem");
     const lastPath = location.pathname.split("/");
-    const datas = await getPostByCat(
-      await getCategoryByCode(lastPath[lastPath.length - 1])
-    );
+    changePaths(lastPath[lastPath.length - 1]);
     // if (dat && dat.length !== 0) {
     //   const childPosts = [];
     //   for (let i = 0; i < dat.length; i++) {
@@ -35,13 +40,39 @@ const Durem = () => {
     //   setChildPosts(childPosts);
     // }
     setSideMenus(dat);
-    setPathLast(lastPath);
-    setPosts(datas);
   };
+  const changePaths = async (path) => {
+    const cat = await getCategoryByLink(path);
+    if (cat !== "") {
+      const datas = await getPostByCat(cat);
+      const menuCat = await getCategory(cat);
+      setPathLast(path);
+      setPosts(datas);
+      setCategory(menuCat);
+    }
+  };
+  console.log(pathLast);
   return (
     <section className="pt-90 back-light-blue ">
       <SideMenu menus={sideMenus}>
-        <div className="bichig">᠎</div>
+        {pathLast === "egshig" ? (
+          <Useg data={posts} category={category} />
+        ) : (
+          <article>
+            {posts.length !== 0 &&
+              posts.map((el, i) => (
+                <div key={i}>
+                  <h1 className="text-center">{el.title}</h1>
+                  <div
+                    className="post-durem"
+                    dangerouslySetInnerHTML={{
+                      __html: el.content,
+                    }}
+                  />
+                </div>
+              ))}
+          </article>
+        )}
       </SideMenu>
     </section>
   );

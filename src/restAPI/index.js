@@ -19,6 +19,11 @@ export async function getCategoryByCode(code) {
     return res.data;
   });
 }
+export async function getCategoryByLink(link) {
+  return await api.get("/category-link/" + link).then((res) => {
+    return res.data;
+  });
+}
 export async function deleteCategory(id) {
   return await api.delete("/delete-category/" + id).then((res) => {
     return res.data;

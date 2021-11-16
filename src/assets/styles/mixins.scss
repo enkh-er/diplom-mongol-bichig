@@ -18,3 +18,55 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+@mixin mb-w {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian Writing";
+  font-size: 22px;
+  font-weight: 700;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
+
+@mixin mb {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian White";
+  font-size: 22px;
+  font-weight: 500;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
+
+@mixin mb-a {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian Art";
+  font-size: 22px;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
+
+@mixin display-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

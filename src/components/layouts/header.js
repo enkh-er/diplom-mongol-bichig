@@ -1,8 +1,8 @@
 import React from "react";
-import { Menu, Dropdown, Row, Col } from "antd";
+import { Menu, Dropdown } from "antd";
 import { Link } from "react-router-dom";
 
-// const { SubMenu } = Menu;
+const { SubMenu } = Menu;
 
 const Header = ({ subMenus, menus }) => {
   if (!menus) {
@@ -12,10 +12,14 @@ const Header = ({ subMenus, menus }) => {
   const menu = (item) => {
     return (
       <Menu className="sub-menu">
-        {item.map((el) => (
-          <Menu.Item key={el.link}>
-            <a href={el.link}>{el.name}</a>
-          </Menu.Item>
+        {item.map((elems, i) => (
+          <SubMenu title={elems.name} key={elems.link + i}>
+            {elems.child_items.map((el) => (
+              <Menu.Item key={el.link}>
+                <Link to={`/durem/${el.link}`}>{el.name}</Link>
+              </Menu.Item>
+            ))}
+          </SubMenu>
         ))}
       </Menu>
     );
@@ -28,10 +32,10 @@ const Header = ({ subMenus, menus }) => {
             <Menu.Item key={item.link}>
               {subMenus[i] && subMenus[i].length !== 0 ? (
                 <Dropdown overlay={menu(subMenus[i])} placement="bottomLeft">
-                  <Link to={item.link}>{item.name}</Link>
+                  <Link to={"/" + item.link}>{item.name}</Link>
                 </Dropdown>
               ) : (
-                <Link to={item.link}>{item.name}</Link>
+                <Link to={"/" + item.link}>{item.name}</Link>
                 // <a href={item.link}>{item.name}</a>
               )}
             </Menu.Item>

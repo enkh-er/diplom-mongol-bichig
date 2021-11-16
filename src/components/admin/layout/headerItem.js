@@ -28,16 +28,16 @@ const menu = (
 const menuAdd = (
   <Menu>
     <Menu.Item key={1}>
-      <Link to="/mb-admin/new-post">Нийтлэл</Link>
+      <a href="/mb-admin/new-post">Нийтлэл</a>
     </Menu.Item>
     <Menu.Item key={2}>
-      <Link to="/mb-admin/page">Хуудас</Link>
+      <a href="/mb-admin/page">Хуудас</a>
     </Menu.Item>
     <Menu.Item key={3}>
-      <Link to="/mb-admin/users">Хэрэглэгч</Link>
+      <a href="/mb-admin/users">Хэрэглэгч</a>
     </Menu.Item>
     <Menu.Item key={4}>
-      <Link to="/mb-admin/new-cf">Хэрэглэгчийн талбар</Link>
+      <a href="/mb-admin/new-cf">Хэрэглэгчийн талбар</a>
     </Menu.Item>
   </Menu>
 );

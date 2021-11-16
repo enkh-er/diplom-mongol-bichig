@@ -12,7 +12,7 @@ const layout = {
   wrapperCol: { span: 24 },
 };
 
-const NewCF = (props) => {
+const NewCF = () => {
   const [categories, setCategories] = useState([]);
   const [form] = Form.useForm();
   const onFinish = (values) => {
@@ -58,58 +58,47 @@ const NewCF = (props) => {
         <Form.List name="acf">
           {(fields, { add, remove }) => (
             <>
-              {fields.map((field, i) => (
+              {fields.map((field, index) => (
                 <Space key={field.key} align="baseline">
                   <Form.Item
-                    noStyle
-                    shouldUpdate={(prevValues, curValues) =>
-                      prevValues.area !== curValues.area ||
-                      prevValues.sights !== curValues.sights
-                    }
+                    {...field}
+                    label="Нэр"
+                    name={[field.name, "name"]}
+                    rules={[{ required: true, message: "Missing name" }]}
                   >
-                    <Form.Item
-                      {...field}
-                      label="Нэр"
-                      name={[field.name, "name"]}
-                      fieldKey={[field.fieldKey, "name" + i]}
-                      rules={[{ required: true, message: "Missing name" }]}
-                    >
-                      <Input />
-                    </Form.Item>
-                    <Form.Item
-                      {...field}
-                      label="Түлхүүр"
-                      name={[field.name, "key"]}
-                      fieldKey={[field.fieldKey, "key" + i]}
-                      rules={[{ required: true, message: "Missing key" }]}
-                    >
-                      <Input />
-                    </Form.Item>
-                    <Form.Item
-                      {...field}
-                      label="Төрөл"
-                      name={[field.name, "type"]}
-                      fieldKey={[field.fieldKey, "type" + i]}
-                      rules={[{ required: true, message: "Missing type" }]}
-                    >
-                      <Select style={{ width: 130 }}>
-                        <Option key="text" value="text">
-                          text
-                        </Option>
-                        <Option key="textArea" value="textArea">
-                          text area
-                        </Option>
-                        <Option key="image" value="image">
-                          Image
-                        </Option>
-                        <Option key="file" value="file">
-                          file
-                        </Option>
-                        <Option key="boolean" value="boolean">
-                          boolean
-                        </Option>
-                      </Select>
-                    </Form.Item>
+                    <Input />
+                  </Form.Item>
+                  <Form.Item
+                    {...field}
+                    label="Түлхүүр"
+                    name={[field.name, "key"]}
+                    rules={[{ required: true, message: "Missing key" }]}
+                  >
+                    <Input />
+                  </Form.Item>
+                  <Form.Item
+                    {...field}
+                    label="Төрөл"
+                    name={[field.name, "type"]}
+                    rules={[{ required: true, message: "Missing type" }]}
+                  >
+                    <Select style={{ width: 130 }}>
+                      <Option key="text" value="text">
+                        text
+                      </Option>
+                      <Option key="textArea" value="textArea">
+                        text area
+                      </Option>
+                      <Option key="image" value="image">
+                        Image
+                      </Option>
+                      <Option key="file" value="file">
+                        file
+                      </Option>
+                      <Option key="boolean" value="boolean">
+                        boolean
+                      </Option>
+                    </Select>
                   </Form.Item>
                   <MinusCircleOutlined onClick={() => remove(field.name)} />
                 </Space>
@@ -134,30 +123,19 @@ const NewCF = (props) => {
               {fields.map((field, i) => (
                 <Space key={field.key} align="baseline">
                   <Form.Item
-                    noStyle
-                    shouldUpdate={(prevValues, curValues) =>
-                      prevValues.area !== curValues.area ||
-                      prevValues.sights !== curValues.sights
-                    }
+                    {...field}
+                    label="Ангилал"
+                    name={[field.name, "catId"]}
+                    rules={[{ required: true, message: "Missing categories" }]}
                   >
-                    <Form.Item
-                      {...field}
-                      label="Ангилал"
-                      name={[field.name, "catId"]}
-                      fieldKey={[field.fieldKey, "catId" + i]}
-                      rules={[
-                        { required: true, message: "Missing categories" },
-                      ]}
-                    >
-                      <Select style={{ width: 130 }}>
-                        {categories &&
-                          categories.map((el, i) => (
-                            <Option value={el.id} key={el.id}>
-                              {el.name}
-                            </Option>
-                          ))}
-                      </Select>
-                    </Form.Item>
+                    <Select style={{ width: 130 }}>
+                      {categories &&
+                        categories.map((el, i) => (
+                          <Option value={el.id} key={el.id}>
+                            {el.name}
+                          </Option>
+                        ))}
+                    </Select>
                   </Form.Item>
                   <MinusCircleOutlined onClick={() => remove(field.name)} />
                 </Space>
