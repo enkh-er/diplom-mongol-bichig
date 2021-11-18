@@ -119,7 +119,11 @@ export async function getPostByName(title) {
     return res.data;
   });
 }
-
+export async function getPostByLink(link) {
+  return await api.get("/post-by-link/" + link).then((res) => {
+    return res.data;
+  });
+}
 export async function getPostByCat(cat) {
   return await api.get("/post-by-cat/" + cat).then((res) => {
     return res.data;

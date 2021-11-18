@@ -46,16 +46,16 @@ const Durem = () => {
     if (cat !== "") {
       const datas = await getPostByCat(cat);
       const menuCat = await getCategory(cat);
-      setPathLast(path);
       setPosts(datas);
       setCategory(menuCat);
+      setPathLast(path);
     }
   };
-  console.log(pathLast);
+
   return (
-    <section className="pt-90 back-light-blue ">
+    <section className="pt-90 back-light-blue">
       <SideMenu menus={sideMenus}>
-        {pathLast === "egshig" ? (
+        {pathLast === "egshig" || pathLast === "giigvvlegch" ? (
           <Useg data={posts} category={category} />
         ) : (
           <article>

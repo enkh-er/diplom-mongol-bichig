@@ -52,6 +52,14 @@ h6 {
   font-size: 1rem;
 }
 
+.bg-title-blue {
+  color: $darker-blue30;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.47);
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
 //================ space ===============
 
 .no-margin {
@@ -160,6 +168,10 @@ h6 {
   flex-wrap: wrap;
 }
 
+.column {
+  flex-direction: column;
+}
+
 .pointer {
   cursor: pointer;
 }
@@ -177,7 +189,9 @@ h6 {
 }
 
 // ===========text
-
+.text-justify {
+  text-align: justify;
+}
 .text-center {
   text-align: center;
 }
@@ -213,6 +227,12 @@ h6 {
 }
 .md-font {
   font-size: 1.5rem !important;
+}
+.font-20 {
+  font-size: 20px !important;
+}
+.font-18 {
+  font-size: 18px !important;
 }
 .xs {
   font-size: 0.8rem !important;
@@ -258,6 +278,9 @@ ul {
 .grid3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+.gap50 {
+  gap: 50px;
 }
 .gap30 {
   gap: 30px;

@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { getCategoryByCode, getPostByCat, getFileById } from "../restAPI";
-import { Select, Input } from "antd";
+import {
+  getCategoryByCode,
+  getPostByCat,
+  getFileById,
+  getCategoryByLink,
+} from "../restAPI";
+import { Select, Input, Row, Col } from "antd";
+import { Link } from "react-router-dom";
+import NewsComponent from "../components/news/newsComponent";
+import { getImage } from "../utils";
 
 const { Option } = Select;
 const { Search } = Input;
 
 export const Home = () => {
   const [sliderImages, setSliderImages] = useState([]);
-  const [content, setContent] = useState([]);
+  const [images, setImages] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   const getData = async () => {
     const slider = await getPostByCat(await getCategoryByCode("home_slider"));
-    const con = await getPostByCat(await getCategoryByCode("home_content"));
+    const cat = await getCategoryByLink("medee-medeelel");
+    const datas = await getPostByCat(cat);
     if (slider && slider.length !== 0) {
       let images = [];
       for (let i = 0; i < slider.length; i++) {
@@ -21,12 +31,34 @@ export const Home = () => {
         }
       }
       setSliderImages(images);
-      setContent(con);
     }
+    if (datas && datas.length !== 0) {
+      let pImages = [];
+      for (let i = 0; i < datas.length; i++) {
+        if (datas[i].image && datas[i].image !== "") {
+          const img = await getFileById(datas[i].image);
+          pImages.push(img);
+        }
+      }
+      setImages(pImages.reverse());
+    }
+    const reversed = datas.reverse();
+    setPosts(reversed.slice(0, 3));
   };
   useEffect(() => {
     getData();
   }, []);
+
+  const getLatestNews = () => {
+    if (posts.length === 0 || images.length === 0) {
+      return null;
+    }
+    return posts.map((el, i) => (
+      <Link key={el.id} to={"/medee-medeelel/" + el.link}>
+        <NewsComponent el={el} img={images[i]} />
+      </Link>
+    ));
+  };
 
   const onSearch = (value) => console.log(value);
 
@@ -44,10 +76,7 @@ export const Home = () => {
   return (
     <section className="slider-main">
       <div className="slider-cont">
-        <img
-          src={`data:image/jpg;base64,${sliderImages[0]}`}
-          className="slider-img"
-        />
+        <img src={getImage(sliderImages[0])} className="slider-img" />
         <div className="search">
           <div className="flip-cont mb-20">
             Та монгол бичгийн
@@ -78,8 +107,15 @@ export const Home = () => {
             enterButton
           />
         </div>
-        {/* <h1>Монгол бичиг</h1> */}
       </div>
+      <Row justify="center">
+        <Col span={20}>
+          <div className="md-container">
+            <h2 className="pb-10 bg-title-blue font-20">Сүүлийн үеийн мэдээ</h2>
+            <div className="grid3 gap50">{getLatestNews()}</div>
+          </div>
+        </Col>
+      </Row>
     </section>
   );
 };
