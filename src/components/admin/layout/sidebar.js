@@ -44,6 +44,11 @@ const menuItems = [
     logo: <PicRightOutlined />,
   },
   {
+    name: "Хичээлүүд",
+    link: "/mb-admin/hicheelvvd",
+    logo: <PicRightOutlined />,
+  },
+  {
     name: "Хэрэглэгчид",
     link: "/mb-admin/users",
     logo: <UserOutlined />,

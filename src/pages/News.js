@@ -51,7 +51,7 @@ const News = () => {
   };
 
   return (
-    <section className="pt-90 ">
+    <section className="pt-90">
       <Row justify="center">
         <Col span={20}>
           {pathLast === "medee-medeelel" ? (

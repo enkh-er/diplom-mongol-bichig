@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
 import React from "react";
-
+import { UserOutlined } from "@ant-design/icons";
 const TopHeader = () => {
   return (
     <div className="top">
@@ -12,9 +12,13 @@ const TopHeader = () => {
             </a>
 
             <div className="right-menu">
-              <a href="/">Тухай</a>
+              <a href="/">Бидний тухай</a>
               <a href="/">Холбоо барих</a>
-              <a href="/">Нэвтрэх</a>
+              <a href="/">
+                <span className="user-ico">
+                  <UserOutlined />
+                </span>
+              </a>
             </div>
           </div>
         </Col>

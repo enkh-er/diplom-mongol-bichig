@@ -48,7 +48,7 @@ const NewPost = () => {
   const handleChange = (e, editor) => {
     const data = editor.getData();
     setContent(data);
-    // console.log(data);
+    console.log(data);
   };
 
   async function catChange(value) {
@@ -75,6 +75,7 @@ const NewPost = () => {
         }
       }
     }
+    console.log(f);
     setFields(f);
   }
 
@@ -139,10 +140,14 @@ const NewPost = () => {
   };
 
   const onChangeFields = async (item, i, e) => {
-    // e.preventDefault();
-    console.log(e.target.files);
+    e.preventDefault();
+    // console.log(e.target.files);
     if (item.type === "file" || item.type === "image") {
-      if (e.target.files[0]) {
+      if (
+        e.target.files[0] &&
+        e.target.files[0].name &&
+        e.target.files[0].name !== ""
+      ) {
         const formData = new FormData();
         formData.append("file", e.target.files[0]);
         const imgId = await addFile(formData);
@@ -156,7 +161,7 @@ const NewPost = () => {
       fields[i].value = e.target.checked;
     }
     setFields(fields);
-    // console.log(fields);
+    console.log(fields);
   };
 
   const getFields = () => {

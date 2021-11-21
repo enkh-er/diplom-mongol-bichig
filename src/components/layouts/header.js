@@ -1,6 +1,9 @@
 import React from "react";
-import { Menu, Dropdown } from "antd";
+import { Menu, Dropdown, Select, Input } from "antd";
 import { Link } from "react-router-dom";
+
+const { Option } = Select;
+const { Search } = Input;
 
 const { SubMenu } = Menu;
 
@@ -8,6 +11,7 @@ const Header = ({ subMenus, menus }) => {
   if (!menus) {
     return null;
   }
+  const onSearch = (value) => console.log(value);
 
   const menu = (item) => {
     return (
@@ -29,7 +33,7 @@ const Header = ({ subMenus, menus }) => {
       <Menu mode="horizontal">
         {menus.child_items &&
           menus.child_items.map((item, i) => (
-            <Menu.Item key={item.link}>
+            <Menu.Item key={item.link + i}>
               {subMenus[i] && subMenus[i].length !== 0 ? (
                 <Dropdown overlay={menu(subMenus[i])} placement="bottomLeft">
                   <Link to={"/" + item.link}>{item.name}</Link>
@@ -40,6 +44,18 @@ const Header = ({ subMenus, menus }) => {
               )}
             </Menu.Item>
           ))}
+        <Menu.Item
+          key="search"
+          className="searchCon"
+          style={{ borderBottom: "none" }}
+        >
+          <Search
+            style={{ width: 300 }}
+            placeholder="Хайх"
+            onSearch={onSearch}
+            enterButton
+          />
+        </Menu.Item>
       </Menu>
     </div>
   );

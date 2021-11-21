@@ -28,11 +28,28 @@
     a {
       margin: 0 0.5rem;
       color: $white;
-      font-weight: 500;
+      font-weight: 400;
       font-size: 14px;
       text-shadow: black 0.1em 0.1em 0.2em;
     }
+    a:hover {
+      text-decoration: underline;
+    }
   }
+}
+
+.user-ico {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 5px 7px;
+  background-color: white;
+  color: $darkest-blue;
+}
+.user-ico:hover {
+  background-color: $darkest-blue;
+  color: white;
 }
 
 .menu {
@@ -41,12 +58,8 @@
   left: 0;
   right: 0;
   z-index: 2;
-  .ant-menu {
-    // background-color: transparent;
-  }
   .ant-menu-horizontal {
     padding-left: calc(8.33% - 20px);
-    // box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
     border-bottom: none !important;
   }
@@ -59,7 +72,7 @@
   .ant-menu-item:hover,
   .ant-menu-item:active {
     a {
-      color: $darker-blue20 !important;
+      color: $darker-blue10 !important;
     }
   }
   .ant-menu-item:hover::after {
@@ -70,7 +83,29 @@
 .sub-menu {
   margin-top: 11px;
 }
-
+.ant-menu-horizontal > .ant-menu-item::after,
+.ant-menu-horizontal > .ant-menu-submenu::after {
+  border-bottom: none !important;
+  transition: none !important;
+}
+.searchCon {
+  position: absolute !important;
+  right: calc(8.33% - 20px) !important;
+  top: 7px !important;
+  .ant-input {
+    border-radius: 8px;
+  }
+  .ant-input-search > .ant-input-group > .ant-input-group-addon:last-child,
+  .ant-input-search
+    > .ant-input-group
+    > .ant-input-group-addon:last-child
+    .ant-input-search-button {
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: $darker-blue30;
+  }
+}
 // =============footer css=================
 
 footer {
@@ -97,14 +132,12 @@ footer {
   }
 }
 .socials {
-  span {
-    padding: 5px;
-    border: 1px solid white;
-    border-radius: 10px;
-    margin-right: 5px;
+  img {
+    width: 40px;
+    height: 40px;
   }
-  span:hover {
-    @include transform(scale(1.06));
+  img:hover {
+    @include transform(scale(1.1));
   }
 }
 .useful-links {

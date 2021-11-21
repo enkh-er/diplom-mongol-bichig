@@ -19,6 +19,11 @@ export async function getCategoryByCode(code) {
     return res.data;
   });
 }
+export async function getCategoryByParent(p) {
+  return await api.get("/category-parent/" + p).then((res) => {
+    return res.data;
+  });
+}
 export async function getCategoryByLink(link) {
   return await api.get("/category-link/" + link).then((res) => {
     return res.data;
@@ -160,4 +165,32 @@ export async function getFileByName(name) {
   return await api.get("/image/" + name).then((res) => {
     return res.data;
   });
+}
+
+// hicheel
+export async function addHicheel(hicheel) {
+  return await api.post("/hicheel", hicheel).then((res) => {
+    return res.data;
+  });
+}
+
+export async function getHicheelvvd() {
+  return await api.get("/hicheelvvd").then((res) => {
+    return res.data;
+  });
+}
+
+export async function getHicheel(id) {
+  return await api.get("/hicheel/" + id).then((res) => {
+    return res.data;
+  });
+}
+
+export async function getHicheelByCat(id) {
+  return await api.get("/hicheel-by-cat/" + id).then((res) => {
+    return res.data;
+  });
+}
+export function deleteHicheel(id) {
+  api.delete("/hicheel/" + id);
 }

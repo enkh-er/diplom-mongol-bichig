@@ -5,6 +5,7 @@ import Layout from "./components/layouts/layout";
 import { Home } from "./pages/Home";
 import Durem from "./pages/Durem";
 import News from "./pages/News";
+import Surgalt from "./pages/Surgalt";
 // import NotFound from "./Pages/NotFound";
 import RouteWithLayout from "./RouteWithLayout";
 
@@ -25,6 +26,12 @@ const Routes = () => {
           component={News}
           layout={Layout}
           path="/medee-medeelel/:link"
+        />
+        <RouteWithLayout component={Surgalt} layout={Layout} path="/surgalt" />
+        <RouteWithLayout
+          component={Surgalt}
+          layout={Layout}
+          path="/surgalt/:id"
         />
 
         {/* <RouteWithLayout component={Home} exact layout={Layout} path="/home" /> */}

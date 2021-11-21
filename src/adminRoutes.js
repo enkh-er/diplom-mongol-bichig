@@ -1,5 +1,4 @@
 import React from "react";
-import { Fragment } from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 // import GlobalContext from "./Contexts/GlobalContext";
 import AdminLayout from "./components/admin/layout/adminLayout";
@@ -13,7 +12,8 @@ import NewCF from "./components/admin/customField/newCF";
 import Menu from "./components/admin/menu";
 import Users from "./components/admin/users";
 import CustomField from "./components/admin/customField";
-import Form from "./components/admin/form";
+import Hicheelvvd from "./components/admin/hicheel/hicheelvvd";
+import HicheelNemeh from "./components/admin/hicheel/hicheelNemeh";
 import Admin from "./pages/Admin";
 import AdminLogin from "./components/admin/auth/admin-login";
 // import NotFound from "./Pages/NotFound";
@@ -72,6 +72,20 @@ const AdminRoutes = () => {
           layout={AdminLayout}
           path="/mb-admin/new-cf"
         />
+
+        <RouteWithLayout
+          component={Hicheelvvd}
+          exact
+          layout={AdminLayout}
+          path="/mb-admin/hicheelvvd"
+        />
+        <RouteWithLayout
+          component={HicheelNemeh}
+          exact
+          layout={AdminLayout}
+          path="/mb-admin/new-hicheel"
+        />
+
         <RouteWithLayout
           component={Users}
           exact
@@ -90,12 +104,7 @@ const AdminRoutes = () => {
           layout={AdminLayout}
           path="/mb-admin/custom-field"
         />
-        <RouteWithLayout
-          component={Form}
-          exact
-          layout={AdminLayout}
-          path="/mb-admin/form"
-        />
+
         <RouteWithLayout
           component={AdminLogin}
           exact

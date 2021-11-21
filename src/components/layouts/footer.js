@@ -5,6 +5,9 @@ import {
   FacebookFilled,
   InstagramFilled,
 } from "@ant-design/icons";
+import facebook from "../../assets/images/icons8-facebook.svg";
+import instagram from "../../assets/images/icons8-instagram.svg";
+
 const layout = {
   labelCol: { span: 24 },
   wrapperCol: { span: 24 },
@@ -38,14 +41,14 @@ const Footer = ({ menus }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <FacebookFilled />
+                <img src={facebook} className="p-5" />
               </a>
               <a
                 href="https://www.instagram.com/enkhgem/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <InstagramFilled />
+                <img src={instagram} />
               </a>
             </div>
           </Col>

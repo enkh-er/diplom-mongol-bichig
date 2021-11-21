@@ -5,10 +5,11 @@ import {
   getFileById,
   getCategoryByLink,
 } from "../restAPI";
-import { Select, Input, Row, Col } from "antd";
+import { Select, Input, Row, Col, Carousel } from "antd";
 import { Link } from "react-router-dom";
 import NewsComponent from "../components/news/newsComponent";
 import { getImage } from "../utils";
+import Slider from "@ant-design/react-slick";
 
 const { Option } = Select;
 const { Search } = Input;
@@ -62,22 +63,69 @@ export const Home = () => {
 
   const onSearch = (value) => console.log(value);
 
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   fade: true,
-  //   arrows: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  // };
+  const settings = {
+    dots: true,
+    infinite: true,
+    // fade: true,
+    arrows: false,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    // autoplay: true,
+    // autoplaySpeed: 2000,
+    // cssEase: "linear",
+  };
   // console.log(content[0]);
 
   return (
     <section className="slider-main">
       <div className="slider-cont">
         <img src={getImage(sliderImages[0])} className="slider-img" />
-        <div className="search">
+        <div className="home-info">
+          <Slider {...settings}>
+            <div className="slider-info">
+              <div className="detail">
+                <h1>Монгол бичиг</h1>
+                <p>Монгол бичгийн зөв бичих дүрмийг эндээс үзээрэй</p>
+                <Link to="/durem" className="btn">
+                  Дүрэм үзэх
+                </Link>
+              </div>
+              <div className="shvleg">
+                <span className="bichigw">
+                  ᠡᠪᠦᠭᠡ ᠳᠡᠭᠡᠳᠥᠰ ᠤᠨ ᠮᠢᠨᠢ ᠲᠡᠦᠬᠡ ᠢᠢ ᠪᠢᠴᠢᠭᠰᠡᠨ
+                </span>
+                <span className="bichigw">
+                  ᠥᠨᠳᠥᠷ ᠲᠥᠷᠥ ᠢᠢᠨ ᠬᠤᠢᠮᠥᠷ ᠲᠤ ᠵᠠᠯᠠᠷᠠᠭᠰᠠᠨ
+                </span>
+                <span className="bichigw">
+                  ᠳᠡᠯᠡᠭᠡᠢ ᠳᠥ ᠭᠠᠭᠴᠠᠬᠠᠨ ᠪᠤᠰᠤᠭ᠎ᠠ ᠵᠠᠶᠠᠭ᠎ᠠ ᠲᠠᠢ{" "}
+                </span>
+                <span className="bichigw">ᠳᠡᠭᠡᠳᠥ ᠲᠡᠭᠷᠢ ᠢᠢᠨ ᠪᠢᠴᠢᠭ ᠮᠢᠨᠦ</span>
+              </div>
+            </div>
+            <div className="slider-info">
+              <h1>Монгол бичиг</h1>
+              <p>Монгол бичгийн зөв бичих дүрмийг эндээс үзээрэй</p>
+              <div class="container">
+                <div class="btn">
+                  <Link to="/durem">Дүрэм үзэх</Link>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3>Монгол бичиг</h3>
+              <p>Монгол бичгийн зөв бичих дүрмийг эндээс үзээрэй</p>
+              <Link to="/durem">Дүрэм үзэх</Link>
+            </div>
+            <div>
+              <h3>Монгол бичиг</h3>
+              <p>Монгол бичгийн зөв бичих дүрмийг эндээс үзээрэй</p>
+              <Link to="/durem">Дүрэм үзэх</Link>
+            </div>
+          </Slider>
+        </div>
+        {/* <div className="search">
           <div className="flip-cont mb-20">
             Та монгол бичгийн
             <div id="flip">
@@ -106,7 +154,7 @@ export const Home = () => {
             onSearch={onSearch}
             enterButton
           />
-        </div>
+        </div> */}
       </div>
       <Row justify="center">
         <Col span={20}>
