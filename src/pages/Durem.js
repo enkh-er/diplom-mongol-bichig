@@ -25,20 +25,6 @@ const Durem = () => {
     const dat = await getMenusByCode("durem");
     const lastPath = location.pathname.split("/");
     changePaths(lastPath[lastPath.length - 1]);
-    // if (dat && dat.length !== 0) {
-    //   const childPosts = [];
-    //   for (let i = 0; i < dat.length; i++) {
-    //     if (dat[i].child_items && dat[i].child_items.length !== 0) {
-    //       const child = dat[i].child_items;
-    //       const ch = [];
-    //       for (let j = 0; j < child.length; j++) {
-    //         ch.push(await getPostByCat(child[j].typeId));
-    //       }
-    //       childPosts.push(ch);
-    //     }
-    //   }
-    //   setChildPosts(childPosts);
-    // }
     setSideMenus(dat);
   };
   const changePaths = async (path) => {

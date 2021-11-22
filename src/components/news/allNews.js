@@ -7,7 +7,7 @@ const AllNews = (props) => {
     return null;
   }
   return (
-    <section className="md-container">
+    <section className="p-30">
       <h1 className="text-center mb-30 bg-title-blue">Мэдээ мэдээлэл</h1>
       <div className="grid3 gap50">
         {posts.map((el, i) => (

@@ -61,7 +61,7 @@
   .ant-menu-horizontal {
     padding-left: calc(8.33% - 20px);
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-    border-bottom: none !important;
+    border-bottom: 1px solid $light-gray;
   }
   .ant-menu-title-content {
     text-transform: uppercase;

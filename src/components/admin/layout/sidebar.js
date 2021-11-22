@@ -60,7 +60,7 @@ const Sidebar = (props) => {
   return (
     <Sider>
       <div className="admin-menu">
-        <div className="logo">Logo</div>
+        <div className="logo text-center">Админ панел</div>
         <Menu selectedKeys={[location.pathname]} theme="dark">
           {menuItems.map((item) => (
             <Menu.Item key={item.link} icon={item.logo}>

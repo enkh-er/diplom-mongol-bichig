@@ -48,9 +48,9 @@ const Surgalt = () => {
   };
 
   return (
-    <section className="pt-90">
+    <section className="pt-90  back-light-blue">
       <Row justify="center md-container">
-        <Col span={20}>
+        <Col span={20} className="back-white br-7">
           {pathLast === "surgalt" ? (
             <Surgaltuud surgaltuud={childPosts} images={images} />
           ) : (

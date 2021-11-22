@@ -4,20 +4,21 @@ import {
   getPostByCat,
   getFileById,
   getCategoryByLink,
+  getCategoryByParent,
 } from "../restAPI";
-import { Select, Input, Row, Col, Carousel } from "antd";
+import { Row, Col } from "antd";
 import { Link } from "react-router-dom";
 import NewsComponent from "../components/news/newsComponent";
 import { getImage } from "../utils";
 import Slider from "@ant-design/react-slick";
-
-const { Option } = Select;
-const { Search } = Input;
+import SurgaltComponent from "../components/surgalt/surgaltComponent";
 
 export const Home = () => {
   const [sliderImages, setSliderImages] = useState([]);
   const [images, setImages] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [lastSurgaltuud, setLastSugaltuud] = useState([]);
+  const [surgaltiinZurguud, setSurgaltiinZurguud] = useState([]);
 
   const getData = async () => {
     const slider = await getPostByCat(await getCategoryByCode("home_slider"));
@@ -43,6 +44,29 @@ export const Home = () => {
       }
       setImages(pImages.reverse());
     }
+
+    // surgaltiin medeelliig awj bui heseg
+    const catSurgalt = await getCategoryByLink("surgalt");
+    const surgaltChildCategories = await getCategoryByParent(catSurgalt);
+    const surgaltCats = surgaltChildCategories.reverse();
+    if (surgaltCats && surgaltCats.length !== 0) {
+      let surPosts = [];
+      let surImgs = [];
+      for (let i = 0; i < surgaltCats.length; i++) {
+        const c = await getPostByCat(surgaltCats[i].id);
+        const surgalt = c[0];
+        if (surgalt) {
+          if (surgalt.image !== "") {
+            const img1 = await getFileById(surgalt.image);
+            surImgs.push(img1);
+          }
+          surPosts.push(c[0]);
+        }
+      }
+      setSurgaltiinZurguud(surImgs.slice(0, 4));
+      setLastSugaltuud(surPosts.slice(0, 4));
+    }
+
     const reversed = datas.reverse();
     setPosts(reversed.slice(0, 3));
   };
@@ -61,19 +85,28 @@ export const Home = () => {
     ));
   };
 
+  const getLatestSurgalt = () => {
+    if (surgaltiinZurguud.length === 0 || lastSurgaltuud.length === 0) {
+      return null;
+    }
+    return lastSurgaltuud.map((el, i) => (
+      <SurgaltComponent el={el} img={surgaltiinZurguud[i]} />
+    ));
+  };
+
   const onSearch = (value) => console.log(value);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     // fade: true,
-    arrows: false,
+    arrows: true,
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     // autoplay: true,
-    // autoplaySpeed: 2000,
-    // cssEase: "linear",
+    autoplaySpeed: 4000,
+    cssEase: "linear",
   };
   // console.log(content[0]);
 
@@ -84,14 +117,11 @@ export const Home = () => {
         <div className="home-info">
           <Slider {...settings}>
             <div className="slider-info">
-              <div className="detail">
-                <h1>Монгол бичиг</h1>
-                <p>Монгол бичгийн зөв бичих дүрмийг эндээс үзээрэй</p>
-                <Link to="/durem" className="btn">
-                  Дүрэм үзэх
-                </Link>
+              <div className="wrapper bg1">
+                <h2>Монгол бичгийн зөв бичих дүрмийг эндээс үзээрэй</h2>
+                <Link to="/durem">Дүрэм үзэх</Link>
               </div>
-              <div className="shvleg">
+              {/* <div className="shvleg">
                 <span className="bichigw">
                   ᠡᠪᠦᠭᠡ ᠳᠡᠭᠡᠳᠥᠰ ᠤᠨ ᠮᠢᠨᠢ ᠲᠡᠦᠬᠡ ᠢᠢ ᠪᠢᠴᠢᠭᠰᠡᠨ
                 </span>
@@ -99,29 +129,28 @@ export const Home = () => {
                   ᠥᠨᠳᠥᠷ ᠲᠥᠷᠥ ᠢᠢᠨ ᠬᠤᠢᠮᠥᠷ ᠲᠤ ᠵᠠᠯᠠᠷᠠᠭᠰᠠᠨ
                 </span>
                 <span className="bichigw">
-                  ᠳᠡᠯᠡᠭᠡᠢ ᠳᠥ ᠭᠠᠭᠴᠠᠬᠠᠨ ᠪᠤᠰᠤᠭ᠎ᠠ ᠵᠠᠶᠠᠭ᠎ᠠ ᠲᠠᠢ{" "}
+                  ᠳᠡᠯᠡᠭᠡᠢ ᠳᠤ ᠭᠠᠭᠴᠠᠬᠠᠨ ᠪᠤᠰᠤᠭ᠎ᠠ ᠵᠠᠶᠠᠭ᠎ᠠ ᠲᠠᠢ{" "}
                 </span>
                 <span className="bichigw">ᠳᠡᠭᠡᠳᠥ ᠲᠡᠭᠷᠢ ᠢᠢᠨ ᠪᠢᠴᠢᠭ ᠮᠢᠨᠦ</span>
+              </div> */}
+            </div>
+            <div className="slider-info">
+              <div className="wrapper bg2">
+                <h2>Сонгодог монгол бичгийн хичээлүүдийг эндээс үзээрэй</h2>
+                <Link to="/songodog-bichgvvd">Цааш үзэх</Link>
               </div>
             </div>
             <div className="slider-info">
-              <h1>Монгол бичиг</h1>
-              <p>Монгол бичгийн зөв бичих дүрмийг эндээс үзээрэй</p>
-              <div class="container">
-                <div class="btn">
-                  <Link to="/durem">Дүрэм үзэх</Link>
-                </div>
+              <div className="wrapper bg1">
+                <h2>Монгол бичгийн дасгал хийж өөрийгөө сориорой</h2>
+                <Link to="/dasgal">Дасгал хийх</Link>
               </div>
             </div>
-            <div>
-              <h3>Монгол бичиг</h3>
-              <p>Монгол бичгийн зөв бичих дүрмийг эндээс үзээрэй</p>
-              <Link to="/durem">Дүрэм үзэх</Link>
-            </div>
-            <div>
-              <h3>Монгол бичиг</h3>
-              <p>Монгол бичгийн зөв бичих дүрмийг эндээс үзээрэй</p>
-              <Link to="/durem">Дүрэм үзэх</Link>
+            <div className="slider-info">
+              <div className="wrapper bg2">
+                <h2>Монгол бичгийн шинэ сургалтуудыг эндээс үзээрэй</h2>
+                <Link to="/surgalt">Сургалт үзэх</Link>
+              </div>
             </div>
           </Slider>
         </div>
@@ -161,6 +190,9 @@ export const Home = () => {
           <div className="md-container">
             <h2 className="pb-10 bg-title-blue font-20">Сүүлийн үеийн мэдээ</h2>
             <div className="grid3 gap50">{getLatestNews()}</div>
+            <hr className="mb-30" />
+            <h2 className="pb-10 bg-title-blue font-20">Шинэ сургалтууд</h2>
+            <div className="grid4 gap30 mb-30"> {getLatestSurgalt()}</div>
           </div>
         </Col>
       </Row>

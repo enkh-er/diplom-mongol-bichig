@@ -4,12 +4,14 @@ import { useState } from "react";
 const Useg = (props) => {
   const { data, category } = props;
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalData, setModaldata] = useState({});
 
   if (!data || Object.entries(category).length === 0) {
     return null;
   }
 
-  const showModal = () => {
+  const showModal = (el) => {
+    setModaldata(el);
     setIsModalVisible(true);
   };
 
@@ -18,6 +20,9 @@ const Useg = (props) => {
   };
 
   function getTable(el, type) {
+    if (Object.entries(el).length === 0) {
+      return null;
+    }
     if (type === "vertical") {
       return (
         <table>
@@ -76,6 +81,9 @@ const Useg = (props) => {
     );
   }
   const setEgshig = (el) => {
+    if (Object.entries(el).length === 0) {
+      return null;
+    }
     if (!el.acf.ae || !el.acf.ii || !el.acf.ou || !el.acf.ov) {
       return null;
     }
@@ -123,31 +131,30 @@ const Useg = (props) => {
         {data.length !== 0 &&
           data.map((el, i) => (
             <div key={i}>
-              <div onClick={showModal} className="useg-box pointer">
+              <div onClick={() => showModal(el)} className="useg-box pointer">
                 <h3>{el.title}</h3>
                 {getTable(el, "vertical")}
               </div>
-
-              <Modal
-                title={el.title}
-                visible={isModalVisible}
-                onCancel={handleCancel}
-                footer={null}
-                centered
-              >
-                {getTable(el, "hor")}
-                {setEgshig(el)}
-                <h6 className="pt-10 text-center">Жишээ үгс</h6>
-                <div
-                  className="vseg-del"
-                  dangerouslySetInnerHTML={{
-                    __html: el.content,
-                  }}
-                />
-              </Modal>
             </div>
           ))}
       </div>
+      <Modal
+        title={modalData.title}
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        footer={null}
+        centered
+      >
+        {getTable(modalData, "hor")}
+        {setEgshig(modalData)}
+        <h6 className="pt-10 text-center">Жишээ үгс</h6>
+        <div
+          className="vseg-del"
+          dangerouslySetInnerHTML={{
+            __html: modalData.content,
+          }}
+        />
+      </Modal>
       {category.description !== "" ? (
         <div className="description">{category.description}</div>
       ) : null}

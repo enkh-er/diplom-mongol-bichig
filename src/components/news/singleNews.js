@@ -11,7 +11,7 @@ const SingleNews = (props) => {
   console.log(post);
   console.log(posts);
   return (
-    <section className="md-container">
+    <section className="p-30">
       <Row gutter={30}>
         <Col span={17}>
           <div className="news-more pr-30">

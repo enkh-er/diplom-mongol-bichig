@@ -51,21 +51,23 @@ const News = () => {
   };
 
   return (
-    <section className="pt-90">
-      <Row justify="center">
-        <Col span={20}>
-          {pathLast === "medee-medeelel" ? (
-            <AllNews posts={posts} images={images} />
-          ) : (
-            <SingleNews
-              posts={posts.slice(0, 5)}
-              post={post}
-              image={image}
-              images={images.slice(0, 5)}
-            />
-          )}
-        </Col>
-      </Row>
+    <section className="pt-90  back-light-blue">
+      <div className="md-container">
+        <Row justify="center">
+          <Col span={20} className="back-white br-7">
+            {pathLast === "medee-medeelel" ? (
+              <AllNews posts={posts} images={images} />
+            ) : (
+              <SingleNews
+                posts={posts.slice(0, 5)}
+                post={post}
+                image={image}
+                images={images.slice(0, 5)}
+              />
+            )}
+          </Col>
+        </Row>
+      </div>
     </section>
   );
 };
