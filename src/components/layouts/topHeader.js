@@ -1,24 +1,25 @@
 import { Col, Row } from "antd";
 import React from "react";
 import { UserOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 const TopHeader = () => {
   return (
     <div className="top">
       <Row justify="center" align="middle">
         <Col span={20}>
           <div className="topHeader">
-            <a href="/">
+            <Link to="/">
               <span className="logo">Эрдэни</span>
-            </a>
+            </Link>
 
             <div className="right-menu">
-              <a href="/">Бидний тухай</a>
-              <a href="/">Холбоо барих</a>
-              <a href="/">
+              <Link to="/bidnii-tuhai">Бидний тухай</Link>
+              <Link to="/holboo-barih">Холбоо барих</Link>
+              <Link to="/">
                 <span className="user-ico">
                   <UserOutlined />
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </Col>

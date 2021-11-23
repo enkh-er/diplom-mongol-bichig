@@ -1,6 +1,6 @@
-import { Col, Row } from "antd";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
+import { Col, Row } from "antd";
 import {
   getCategoryByParent,
   getPostByCat,
@@ -48,16 +48,18 @@ const Surgalt = () => {
   };
 
   return (
-    <section className="pt-90  back-light-blue">
-      <Row justify="center md-container">
-        <Col span={20} className="back-white br-7">
-          {pathLast === "surgalt" ? (
-            <Surgaltuud surgaltuud={childPosts} images={images} />
-          ) : (
-            <div>surgalt</div>
-          )}
-        </Col>
-      </Row>
+    <section className="pt-90 back-light-blue">
+      <div className="md-container">
+        <Row justify="center">
+          <Col span={20} className="back-white br-7">
+            {pathLast === "surgalt" ? (
+              <Surgaltuud surgaltuud={childPosts} images={images} />
+            ) : (
+              <div>surgalt</div>
+            )}
+          </Col>
+        </Row>
+      </div>
     </section>
   );
 };

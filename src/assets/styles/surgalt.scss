@@ -1,0 +1,62 @@
+.surgalt {
+  height: 450px;
+  border-bottom: 3px solid $light-gray;
+
+  @include transition(0.5s);
+  .image {
+    height: 60%;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    img {
+      filter: brightness(70%);
+      @include transition(0.3s);
+    }
+  }
+  h5,
+  strong {
+    margin-top: 0.8rem;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02rem;
+    font-size: 1.3rem;
+    color: $darkest-blue;
+  }
+  h5:hover {
+    text-decoration: underline;
+  }
+  .grayText {
+    color: #6a6f73;
+    margin-bottom: 0.4rem;
+    font-weight: 400;
+    line-height: 1.4;
+    font-size: 0.9rem;
+  }
+  .ratingNum {
+    margin-right: 0.4rem;
+    padding-top: 0.2rem;
+    color: #b4690e;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .vne {
+    .line {
+      top: 50%;
+      left: 0.4rem;
+      right: 0;
+      border-top: 1px solid gray;
+    }
+  }
+}
+.surgalt:hover {
+  border-image: linear-gradient(90deg, rgb(8, 122, 216), rgb(255, 131, 193)) 1;
+  img {
+    filter: none;
+    @include transform(scale(1.1));
+  }
+  strong,
+  h5 {
+    color: $darker-blue10;
+  }
+}
