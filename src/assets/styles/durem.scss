@@ -47,8 +47,7 @@
     border-bottom: 1px solid $light-gray;
   }
 }
-
-.post-durem {
+.durem {
   table {
     border-radius: 7px;
   }
@@ -61,6 +60,12 @@
   td {
     padding: 5px;
   }
+}
+.post-durem {
+  p {
+    text-align: justify;
+  }
+
   strong {
     text-align: center;
   }
@@ -75,12 +80,34 @@
   h4 {
     @include mb-w;
   }
+  ul {
+    padding-left: 20px;
+  }
+  li {
+    list-style: square;
+    text-align: justify;
+  }
 }
-
+.dewsger {
+  table {
+    width: 100%;
+  }
+  thead {
+    background-color: $light-blue;
+  }
+  td,
+  h3 {
+    text-align: center;
+  }
+  h4 {
+    @include mb;
+  }
+}
 .useg-box {
   box-shadow: $box-shadow1;
   border-radius: 7px;
   padding: 15px;
+  height: 100%;
   @include transition(0.1s);
   h3 {
     margin-top: 0;
@@ -140,7 +167,69 @@
   background-color: $light-blue;
   padding: 10px;
   border-radius: 7px;
-  margin-top: 30px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.urt-hos-egshig {
+  h3 {
+    font-size: 1.2rem;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      @include mb;
+      font-size: 18px;
+      strong {
+        font-weight: 400;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.str {
+  strong {
+    @include mb;
+  }
+}
+
+.dagawar-box {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  // border: 1px solid $light-gray;
+  height: 100%;
+  display: flex;
+  @include transition(0.2s);
+  h6 {
+    border-right: 1px solid $light-gray;
+    background-color: $light-blue;
+    margin: 0 !important;
+    text-align: center;
+    padding: 10px 5px !important;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    @include mb;
+    @include transition(0.2s);
+  }
+  p {
+    margin-bottom: 0;
+  }
+  strong {
+    @include mb;
+  }
+  div {
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+  }
+}
+.dagawar-box:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  h6 {
+    background-color: $darker-blue20;
+    color: white;
+  }
 }

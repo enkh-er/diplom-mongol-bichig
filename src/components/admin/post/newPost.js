@@ -48,7 +48,6 @@ const NewPost = () => {
   const handleChange = (e, editor) => {
     const data = editor.getData();
     setContent(data);
-    console.log(data);
   };
 
   async function catChange(value) {
@@ -68,14 +67,13 @@ const NewPost = () => {
               name: cf[k].name,
               key: cf[k].key,
               type: cf[k].type,
-              value: null,
+              value: "",
             };
             f.push(obj);
           }
         }
       }
     }
-    console.log(f);
     setFields(f);
   }
 
@@ -92,7 +90,6 @@ const NewPost = () => {
         return;
       }
     }
-    // console.log(e.target.files[0]);
     const imgId = await getFileByName(e.target.files[0].name);
     if (!imgId || imgId.length === "") {
       const formData = new FormData();
@@ -102,13 +99,6 @@ const NewPost = () => {
       setImage(imgId);
     }
   };
-
-  // const onChangeTitle = (e) => {
-  //   setTitle(e.target.value.toString());
-  // let defaultLink = e.target.value.toString().toLowerCase();
-  // defaultLink = defaultLink.replace(" ", "-");
-  // setLink(defaultLink);
-  // };
 
   const onSubmit = async () => {
     if (title.length > 0 && link.length > 0) {
@@ -161,7 +151,7 @@ const NewPost = () => {
       fields[i].value = e.target.checked;
     }
     setFields(fields);
-    console.log(fields);
+    // console.log(fields);
   };
 
   const getFields = () => {

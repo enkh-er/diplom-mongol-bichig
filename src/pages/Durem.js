@@ -8,13 +8,13 @@ import {
 import { useLocation } from "react-router-dom";
 import SideMenu from "../components/durem/sideMenu";
 import Useg from "../components/durem/useg";
+import Dagawar from "../components/durem/dagawar";
 
 const Durem = () => {
   const [sideMenus, setSideMenus] = useState([]);
   const [pathLast, setPathLast] = useState("");
   const [posts, setPosts] = useState([]);
   const [category, setCategory] = useState({});
-  // const [childPosts, setChildPosts] = useState([]);
   let location = useLocation();
 
   useEffect(() => {
@@ -41,8 +41,13 @@ const Durem = () => {
   return (
     <section className="pt-90 back-light-blue">
       <SideMenu menus={sideMenus}>
-        {pathLast === "egshig" || pathLast === "giigvvlegch" ? (
+        {pathLast === "egshig" ||
+        pathLast === "giigvvlegch" ||
+        pathLast === "gadaad-useg" ? (
           <Useg data={posts} category={category} />
+        ) : pathLast === "vil-vg-bvteeh-dagawaruud" ||
+          pathLast === "ner-vg-bvteeh-dagawaruud" ? (
+          <Dagawar data={posts} category={category} />
         ) : (
           <article>
             {posts.length !== 0 &&
@@ -50,7 +55,13 @@ const Durem = () => {
                 <div key={i}>
                   <h1 className="text-center">{el.title}</h1>
                   <div
-                    className="post-durem"
+                    className={
+                      pathLast === "dewsger-useg"
+                        ? "dewsger durem"
+                        : pathLast === "mahbod"
+                        ? "post-durem durem "
+                        : "urt-hos-egshig durem"
+                    }
                     dangerouslySetInnerHTML={{
                       __html: el.content,
                     }}

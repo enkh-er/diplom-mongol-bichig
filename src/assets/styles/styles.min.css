@@ -296,6 +296,16 @@ ul {
   text-shadow: black 0.1em 0.1em 0.2em;
 }
 
+.grid6 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.grid5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .grid4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -373,7 +383,6 @@ ul {
 }
 .slider-main .slider-info {
   text-align: center;
-  padding: 30px;
   display: flex !important;
   justify-content: center;
   z-index: 2;
@@ -934,17 +943,21 @@ footer hr {
   border-bottom: 1px solid #f0f0f0;
 }
 
-.post-durem table {
+.durem table {
   border-radius: 7px;
 }
-.post-durem table,
-.post-durem th,
-.post-durem td {
+.durem table,
+.durem th,
+.durem td {
   border: 1px solid #f0f0f0;
   border-collapse: collapse;
 }
-.post-durem td {
+.durem td {
   padding: 5px;
+}
+
+.post-durem p {
+  text-align: justify;
 }
 .post-durem strong {
   text-align: center;
@@ -984,11 +997,45 @@ footer hr {
   -webkit-text-orientation: sideways-right;
   text-justify: inter-ideograph;
 }
+.post-durem ul {
+  padding-left: 20px;
+}
+.post-durem li {
+  list-style: square;
+  text-align: justify;
+}
+
+.dewsger table {
+  width: 100%;
+}
+.dewsger thead {
+  background-color: #cee6f1;
+}
+.dewsger td,
+.dewsger h3 {
+  text-align: center;
+}
+.dewsger h4 {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian White";
+  font-size: 22px;
+  font-weight: 500;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
 
 .useg-box {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 7px;
   padding: 15px;
+  height: 100%;
   -moz-transition: 0.1s;
   -o-transition: 0.1s;
   -webkit-transition: 0.1s;
@@ -1069,8 +1116,118 @@ footer hr {
   background-color: #cee6f1;
   padding: 10px;
   border-radius: 7px;
-  margin-top: 30px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.urt-hos-egshig h3 {
+  font-size: 1.2rem;
+}
+.urt-hos-egshig ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.urt-hos-egshig ul li {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian White";
+  font-size: 22px;
+  font-weight: 500;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+  font-size: 18px;
+}
+.urt-hos-egshig ul li strong {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.str strong {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian White";
+  font-size: 22px;
+  font-weight: 500;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
+
+.dagawar-box {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  height: 100%;
+  display: flex;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.dagawar-box h6 {
+  border-right: 1px solid #f0f0f0;
+  background-color: #cee6f1;
+  margin: 0 !important;
+  text-align: center;
+  padding: 10px 5px !important;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian White";
+  font-size: 22px;
+  font-weight: 500;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.dagawar-box p {
+  margin-bottom: 0;
+}
+.dagawar-box strong {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian White";
+  font-size: 22px;
+  font-weight: 500;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
+}
+.dagawar-box div {
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+}
+
+.dagawar-box:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.dagawar-box:hover h6 {
+  background-color: #005a87;
+  color: white;
 }
 
 @font-face {
@@ -1084,8 +1241,6 @@ footer hr {
   width: 60%;
   margin-top: 30px;
   border-radius: 30px;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
-  padding: 50px 30px 0 30px;
 }
 .wrapper h2 {
   font-size: 4rem;

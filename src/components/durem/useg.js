@@ -87,15 +87,23 @@ const Useg = (props) => {
     if (!el.acf.ae || !el.acf.ii || !el.acf.ou || !el.acf.ov) {
       return null;
     }
-    const ae = el.acf.ae.split(" ");
-    const ii = el.acf.ii.split(" ");
-    const ou = el.acf.ou.split(" ");
-    const ov = el.acf.ov.split(" ");
-    const egshgeer = [ae, ii, ou, ov];
-    const egshgvvd = ["а, э", "и", "о, у", "ө, ү"];
+    const ae = el.acf.ae.split("᠂");
+    const ii = el.acf.ii.split("᠂");
+    const ou = el.acf.ou.split("᠂");
+    const ov = el.acf.ov.split("᠂");
+    const vseg = [el.acf.ehen, el.acf.dund, el.acf.adagt];
+    const egshgeer = [vseg, ae, ii, ou, ov];
+    const v = el.acf.useg;
+    const egshgvvd = [
+      v,
+      `${v}а, ${v}э`,
+      `${v}и`,
+      `${v}о, ${v}у`,
+      `${v}ө, ${v}ү`,
+    ];
     return (
       <div>
-        <h6 className="pt-10 text-center">Эгшгээр амилуулсан</h6>
+        {/* <h6 className="pt-10 text-center">Эгшгээр амилуулсан</h6> */}
         <table className="vseg-table-del">
           <thead>
             <tr>
@@ -124,29 +132,93 @@ const Useg = (props) => {
       </div>
     );
   };
+
+  const setGadaadEgshig = (el) => {
+    if (Object.entries(el).length === 0) {
+      return null;
+    }
+    if (!el.acf.aa || !el.acf.ii || !el.acf.ee || !el.acf.oo || !el.acf.uv) {
+      return null;
+    }
+    const aa = el.acf.aa.split("᠂");
+    const ee = el.acf.ee.split("᠂");
+    const ii = el.acf.ii.split("᠂");
+    const oo = el.acf.oo.split("᠂");
+    const uv = el.acf.uv.split("᠂");
+    const vseg = [el.acf.ehen, el.acf.dund, el.acf.adagt];
+    const egshgeer = [vseg, aa, ee, ii, oo, uv];
+    const v = el.acf.useg;
+    const uov = el.acf.isO ? `${v}у,${v}ө, ${v}ү` : `${v}у, ${v}ү`;
+    const egshgvvd = [v, `${v}а`, `${v}е`, `${v}и`, `${v}о`, uov];
+    return (
+      <div>
+        {/* <h6 className="pt-10 text-center">Эгшгээр амилуулсан</h6> */}
+        <table className="vseg-table-del">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Эхэн</th>
+              <th>Дунд</th>
+              <th>Адагт</th>
+            </tr>
+          </thead>
+          <tbody>
+            {egshgvvd.map((item, i) => (
+              <tr key={i}>
+                <td>{item}</td>
+                {egshgeer[i].map((elm) => (
+                  <td key={"item" + elm + i}>
+                    <div className="mb-center">
+                      <span className="bichig"> {elm}</span>
+                      <span className="bichigw"> {elm}</span>
+                    </div>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  };
+
   return (
     <>
-      <h1 className="text-center">{category.name} үсэг</h1>
+      <h1 className="text-center">{category.name}</h1>
       <div className=" grid3 gap30">
         {data.length !== 0 &&
           data.map((el, i) => (
             <div key={i}>
               <div onClick={() => showModal(el)} className="useg-box pointer">
-                <h3>{el.title}</h3>
+                <h3>{el.title} үсэг</h3>
                 {getTable(el, "vertical")}
               </div>
             </div>
           ))}
       </div>
       <Modal
-        title={modalData.title}
+        title={modalData.title + " үсэг"}
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
         centered
       >
-        {getTable(modalData, "hor")}
-        {setEgshig(modalData)}
+        {category.link === "egshig" && getTable(modalData, "hor")}
+        {category.link === "giigvvlegch" && setEgshig(modalData)}
+        {category.link === "gadaad-useg" && setGadaadEgshig(modalData)}
+        {modalData.acf &&
+        modalData.acf.description &&
+        modalData.acf.description !== "" ? (
+          <>
+            <h6 className="pt-10 text-center">Тайлбар</h6>
+            <div
+              className="description str"
+              dangerouslySetInnerHTML={{
+                __html: modalData.acf.description,
+              }}
+            />
+          </>
+        ) : null}
         <h6 className="pt-10 text-center">Жишээ үгс</h6>
         <div
           className="vseg-del"
@@ -156,7 +228,12 @@ const Useg = (props) => {
         />
       </Modal>
       {category.description !== "" ? (
-        <div className="description">{category.description}</div>
+        <div
+          className="description mt-30"
+          dangerouslySetInnerHTML={{
+            __html: category.description,
+          }}
+        />
       ) : null}
     </>
   );

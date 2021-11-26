@@ -279,6 +279,14 @@ ul {
 }
 
 // ============display=============
+.grid6 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.grid5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
 .grid4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
