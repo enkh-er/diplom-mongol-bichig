@@ -54,7 +54,7 @@ const Useg = (props) => {
       );
     }
     return (
-      <table className="vseg-table-del">
+      <table className="vseg-table-del  table-general">
         <thead>
           <tr>
             <th></th>
@@ -104,7 +104,7 @@ const Useg = (props) => {
     return (
       <div>
         {/* <h6 className="pt-10 text-center">Эгшгээр амилуулсан</h6> */}
-        <table className="vseg-table-del">
+        <table className="vseg-table-del  table-general">
           <thead>
             <tr>
               <th></th>
@@ -153,7 +153,7 @@ const Useg = (props) => {
     return (
       <div>
         {/* <h6 className="pt-10 text-center">Эгшгээр амилуулсан</h6> */}
-        <table className="vseg-table-del">
+        <table className="vseg-table-del  table-general">
           <thead>
             <tr>
               <th></th>
@@ -188,7 +188,7 @@ const Useg = (props) => {
       <div className=" grid3 gap30">
         {data.length !== 0 &&
           data.map((el, i) => (
-            <div key={i}>
+            <div key={i} className="table-100">
               <div onClick={() => showModal(el)} className="useg-box pointer">
                 <h3>{el.title} үсэг</h3>
                 {getTable(el, "vertical")}
@@ -212,7 +212,7 @@ const Useg = (props) => {
           <>
             <h6 className="pt-10 text-center">Тайлбар</h6>
             <div
-              className="description str"
+              className="description  strong-mb"
               dangerouslySetInnerHTML={{
                 __html: modalData.acf.description,
               }}
@@ -221,7 +221,7 @@ const Useg = (props) => {
         ) : null}
         <h6 className="pt-10 text-center">Жишээ үгс</h6>
         <div
-          className="vseg-del"
+          className="vseg-del strong-mb"
           dangerouslySetInnerHTML={{
             __html: modalData.content,
           }}

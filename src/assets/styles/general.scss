@@ -104,6 +104,9 @@ h6 {
 .p-5 {
   padding: 2px;
 }
+.p-15 {
+  padding: 15px;
+}
 /*----padding bottom----*/
 .pb-10 {
   padding-bottom: 0.625rem;
@@ -294,6 +297,10 @@ ul {
 .grid3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 .gap50 {
   gap: 50px;

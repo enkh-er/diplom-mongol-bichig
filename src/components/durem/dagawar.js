@@ -10,11 +10,8 @@ const Dagawar = (props) => {
       <div className="grid5 gap20">
         {data.length !== 0 &&
           data.map((el, i) => (
-            <div key={i} className="dagawar-box  br-7">
-              {/* <div className="flex"> */}
+            <div key={i} className="dagawar-box strong-mb  br-7">
               <h6>{el.title}</h6>
-              {/* <p>(-daga)</p>
-              </div> */}
               <div
                 dangerouslySetInnerHTML={{
                   __html: el.content,

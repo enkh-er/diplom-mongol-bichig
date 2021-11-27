@@ -106,6 +106,10 @@ h6 {
   padding: 2px;
 }
 
+.p-15 {
+  padding: 15px;
+}
+
 /*----padding bottom----*/
 .pb-10 {
   padding-bottom: 0.625rem;
@@ -314,6 +318,11 @@ ul {
 .grid3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .gap50 {
@@ -911,7 +920,6 @@ footer hr {
 }
 
 .side-bar {
-  border-radius: 7px;
   overflow: hidden;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   margin-bottom: 0;
@@ -943,24 +951,8 @@ footer hr {
   border-bottom: 1px solid #f0f0f0;
 }
 
-.durem table {
-  border-radius: 7px;
-}
-.durem table,
-.durem th,
-.durem td {
-  border: 1px solid #f0f0f0;
-  border-collapse: collapse;
-}
-.durem td {
-  padding: 5px;
-}
-
 .post-durem p {
   text-align: justify;
-}
-.post-durem strong {
-  text-align: center;
 }
 .post-durem h3,
 .post-durem h4 {
@@ -997,17 +989,7 @@ footer hr {
   -webkit-text-orientation: sideways-right;
   text-justify: inter-ideograph;
 }
-.post-durem ul {
-  padding-left: 20px;
-}
-.post-durem li {
-  list-style: square;
-  text-align: justify;
-}
 
-.dewsger table {
-  width: 100%;
-}
 .dewsger thead {
   background-color: #cee6f1;
 }
@@ -1034,8 +1016,8 @@ footer hr {
 .useg-box {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 7px;
-  padding: 15px;
   height: 100%;
+  padding: 15px;
   -moz-transition: 0.1s;
   -o-transition: 0.1s;
   -webkit-transition: 0.1s;
@@ -1047,23 +1029,15 @@ footer hr {
   text-align: center;
   color: #006ba1;
   font-weight: bold;
+  padding: 10px 0;
+}
+.useg-box h4 {
+  text-align: center;
 }
 
 .useg-box th,
 .useg-box td {
   padding: 5px;
-}
-
-.vseg-table-del {
-  width: 100%;
-}
-
-.vseg-table-del th,
-.vseg-table-del td {
-  text-align: center;
-  padding: 10px;
-  border: 1px solid #f0f0f0;
-  border-collapse: collapse;
 }
 
 .useg-box:hover {
@@ -1076,25 +1050,11 @@ footer hr {
   flex-wrap: wrap;
 }
 .vseg-del p {
+  font-size: 1rem;
   margin-right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.vseg-del p strong {
-  margin: 2px 1px 0px 1px;
-  padding: 0px;
-  font-family: "Mongolian White";
-  font-size: 22px;
-  font-weight: 500;
-  -moz-writing-mode: vertical-lr;
-  writing-mode: vertical-lr;
-  -webkit-writing-mode: vertical-lr;
-  -o-writing-mode: vertical-lr;
-  -ms-writing-mode: tb-lr;
-  writing-mode: tb-lr;
-  -webkit-text-orientation: sideways-right;
-  text-justify: inter-ideograph;
 }
 
 .ant-modal-content {
@@ -1116,6 +1076,8 @@ footer hr {
   background-color: #cee6f1;
   padding: 10px;
   border-radius: 7px;
+  text-align: justify;
+  font-size: 1rem;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
@@ -1145,22 +1107,6 @@ footer hr {
 .urt-hos-egshig ul li strong {
   font-weight: 400;
   font-size: 1.5rem;
-}
-
-.str strong {
-  margin: 2px 1px 0px 1px;
-  padding: 0px;
-  font-family: "Mongolian White";
-  font-size: 22px;
-  font-weight: 500;
-  -moz-writing-mode: vertical-lr;
-  writing-mode: vertical-lr;
-  -webkit-writing-mode: vertical-lr;
-  -o-writing-mode: vertical-lr;
-  -ms-writing-mode: tb-lr;
-  writing-mode: tb-lr;
-  -webkit-text-orientation: sideways-right;
-  text-justify: inter-ideograph;
 }
 
 .dagawar-box {
@@ -1201,7 +1147,58 @@ footer hr {
 .dagawar-box p {
   margin-bottom: 0;
 }
-.dagawar-box strong {
+.dagawar-box div {
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+}
+
+.dagawar-box:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.dagawar-box:hover h6 {
+  background-color: #005a87;
+  color: white;
+}
+
+.nohtsol {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 0;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.nohtsol th {
+  font-weight: 500;
+  color: #005a87;
+}
+.nohtsol h4 {
+  color: #0a314d;
+  font-size: 1.2rem;
+  background-color: #cee6f1;
+  padding: 5px 0;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.nohtsol .table {
+  margin: 0 15px 15px 15px;
+}
+
+.nohtsol:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.nohtsol:hover h4 {
+  color: white;
+  background-color: #005a87;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.too th {
   margin: 2px 1px 0px 1px;
   padding: 0px;
   font-family: "Mongolian White";
@@ -1215,19 +1212,62 @@ footer hr {
   writing-mode: tb-lr;
   -webkit-text-orientation: sideways-right;
   text-justify: inter-ideograph;
+  padding: 10px 5px !important;
 }
-.dagawar-box div {
-  text-align: center;
-  padding: 5px;
-  width: 100%;
+.too strong {
+  font-size: 2rem;
+  font-family: "Mongolian White";
+  align-items: center;
 }
 
-.dagawar-box:hover {
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+.table-general {
+  width: 100%;
+  font-size: 1rem;
 }
-.dagawar-box:hover h6 {
-  background-color: #005a87;
-  color: white;
+.table-general table {
+  width: 100% !important;
+}
+.table-general th {
+  line-height: 1;
+}
+.table-general th p {
+  margin-bottom: 0rem;
+}
+.table-general td,
+.table-general th {
+  text-align: center;
+  padding: 7px;
+  border: 1px solid #f0f0f0 !important;
+  border-collapse: collapse;
+}
+
+.table-100 table {
+  width: 100% !important;
+}
+
+.h4-center h4 {
+  text-align: center;
+}
+
+.h4-hide h4 {
+  display: none;
+}
+
+.strong-mb strong,
+.strong-mb b {
+  margin: 2px 1px 0px 1px;
+  padding: 0px;
+  font-family: "Mongolian White";
+  font-size: 22px;
+  font-weight: 500;
+  -moz-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -o-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: tb-lr;
+  -webkit-text-orientation: sideways-right;
+  text-justify: inter-ideograph;
 }
 
 @font-face {

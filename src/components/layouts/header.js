@@ -1,8 +1,7 @@
 import React from "react";
-import { Menu, Dropdown, Select, Input } from "antd";
+import { Menu, Dropdown, Input } from "antd";
 import { Link } from "react-router-dom";
 
-const { Option } = Select;
 const { Search } = Input;
 
 const { SubMenu } = Menu;
@@ -14,17 +13,24 @@ const Header = ({ subMenus, menus }) => {
   const onSearch = (value) => console.log(value);
 
   const menu = (item) => {
+    console.log(item);
     return (
       <Menu className="sub-menu">
-        {item.map((elems, i) => (
-          <SubMenu title={elems.name} key={elems.link + i}>
-            {elems.child_items.map((el) => (
-              <Menu.Item key={el.link}>
-                <Link to={`/durem/${el.link}`}>{el.name}</Link>
-              </Menu.Item>
-            ))}
-          </SubMenu>
-        ))}
+        {item.map((elems, i) => {
+          return elems.child_items && elems.child_items.length !== 0 ? (
+            <SubMenu title={elems.name} key={elems.link + i}>
+              {elems.child_items.map((el) => (
+                <Menu.Item key={el.link}>
+                  <Link to={`/${elems.code}/${el.link}`}>{el.name}</Link>
+                </Menu.Item>
+              ))}
+            </SubMenu>
+          ) : (
+            <Menu.Item key={elems.link}>
+              <Link to={`/${elems.code}/${elems.link}`}>{elems.name}</Link>
+            </Menu.Item>
+          );
+        })}
       </Menu>
     );
   };

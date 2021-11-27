@@ -6,7 +6,7 @@ const Sider = (props) => {
     return null;
   }
   return (
-    <ul className="side-bar">
+    <ul className="side-bar br-7">
       {menus.map((el) => (
         <li key={el.name}>
           <h6 className="title">{el.name}</h6>

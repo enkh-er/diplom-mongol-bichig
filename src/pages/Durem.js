@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import SideMenu from "../components/durem/sideMenu";
 import Useg from "../components/durem/useg";
 import Dagawar from "../components/durem/dagawar";
+import Nohtsol from "../components/durem/nohtsol";
 
 const Durem = () => {
   const [sideMenus, setSideMenus] = useState([]);
@@ -48,6 +49,10 @@ const Durem = () => {
         ) : pathLast === "vil-vg-bvteeh-dagawaruud" ||
           pathLast === "ner-vg-bvteeh-dagawaruud" ? (
           <Dagawar data={posts} category={category} />
+        ) : pathLast.includes("nohtsol") ||
+          pathLast === "olon-too" ||
+          pathLast.includes("hamaatuulah") ? (
+          <Nohtsol data={posts} category={category} />
         ) : (
           <article>
             {posts.length !== 0 &&
@@ -57,10 +62,12 @@ const Durem = () => {
                   <div
                     className={
                       pathLast === "dewsger-useg"
-                        ? "dewsger durem"
+                        ? "dewsger table-general table-100"
                         : pathLast === "mahbod"
-                        ? "post-durem durem "
-                        : "urt-hos-egshig durem"
+                        ? "post-durem table-general"
+                        : pathLast === "too"
+                        ? "too table-general dewsger"
+                        : "urt-hos-egshig table-general"
                     }
                     dangerouslySetInnerHTML={{
                       __html: el.content,

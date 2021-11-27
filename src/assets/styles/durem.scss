@@ -15,7 +15,6 @@
   border-radius: 7px;
 }
 .side-bar {
-  border-radius: 7px;
   overflow: hidden;
   box-shadow: $box-shadow1;
   margin-bottom: 0;
@@ -47,27 +46,9 @@
     border-bottom: 1px solid $light-gray;
   }
 }
-.durem {
-  table {
-    border-radius: 7px;
-  }
-  table,
-  th,
-  td {
-    border: 1px solid $light-gray;
-    border-collapse: collapse;
-  }
-  td {
-    padding: 5px;
-  }
-}
 .post-durem {
   p {
     text-align: justify;
-  }
-
-  strong {
-    text-align: center;
   }
   h3,
   h4 {
@@ -80,18 +61,8 @@
   h4 {
     @include mb-w;
   }
-  ul {
-    padding-left: 20px;
-  }
-  li {
-    list-style: square;
-    text-align: justify;
-  }
 }
 .dewsger {
-  table {
-    width: 100%;
-  }
   thead {
     background-color: $light-blue;
   }
@@ -106,8 +77,8 @@
 .useg-box {
   box-shadow: $box-shadow1;
   border-radius: 7px;
-  padding: 15px;
   height: 100%;
+  padding: 15px;
   @include transition(0.1s);
   h3 {
     margin-top: 0;
@@ -115,21 +86,15 @@
     text-align: center;
     color: $darker-blue10;
     font-weight: bold;
+    padding: 10px 0;
+  }
+  h4 {
+    text-align: center;
   }
 }
 .useg-box th,
 .useg-box td {
   padding: 5px;
-}
-.vseg-table-del {
-  width: 100%;
-}
-.vseg-table-del th,
-.vseg-table-del td {
-  text-align: center;
-  padding: 10px;
-  border: 1px solid $light-gray;
-  border-collapse: collapse;
 }
 
 .useg-box:hover {
@@ -140,22 +105,18 @@
   display: flex;
   flex-wrap: wrap;
   p {
+    font-size: 1rem;
     margin-right: 10px;
     @include display-center;
-    strong {
-      @include mb;
-    }
   }
 }
 
 .ant-modal-content {
   border-radius: 7px;
-  //   background-color: $light-blue;
 }
 .ant-modal-header {
   border-radius: 7px 7px 0 0;
   text-align: center;
-  //   background-color: $light-blue;
 }
 .ant-modal-title {
   color: $darker-blue10;
@@ -167,6 +128,8 @@
   background-color: $light-blue;
   padding: 10px;
   border-radius: 7px;
+  text-align: justify;
+  font-size: 1rem;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
@@ -189,16 +152,9 @@
   }
 }
 
-.str {
-  strong {
-    @include mb;
-  }
-}
-
 .dagawar-box {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  // border: 1px solid $light-gray;
   height: 100%;
   display: flex;
   @include transition(0.2s);
@@ -216,9 +172,6 @@
   p {
     margin-bottom: 0;
   }
-  strong {
-    @include mb;
-  }
   div {
     text-align: center;
     padding: 5px;
@@ -231,5 +184,89 @@
   h6 {
     background-color: $darker-blue20;
     color: white;
+  }
+}
+.nohtsol {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 0;
+  @include transition(0.2s);
+  th {
+    font-weight: 500;
+    color: $darker-blue20;
+  }
+  h4 {
+    color: $darkest-blue;
+    font-size: 1.2rem;
+    background-color: $light-blue;
+    padding: 5px 0;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    @include transition(0.2s);
+  }
+  .table {
+    margin: 0 15px 15px 15px;
+  }
+}
+.nohtsol:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  h4 {
+    color: white;
+    background-color: $darker-blue20;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+      rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+}
+.too {
+  th {
+    @include mb;
+    padding: 10px 5px !important;
+  }
+  strong {
+    font-size: 2rem;
+    font-family: "Mongolian White";
+    align-items: center;
+  }
+}
+
+.table-general {
+  width: 100%;
+  font-size: 1rem;
+  table {
+    width: 100% !important;
+  }
+  th {
+    line-height: 1;
+    p {
+      margin-bottom: 0rem;
+    }
+  }
+  td,
+  th {
+    text-align: center;
+    padding: 7px;
+    border: 1px solid $light-gray !important;
+    border-collapse: collapse;
+  }
+}
+.table-100 {
+  table {
+    width: 100% !important;
+  }
+}
+.h4-center {
+  h4 {
+    text-align: center;
+  }
+}
+.h4-hide {
+  h4 {
+    display: none;
+  }
+}
+.strong-mb {
+  strong,
+  b {
+    @include mb;
   }
 }
