@@ -5,9 +5,10 @@ import {
   DashboardOutlined,
   FileTextOutlined,
   SwitcherOutlined,
-  UserOutlined,
+  HighlightOutlined,
   PicRightOutlined,
   BarsOutlined,
+  VideoCameraOutlined,
 } from "@ant-design/icons";
 
 const { Sider } = Layout;
@@ -46,7 +47,12 @@ const menuItems = [
   {
     name: "Хичээлүүд",
     link: "/mb-admin/hicheelvvd",
-    logo: <PicRightOutlined />,
+    logo: <VideoCameraOutlined />,
+  },
+  {
+    name: "Дасгал",
+    link: "/mb-admin/exercise",
+    logo: <HighlightOutlined />,
   },
 ];
 

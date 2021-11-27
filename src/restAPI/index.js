@@ -194,3 +194,31 @@ export async function getHicheelByCat(id) {
 export function deleteHicheel(id) {
   api.delete("/hicheel/" + id);
 }
+
+// DASGAL
+export async function addDasgal(d) {
+  return await api.post("/dasgal", d).then((res) => {
+    return res.data;
+  });
+}
+
+export async function getDasgaluud() {
+  return await api.get("/dasgaluud").then((res) => {
+    return res.data;
+  });
+}
+
+export async function getDasgal(id) {
+  return await api.get("/dasgal/" + id).then((res) => {
+    return res.data;
+  });
+}
+
+export async function getDasgalByCode(c) {
+  return await api.get("/dasgal-code/" + c).then((res) => {
+    return res.data;
+  });
+}
+export function deleteDasgal(id) {
+  api.delete("/delete-dasgal/" + id);
+}

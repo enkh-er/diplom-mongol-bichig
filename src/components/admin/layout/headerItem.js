@@ -33,10 +33,13 @@ const menuAdd = (
       <a href="/mb-admin/page">Хуудас</a>
     </Menu.Item>
     <Menu.Item key={3}>
-      <a href="/mb-admin/users">Хэрэглэгч</a>
+      <a href="/mb-admin/new-hicheel">Хичээл</a>
     </Menu.Item>
     <Menu.Item key={4}>
       <a href="/mb-admin/new-cf">Хэрэглэгчийн талбар</a>
+    </Menu.Item>
+    <Menu.Item key={5}>
+      <a href="/mb-admin/new-exercise">Дасгал</a>
     </Menu.Item>
   </Menu>
 );

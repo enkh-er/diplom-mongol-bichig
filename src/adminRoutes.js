@@ -18,6 +18,8 @@ import Admin from "./pages/Admin";
 import AdminLogin from "./components/admin/auth/admin-login";
 // import NotFound from "./Pages/NotFound";
 import RouteWithLayout from "./RouteWithLayout";
+import Exercise from "./components/admin/execises";
+import NewExercise from "./components/admin/execises/newExercise";
 
 const AdminRoutes = () => {
   //   const ctx = useContext(GlobalContext);
@@ -103,6 +105,20 @@ const AdminRoutes = () => {
           exact
           layout={AdminLayout}
           path="/mb-admin/custom-field"
+        />
+
+        <RouteWithLayout
+          component={Exercise}
+          exact
+          layout={AdminLayout}
+          path="/mb-admin/exercise"
+        />
+
+        <RouteWithLayout
+          component={NewExercise}
+          exact
+          layout={AdminLayout}
+          path="/mb-admin/new-exercise"
         />
 
         <RouteWithLayout

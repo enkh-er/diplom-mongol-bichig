@@ -59,7 +59,7 @@ const NewCF = () => {
           {(fields, { add, remove }) => (
             <>
               {fields.map((field, index) => (
-                <Space key={field.key} align="baseline">
+                <Space key={field.key + index} align="baseline">
                   <Form.Item
                     {...field}
                     label="Нэр"
