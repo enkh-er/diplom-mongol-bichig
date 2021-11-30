@@ -13,7 +13,6 @@ const Header = ({ subMenus, menus }) => {
   const onSearch = (value) => console.log(value);
 
   const menu = (item) => {
-    console.log(item);
     return (
       <Menu className="sub-menu">
         {item.map((elems, i) => {

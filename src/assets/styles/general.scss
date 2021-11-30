@@ -328,3 +328,18 @@ ul {
   object-fit: cover;
   object-position: center;
 }
+
+// border style
+
+.btr-7 {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+.bbr-7 {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.no-border {
+  border: none !important;
+}

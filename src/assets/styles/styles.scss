@@ -2,10 +2,11 @@
 @import "variebles.scss";
 @import "general.scss";
 @import "main.scss";
-@import "surgalt.scss";
-@import "layout.scss";
+@import "base/surgalt.scss";
+@import "base/layout.scss";
+@import "base/dasgal.scss";
 @import "admin.scss";
-@import "durem.scss";
-@import "text.scss";
+@import "base/durem.scss";
+@import "base/text.scss";
 @import "mBichig.scss";
 @import "responsiveness";

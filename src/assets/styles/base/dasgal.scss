@@ -1,0 +1,61 @@
+.dasgal {
+  .ant-menu-root {
+    border-radius: 7px;
+  }
+  .ant-menu {
+    width: 100%;
+    box-shadow: $box-shadow1;
+    border: none;
+  }
+  .ant-menu-submenu {
+    background-color: $darker-blue30 !important;
+    border-bottom: 1px solid $light-gray;
+  }
+  .ant-menu-submenu:hover {
+    background-color: $darker-blue30 !important;
+  }
+  //   .ant-menu-submenu-active {
+  //     background-color: $darker-blue10;
+  //     .ant-menu-submenu-title,
+  //     .ant-menu-submenu-arrow {
+  //       color: white;
+  //     }
+  //   }
+
+  .ant-menu-submenu-title {
+    margin: 0;
+    color: white;
+    font-size: 1rem;
+    text-shadow: black 0.1em 0.1em 0.2em;
+  }
+  .ant-menu-item {
+    border: none !important;
+    margin: 0 !important;
+  }
+  .ant-menu-submenu-arrow {
+    color: white;
+  }
+  .ant-radio-wrapper {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 1rem;
+  }
+  .ant-radio-group {
+    margin-bottom: 1rem;
+  }
+}
+.btn-submit {
+  border: 1px solid $darker-blue10;
+  outline: none;
+  background-color: $darker-blue10;
+  padding: 5px 30px;
+  border-radius: 20px;
+  color: white;
+  @include transition(0.3s);
+}
+.btn-submit:hover {
+  background-color: white;
+  border: 1px solid $darkest-blue;
+  font-weight: 500;
+  color: $darkest-blue;
+}

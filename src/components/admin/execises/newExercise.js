@@ -44,6 +44,8 @@ const NewExercise = () => {
       return;
     }
     addDasgal(values);
+    msg("success", "Амжилттай хадгаллаа");
+    form.resetFields();
   };
 
   return (
@@ -114,6 +116,12 @@ const NewExercise = () => {
                             <Option value="c">c</Option>
                           </Select>
                         </Form.Item>
+                        <Form.Item {...field} name={[field.name, "helber"]}>
+                          <Select style={{ width: 200 }} defaultValue="bosoo">
+                            <Option value="bosoo">Босоо</Option>
+                            <Option value="hewtee">Хэвтээ</Option>
+                          </Select>
+                        </Form.Item>
                       </Space>
                     </Form.Item>
                   </Form.Item>
@@ -153,6 +161,7 @@ const NewExercise = () => {
               ))}
           </Select>
         </Form.Item>
+
         <Form.Item wrapperCol={{ span: 12 }}>
           <Button type="primary" htmlType="submit">
             Хадгалах
