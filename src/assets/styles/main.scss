@@ -217,20 +217,37 @@ hr {
     text-align: center;
   }
   h1 {
-    width: fit-content;
     font-size: 4rem;
     color: #fff;
     text-shadow: 2px 2px 2px #61b1da;
-    padding: 10px 30px;
-    border-style: double !important;
     font-family: "Lobster";
     text-align: center;
   }
   p {
+    font-size: 1.3rem;
     color: $darker-blue10;
   }
 }
-
+.about-me {
+  h1 {
+    font-size: 3.5rem;
+    color: $darker-blue20;
+    text-shadow: 2px 2px 2px rgb(243, 239, 239);
+    font-family: "Lobster";
+    text-align: center;
+  }
+  img {
+    border-radius: 20px;
+    box-shadow: $box-shadow1;
+  }
+  p {
+    font-size: 1.5rem;
+    text-align: justify;
+    color: $darkest-blue;
+    padding-right: 30px;
+    padding-left: 50px;
+  }
+}
 .blob1 {
   width: 500px;
   height: 350px;

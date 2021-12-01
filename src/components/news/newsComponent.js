@@ -19,7 +19,7 @@ const NewsComponent = ({ el, img }) => {
   return (
     <article key={el.id} className="news-card">
       <div className="news-img">
-        <img src={getImage(img)} />
+        <img src={getImage(img)} alt={el.title} />
       </div>
       <div className="desc">
         <h6>{el.title}</h6>

@@ -23,11 +23,9 @@ const Dasgal = () => {
       const exercises = [];
       for (let i = 0; i < dat.length; i++) {
         const element = await getDasgalByCode(dat[i].link);
-        console.log(element);
         exercises.push(element);
       }
       setChooseDasgal(exercises[0][0] || {});
-      // if(exercises[0][0])
       setDasgaluud(exercises);
     }
     setMenus(dat);
@@ -47,7 +45,7 @@ const Dasgal = () => {
                 />
               </Col>
               <Col span={18}>
-                <DasgalHiih setDasgal={setChooseDasgal} dasgal={chooseDasgal} />
+                <DasgalHiih dasgal={chooseDasgal} />
               </Col>
             </Row>
           </Col>

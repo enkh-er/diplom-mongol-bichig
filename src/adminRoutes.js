@@ -3,8 +3,6 @@ import { BrowserRouter, Switch } from "react-router-dom";
 // import GlobalContext from "./Contexts/GlobalContext";
 import AdminLayout from "./components/admin/layout/adminLayout";
 import Category from "./components/admin/category";
-import Page from "./components/admin/page";
-import NewPage from "./components/admin/page/newPage";
 import Post from "./components/admin/post";
 import NewPost from "./components/admin/post/newPost";
 import UpdatePost from "./components/admin/post/updatePost";
@@ -43,18 +41,6 @@ const AdminRoutes = () => {
           exact
           layout={AdminLayout}
           path="/mb-admin/category"
-        />
-        <RouteWithLayout
-          component={Page}
-          exact
-          layout={AdminLayout}
-          path="/mb-admin/page"
-        />
-        <RouteWithLayout
-          component={NewPage}
-          exact
-          layout={AdminLayout}
-          path="/mb-admin/new-page"
         />
         <RouteWithLayout
           component={UpdatePost}

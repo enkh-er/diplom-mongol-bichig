@@ -94,12 +94,9 @@ export const Home = () => {
     ));
   };
 
-  const onSearch = (value) => console.log(value);
-
   const settings = {
     dots: false,
     infinite: true,
-    // fade: true,
     arrows: true,
     speed: 1000,
     slidesToShow: 1,
@@ -108,12 +105,14 @@ export const Home = () => {
     autoplaySpeed: 3000,
     cssEase: "linear",
   };
-  // console.log(content[0]);
-
   return (
     <section className="slider-main">
       <div className="slider-cont">
-        <img src={getImage(sliderImages[0])} className="slider-img" />
+        <img
+          src={getImage(sliderImages[0])}
+          className="slider-img"
+          alt="slider img"
+        />
         <div className="home-info">
           <Slider {...settings}>
             <div className="slider-info">

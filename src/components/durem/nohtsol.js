@@ -77,7 +77,7 @@ const Nohtsol = ({ data, category }) => {
           <>
             <h6>Тайлбар</h6>
             <div
-              className="description  strong-mb"
+              className="description  "
               dangerouslySetInnerHTML={{
                 __html: modalData.acf.tailbar,
               }}
@@ -88,7 +88,7 @@ const Nohtsol = ({ data, category }) => {
           <>
             <h6>Зөв дагуулах ёс</h6>
             <div
-              className="description  strong-mb"
+              className="description  "
               dangerouslySetInnerHTML={{
                 __html: modalData.acf.yos,
               }}

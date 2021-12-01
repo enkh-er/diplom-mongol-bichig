@@ -8,8 +8,6 @@ const SingleNews = (props) => {
   if (!post || Object.entries(post).length === 0 || image === null) {
     return null;
   }
-  console.log(post);
-  console.log(posts);
   return (
     <section className="p-30">
       <Row gutter={30}>
@@ -21,7 +19,7 @@ const SingleNews = (props) => {
             </div>
             <hr />
             <div className="mt-20 mb-20 image">
-              <img src={getImage(image)} />
+              <img src={getImage(image)} alt={post.title} />
             </div>
             <div
               className="text-justify"
@@ -35,7 +33,7 @@ const SingleNews = (props) => {
           <div className="ds-flex column latest-news">
             <h2 className="pb-20 bg-title-blue font-18">Шинэ мэдээ</h2>
             {posts.map((el, i) => (
-              <div className="lat-news">
+              <div className="lat-news" key={i}>
                 <Link key={el.id} to={"/medee-medeelel/" + el.link}>
                   <div className="ds-flex">
                     <img src={getImage(images[i])} />

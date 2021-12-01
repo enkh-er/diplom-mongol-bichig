@@ -116,8 +116,17 @@ const NewExercise = () => {
                             <Option value="c">c</Option>
                           </Select>
                         </Form.Item>
-                        <Form.Item {...field} name={[field.name, "helber"]}>
-                          <Select style={{ width: 200 }} defaultValue="bosoo">
+                        <Form.Item
+                          {...field}
+                          name={[field.name, "helber"]}
+                          rules={[
+                            {
+                              required: true,
+                              message: "хэлбэрийг сонгоно уу",
+                            },
+                          ]}
+                        >
+                          <Select style={{ width: 200 }} placeholder="хэлбэр">
                             <Option value="bosoo">Босоо</Option>
                             <Option value="hewtee">Хэвтээ</Option>
                           </Select>

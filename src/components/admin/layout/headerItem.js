@@ -29,9 +29,6 @@ const menuAdd = (
     <Menu.Item key={1}>
       <a href="/mb-admin/new-post">Нийтлэл</a>
     </Menu.Item>
-    <Menu.Item key={2}>
-      <a href="/mb-admin/page">Хуудас</a>
-    </Menu.Item>
     <Menu.Item key={3}>
       <a href="/mb-admin/new-hicheel">Хичээл</a>
     </Menu.Item>

@@ -30,11 +30,6 @@ const menuItems = [
     logo: <FileTextOutlined />,
   },
   {
-    name: "Хуудас",
-    link: "/mb-admin/page",
-    logo: <SwitcherOutlined />,
-  },
-  {
     name: "Цэс",
     link: "/mb-admin/menu",
     logo: <BarsOutlined />,

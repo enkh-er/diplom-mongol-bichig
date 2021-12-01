@@ -6,7 +6,9 @@ const UnshihMaterialuud = () => {
       <div className="md-container">
         <Row justify="center">
           <Col span={20} className="back-white br-7">
-            Unshih Materialuud
+            <div className="sm-container">
+              <h1 className="text-center">Унших материалууд</h1>
+            </div>
           </Col>
         </Row>
       </div>

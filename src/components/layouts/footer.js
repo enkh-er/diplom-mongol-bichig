@@ -1,10 +1,5 @@
 import { Col, Row, Form, Input, Button } from "antd";
-import {
-  PhoneFilled,
-  MailFilled,
-  FacebookFilled,
-  InstagramFilled,
-} from "@ant-design/icons";
+import { PhoneFilled, MailFilled } from "@ant-design/icons";
 import facebook from "../../assets/images/icons8-facebook.svg";
 import instagram from "../../assets/images/icons8-instagram.svg";
 

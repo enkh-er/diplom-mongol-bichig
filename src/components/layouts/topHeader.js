@@ -13,7 +13,7 @@ const TopHeader = () => {
             </Link>
 
             <div className="right-menu">
-              <Link to="/bidnii-tuhai">Бидний тухай</Link>
+              <Link to="/bidnii-tuhai">Тухай</Link>
               <Link to="/holboo-barih">Холбоо барих</Link>
               <Link to="/">
                 <span className="user-ico">
