@@ -2,10 +2,10 @@ import { Rate } from "antd";
 import { Link } from "react-router-dom";
 import { getImage } from "../../utils";
 
-const SurgaltComponent = ({ el, img }) => {
+const SurgaltComponent = ({ el, img, link }) => {
   return (
     <article className="surgalt" key={el.id}>
-      <Link to={"/surgalt/" + el.link}>
+      <Link to={"/surgalt/" + link}>
         <div className="image">
           <img src={getImage(img)} className="full img-center" />
         </div>

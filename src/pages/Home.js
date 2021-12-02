@@ -18,6 +18,7 @@ export const Home = () => {
   const [images, setImages] = useState([]);
   const [posts, setPosts] = useState([]);
   const [lastSurgaltuud, setLastSugaltuud] = useState([]);
+  const [surgaltuudCats, setSugaltuudCats] = useState([]);
   const [surgaltiinZurguud, setSurgaltiinZurguud] = useState([]);
 
   const getData = async () => {
@@ -63,6 +64,7 @@ export const Home = () => {
           surPosts.push(c[0]);
         }
       }
+      setSugaltuudCats(surgaltCats);
       setSurgaltiinZurguud(surImgs.slice(0, 4));
       setLastSugaltuud(surPosts.slice(0, 4));
     }
@@ -90,7 +92,12 @@ export const Home = () => {
       return null;
     }
     return lastSurgaltuud.map((el, i) => (
-      <SurgaltComponent el={el} img={surgaltiinZurguud[i]} />
+      <SurgaltComponent
+        el={el}
+        img={surgaltiinZurguud[i]}
+        key={i}
+        link={surgaltuudCats[i].link}
+      />
     ));
   };
 
@@ -109,7 +116,7 @@ export const Home = () => {
     <section className="slider-main">
       <div className="slider-cont">
         <img
-          src={getImage(sliderImages[0])}
+          src={sliderImages[0] && getImage(sliderImages[0])}
           className="slider-img"
           alt="slider img"
         />

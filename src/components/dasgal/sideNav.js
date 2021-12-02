@@ -1,23 +1,9 @@
-import { Menu } from "antd";
-
-const { SubMenu } = Menu;
-
 const SideNav = (props) => {
   const { dasgaluud, menus, setChooseDasgal } = props;
-  //   const [openKeys, setOpenKeys] = React.useState(menus[0].link || "");
 
   if (!menus || !dasgaluud) {
     return null;
   }
-
-  //   const onOpenChange = (keys) => {
-  //     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-  //     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-  //       setOpenKeys(keys);
-  //     } else {
-  //       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-  //     }
-  //   };
 
   return (
     <ul className="side-bar br-7">

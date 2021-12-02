@@ -10,3 +10,6 @@ export const truncate = (string, type) => {
 export const getImage = (img) => {
   return `data:image/jpg;base64,${img}`;
 };
+export const getPdfFile = (f) => {
+  return `data:application/pdf;base64,${f}`;
+};

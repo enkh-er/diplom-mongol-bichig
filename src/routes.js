@@ -59,9 +59,7 @@ const Routes = () => {
           layout={Layout}
           path="/surgalt/:id"
         />
-
         {/* <RouteWithLayout component={Home} exact layout={Layout} path="/home" /> */}
-
         {/* <Redirect to="/not-found" /> */}
       </Switch>
     </BrowserRouter>

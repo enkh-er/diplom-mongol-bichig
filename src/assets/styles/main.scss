@@ -277,3 +277,66 @@ hr {
   left: -100px;
   bottom: -100px;
 }
+
+// ===============unshih materials styles
+.unshih-mat {
+  padding: 0 2rem;
+  .ant-tabs-nav-wrap {
+    justify-content: center;
+  }
+  .ant-tabs-tab-btn {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .ant-tabs-content {
+    padding: 20px 0;
+  }
+}
+.unshih-modal {
+  width: 1200px !important;
+  transform-origin: 85px 43px;
+  overflow: hidden;
+  height: -webkit-fill-available;
+  .ant-modal-body {
+    width: 100%;
+    padding: 0;
+    height: 100%;
+  }
+  .ant-modal-content {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+.unshih-box {
+  width: 100%;
+  .ant-image {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+    height: 200px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+      rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    @include transition(0.3s);
+    border-radius: 7px;
+  }
+  h6 {
+    top: 0;
+    left: 0;
+    padding: 7px 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    color: white;
+    text-shadow: $shadow2;
+    line-height: 1.1;
+  }
+}
+.unshih-box:hover {
+  img {
+    filter: brightness(80%);
+  }
+}
