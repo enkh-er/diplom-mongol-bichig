@@ -59,9 +59,8 @@ const DasgalHiih = (props) => {
             <Radio.Group
               onChange={(e) => onChange(i, el.zow_huwilbar, e)}
               className={"radio" + { i }}
-              checked={false}
             >
-              <Radio value="a" id="a" checked={false}>
+              <Radio value="a" id="a">
                 <span className={el.helber === "bosoo" ? "bichig" : ""}>
                   {el.huwilbar_a}
                 </span>

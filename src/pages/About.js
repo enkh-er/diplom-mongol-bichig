@@ -3,22 +3,18 @@ import me from "../assets/images/me.jpg";
 
 const About = () => {
   return (
-    <section>
+    <section className="pt-90">
       <div className="about-back">
-        <div className="blob blob1"></div>
-        <div className="blob blob2"></div>
-        <div className="blob blob3"></div>
-        <div className="descr">
-          <h1>
-            {/* ᠮᠢᠨᠤ <br /> ᠲᠤᠬᠠᠢ */}
-            Эрдэни апп
-          </h1>
-          <p>
-            Эрдэнэ апп нь монгол бичиг суралцагсдад зориулагдсан ба монгол
-            бичгийн зөв бичих дүрэм, дасгал, унших материал, мэдээ мэдээлэл
-            болон онлайн сургалтуудыг агуулдаг.
-          </p>
-        </div>
+        <Row justify="center">
+          <Col span={20}>
+            <h1>Эрдэни апп</h1>
+            <p>
+              Эрдэнэ апп нь монгол бичиг суралцагсдад зориулагдсан ба монгол
+              бичгийн зөв бичих дүрэм, дасгал, унших материал, мэдээ мэдээлэл
+              болон онлайн сургалтуудыг агуулдаг.
+            </p>
+          </Col>
+        </Row>
       </div>
 
       <div className="md-container">

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router";
 import { Col, Row } from "antd";
 import {
   getCategoryByLink,

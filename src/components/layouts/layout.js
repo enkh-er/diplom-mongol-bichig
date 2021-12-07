@@ -14,10 +14,7 @@ const Layout = (props) => {
       if (dat[0].child_items) {
         const childs = [];
         for (let i = 0; i < dat[0].child_items.length; i++) {
-          if (
-            dat[0].child_items[i].code === "durem" ||
-            dat[0].child_items[i].code === "songodog_bichgvvd"
-          ) {
+          if (dat[0].child_items[i].code === "durem") {
             childs.push(await getMenusByCode(dat[0].child_items[i].code));
           }
         }

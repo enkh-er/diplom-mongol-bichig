@@ -1,6 +1,6 @@
 import { Image, Modal, Tabs } from "antd";
 import { useState } from "react";
-import { getImage, getPdfFile } from "../../utils";
+import { getImage } from "../../utils";
 
 const { TabPane } = Tabs;
 

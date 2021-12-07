@@ -6,6 +6,7 @@ import {
   getPostByCat,
   getFileById,
   getCategoryByLink,
+  getHicheelByCat,
 } from "../restAPI";
 import Surgaltuud from "../components/surgalt/surgaltuud";
 import SurgaltDelgerengvi from "../components/surgalt/surgaltDelgerengvi";
@@ -17,6 +18,8 @@ const Surgalt = () => {
   const [childPosts, setChildPosts] = useState([]);
   const [postDel, setPostDel] = useState({});
   const [postImg, setPostImg] = useState([]);
+  const [hicheelvvd, setHicheelvvd] = useState([]);
+  const [categoryID, setCategoryID] = useState("");
 
   let location = useLocation();
 
@@ -51,11 +54,13 @@ const Surgalt = () => {
     } else {
       const cat = await getCategoryByLink(path);
       const postsD = await getPostByCat(cat);
+      setHicheelvvd(await getHicheelByCat(cat));
       const pImgs = [];
       if (postsD[0] && postsD[0].image !== "") {
         pImgs[0] = await getFileById(postsD[0].image);
         pImgs[1] = await getFileById(postsD[0].acf.bagsh_zurag);
       }
+      setCategoryID(cat);
       setPostImg(pImgs);
       setPostDel(postsD[0]);
     }
@@ -74,7 +79,12 @@ const Surgalt = () => {
                 categories={childs}
               />
             ) : (
-              <SurgaltDelgerengvi data={postDel} images={postImg} />
+              <SurgaltDelgerengvi
+                data={postDel}
+                images={postImg}
+                hicheelvvd={hicheelvvd}
+                categoryID={categoryID}
+              />
             )}
           </Col>
         </Row>

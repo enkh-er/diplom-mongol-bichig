@@ -26,28 +26,6 @@
   h5:hover {
     text-decoration: underline;
   }
-  .grayText {
-    color: #6a6f73;
-    margin-bottom: 0.4rem;
-    font-weight: 400;
-    line-height: 1.4;
-    font-size: 0.9rem;
-  }
-  .ratingNum {
-    margin-right: 0.4rem;
-    padding-top: 0.2rem;
-    color: #b4690e;
-    font-weight: 700;
-    font-size: 1.1rem;
-  }
-  .vne {
-    .line {
-      top: 50%;
-      left: 0.4rem;
-      right: 0;
-      border-top: 1px solid gray;
-    }
-  }
 }
 .surgalt:hover {
   border-image: linear-gradient(90deg, rgb(8, 122, 216), rgb(255, 131, 193)) 1;
@@ -59,4 +37,98 @@
   h5 {
     color: $darker-blue10;
   }
+}
+.grayText {
+  color: #6a6f73;
+  margin-bottom: 0.4rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+.ratingNum {
+  margin-right: 0.4rem;
+  padding-top: 0.2rem;
+  color: #b4690e;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.vne {
+  .line {
+    top: 50%;
+    left: 0.4rem;
+    right: 0;
+    border-top: 1px solid gray;
+  }
+}
+
+.surgalt-del {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  border-radius: 7px;
+
+  button {
+    margin: 15px 0;
+    width: 100%;
+    padding: 5px 20px;
+    text-align: center;
+    background-color: $darker-blue10;
+    color: white;
+    border: 1px solid white;
+    @include transition(0.3s);
+  }
+  button:hover {
+    background-color: white;
+    color: $darker-blue10;
+    border: 1px solid $darker-blue10;
+  }
+}
+.surgalt-about {
+  h1 {
+    text-align: center;
+    text-shadow: $shadow3;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+  }
+  ul {
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    span {
+      margin-right: 20px;
+    }
+  }
+}
+
+.about-teacher {
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+  }
+}
+
+.hicheel-list {
+  margin-bottom: 0;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  padding: 10px;
+  li {
+    padding: 5px 15px 5px 0px;
+  }
+}
+
+.video-lesson {
+  padding: 20px;
+  video {
+    width: 100%;
+  }
+}
+
+.btn-list {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
