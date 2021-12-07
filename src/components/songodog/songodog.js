@@ -1,11 +1,12 @@
 import { Tabs } from "antd";
+import { getImage } from "../../utils";
 
 const { TabPane } = Tabs;
 
 const Songodog = (props) => {
-  const { menus } = props;
+  const { menus, images, datas } = props;
 
-  if (!menus) {
+  if (!menus || !datas) {
     return null;
   }
 
@@ -15,7 +16,17 @@ const Songodog = (props) => {
         {menus.length !== 0 &&
           menus.map((el, i) => (
             <TabPane tab={el.name} key={i}>
-              <div>content</div>
+              {datas.length !== 0 &&
+                datas[i].map((item, j) => (
+                  <div key={item.id}>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: item.content,
+                      }}
+                    />
+                    <img src={getImage(images[i][j])} />
+                  </div>
+                ))}
             </TabPane>
           ))}
       </Tabs>

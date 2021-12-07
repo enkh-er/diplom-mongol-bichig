@@ -69,7 +69,6 @@ const UnshihMaterials = (props) => {
         footer={null}
         centered
         className="unshih-modal"
-        // style={{ width: "100%", height: "100vh" }}
       >
         <iframe src={modalData.src} width="100%" />
       </Modal>

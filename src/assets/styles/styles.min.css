@@ -736,6 +736,14 @@ hr {
   color: #005a87;
 }
 
+.ant-tabs {
+  font-size: 1rem;
+}
+
+.songodog img {
+  margin-bottom: 1rem;
+}
+
 .surgalt {
   height: 450px;
   border-bottom: 3px solid #f0f0f0;
