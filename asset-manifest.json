@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/diplom-mongol-bichig/static/css/main.fdd0dad9.chunk.css",
-    "main.js": "/diplom-mongol-bichig/static/js/main.c6408742.chunk.js",
-    "main.js.map": "/diplom-mongol-bichig/static/js/main.c6408742.chunk.js.map",
+    "main.js": "/diplom-mongol-bichig/static/js/main.07db8ba6.chunk.js",
+    "main.js.map": "/diplom-mongol-bichig/static/js/main.07db8ba6.chunk.js.map",
     "runtime-main.js": "/diplom-mongol-bichig/static/js/runtime-main.6336bb19.js",
     "runtime-main.js.map": "/diplom-mongol-bichig/static/js/runtime-main.6336bb19.js.map",
     "static/css/2.58cd9cd3.chunk.css": "/diplom-mongol-bichig/static/css/2.58cd9cd3.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.58cd9cd3.chunk.css",
     "static/js/2.fa8d7d5c.chunk.js",
     "static/css/main.fdd0dad9.chunk.css",
-    "static/js/main.c6408742.chunk.js"
+    "static/js/main.07db8ba6.chunk.js"
   ]
 }
