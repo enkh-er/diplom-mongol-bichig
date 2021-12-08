@@ -4,7 +4,6 @@ import {
   BranchesOutlined,
   DashboardOutlined,
   FileTextOutlined,
-  SwitcherOutlined,
   HighlightOutlined,
   PicRightOutlined,
   BarsOutlined,

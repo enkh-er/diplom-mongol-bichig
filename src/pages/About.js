@@ -23,7 +23,7 @@ const About = () => {
             <article className="pb-30 about-me">
               <h1 className="">Миний тухай</h1>
               <div className="ds-flex">
-                <img src={me} alt="my photo" />
+                <img src={me} alt="my profile photo" />
                 <p>
                   Намайг Энх-Эрдэнэ гэдэг. Би МУИС-ийн ХШУИС-д Програм
                   хангамжийн мэргэжлээр суралцдаг. Миний бие монгол бичигт

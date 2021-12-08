@@ -1,6 +1,5 @@
 import { Menu, Dropdown, Button } from "antd";
 import { UserOutlined, PlusCircleOutlined } from "@ant-design/icons";
-import { useState } from "react";
 
 const menu = (
   <Menu>
@@ -41,7 +40,7 @@ const menuAdd = (
   </Menu>
 );
 const HeaderItem = () => {
-  const [admin, setAdmin] = useState("admin");
+  // const [admin, setAdmin] = useState("admin");
   return (
     <div>
       <Dropdown overlay={menuAdd} placement="topLeft" arrow className="left">
@@ -52,7 +51,7 @@ const HeaderItem = () => {
       </Dropdown>
       <Dropdown overlay={menu} placement="topRight" arrow className="right">
         <Button>
-          {admin}
+          admin
           <UserOutlined />
         </Button>
       </Dropdown>

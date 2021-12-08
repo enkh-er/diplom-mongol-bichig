@@ -13,22 +13,22 @@ const HicheelView = () => {
   let location = useLocation();
 
   useEffect(() => {
+    const getData = async () => {
+      const lessons = await getHicheelByCat(location.state.categoryID);
+      setHicheelvvd(lessons);
+      setLoadding(true);
+      setHicheel(lessons[0]);
+      if (lessons[0].video !== "") {
+        setVideo(await getFileById(lessons[0].video));
+      }
+      if (lessons[0].file !== "") {
+        setFile(await getFileById(lessons[0].file));
+      }
+      setLoadding(false);
+    };
+
     getData();
   }, []);
-
-  const getData = async () => {
-    const lessons = await getHicheelByCat(location.state.categoryID);
-    setHicheelvvd(lessons);
-    setLoadding(true);
-    setHicheel(lessons[0]);
-    if (lessons[0].video !== "") {
-      setVideo(await getFileById(lessons[0].video));
-    }
-    if (lessons[0].file !== "") {
-      setFile(await getFileById(lessons[0].file));
-    }
-    setLoadding(false);
-  };
 
   const handleChangeHicheel = async (id) => {
     setLoadding(true);

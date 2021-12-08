@@ -8,7 +8,7 @@ const layout = {
   wrapperCol: { span: 24 },
 };
 const validateMessages = {
-  required: "${label} талбарыг заавал бөглөх шаарлагатай!",
+  required: "талбарыг заавал бөглөх шаарлагатай!",
 };
 
 const Footer = ({ menus }) => {
@@ -36,14 +36,14 @@ const Footer = ({ menus }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={facebook} className="p-5" />
+                <img src={facebook} className="p-5" alt="facebook" />
               </a>
               <a
                 href="https://www.instagram.com/enkhgem/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={instagram} />
+                <img src={instagram} alt="instagram" />
               </a>
             </div>
           </Col>
