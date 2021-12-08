@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 // import GlobalContext from "./Contexts/GlobalContext";
 import Layout from "./components/layouts/layout";
 import { Home } from "./pages/Home";
@@ -11,9 +11,9 @@ import About from "./pages/About";
 import Dasgal from "./pages/Dasgal";
 import SongodogBichgvvd from "./pages/SongodogBichgvvd";
 import UnshihMaterialuud from "./pages/UnshihMaterialuud";
+import NotFound from "./pages/NotFound";
 // import NotFound from "./Pages/NotFound";
 import RouteWithLayout from "./RouteWithLayout";
-import NotFound from "./pages/NotFound";
 import HicheelView from "./pages/hicheelView";
 const Routes = () => {
   //   const ctx = useContext(GlobalContext);
@@ -65,13 +65,8 @@ const Routes = () => {
           layout={Layout}
           path="/surgalt-vzeh/:link"
         />
-        <RouteWithLayout
-          component={NotFound}
-          layout={Layout}
-          path="/not-found"
-        />
-        {/* <Redirect to="/not-found" /> */}
       </Switch>
+      <RouteWithLayout component={NotFound} layout={Layout} path="/not-found" />
     </BrowserRouter>
   );
 };

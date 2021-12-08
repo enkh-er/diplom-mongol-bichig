@@ -17,8 +17,6 @@ const Dasgal = () => {
 
   const getData = async () => {
     const dat = await getMenusByCode("dasgal");
-    let lastPath = location.pathname.split("/");
-    lastPath = lastPath[lastPath.length - 1];
     if (dat && dat.length > 0) {
       const exercises = [];
       for (let i = 0; i < dat.length; i++) {

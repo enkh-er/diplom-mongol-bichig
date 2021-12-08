@@ -7,7 +7,7 @@ const SurgaltComponent = ({ el, img, link }) => {
     <article className="surgalt" key={el.id}>
       <Link to={"/surgalt/" + link}>
         <div className="image">
-          <img src={getImage(img)} className="full img-center" />
+          <img src={getImage(img)} className="full img-center" alt={link}/>
         </div>
         <h5>{el.title}</h5>
       </Link>

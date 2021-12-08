@@ -36,7 +36,7 @@ const SingleNews = (props) => {
               <div className="lat-news" key={i}>
                 <Link key={el.id} to={"/medee-medeelel/" + el.link}>
                   <div className="ds-flex">
-                    <img src={getImage(images[i])} />
+                    <img src={getImage(images[i])} alt={el.link} />
                     <h6>{el.title}</h6>
                   </div>
                 </Link>

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch } from "react-router-dom";
+import { BrowserRouter, Switch, Redirect } from "react-router-dom";
 // import GlobalContext from "./Contexts/GlobalContext";
 import AdminLayout from "./components/admin/layout/adminLayout";
 import Category from "./components/admin/category";
@@ -14,7 +14,6 @@ import Hicheelvvd from "./components/admin/hicheel/hicheelvvd";
 import HicheelNemeh from "./components/admin/hicheel/hicheelNemeh";
 import Admin from "./pages/Admin";
 import AdminLogin from "./components/admin/auth/admin-login";
-// import NotFound from "./Pages/NotFound";
 import RouteWithLayout from "./RouteWithLayout";
 import Exercise from "./components/admin/execises";
 import NewExercise from "./components/admin/execises/newExercise";
@@ -113,6 +112,8 @@ const AdminRoutes = () => {
           layout={NoLayout}
           path="/admin"
         />
+
+        <Redirect to="/not-found" />
       </Switch>
     </BrowserRouter>
   );

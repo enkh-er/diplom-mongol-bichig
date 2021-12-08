@@ -43,7 +43,10 @@ const UnshihMaterials = (props) => {
                           )
                         }
                       >
-                        <img src={images[i][j] && getImage(images[i][j])} />
+                        <img
+                          src={images[i][j] && getImage(images[i][j])}
+                          alt={el.name}
+                        />
                       </div>
                     ) : (
                       <Image
@@ -70,7 +73,7 @@ const UnshihMaterials = (props) => {
         centered
         className="unshih-modal"
       >
-        <iframe src={modalData.src} width="100%" />
+        <iframe src={modalData.src} width="100%" title={modalData.title} />
       </Modal>
     </section>
   );
