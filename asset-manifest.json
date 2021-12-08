@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/diplom-mongol-bichig/static/css/main.fdd0dad9.chunk.css",
+    "main.js": "/diplom-mongol-bichig/static/js/main.c6408742.chunk.js",
+    "main.js.map": "/diplom-mongol-bichig/static/js/main.c6408742.chunk.js.map",
+    "runtime-main.js": "/diplom-mongol-bichig/static/js/runtime-main.6336bb19.js",
+    "runtime-main.js.map": "/diplom-mongol-bichig/static/js/runtime-main.6336bb19.js.map",
+    "static/css/2.58cd9cd3.chunk.css": "/diplom-mongol-bichig/static/css/2.58cd9cd3.chunk.css",
+    "static/js/2.fa8d7d5c.chunk.js": "/diplom-mongol-bichig/static/js/2.fa8d7d5c.chunk.js",
+    "static/js/2.fa8d7d5c.chunk.js.map": "/diplom-mongol-bichig/static/js/2.fa8d7d5c.chunk.js.map",
+    "index.html": "/diplom-mongol-bichig/index.html",
+    "static/css/2.58cd9cd3.chunk.css.map": "/diplom-mongol-bichig/static/css/2.58cd9cd3.chunk.css.map",
+    "static/css/main.fdd0dad9.chunk.css.map": "/diplom-mongol-bichig/static/css/main.fdd0dad9.chunk.css.map",
+    "static/js/2.fa8d7d5c.chunk.js.LICENSE.txt": "/diplom-mongol-bichig/static/js/2.fa8d7d5c.chunk.js.LICENSE.txt",
+    "static/media/icons8-facebook.1d60f030.svg": "/diplom-mongol-bichig/static/media/icons8-facebook.1d60f030.svg",
+    "static/media/icons8-instagram.8ff7ce92.svg": "/diplom-mongol-bichig/static/media/icons8-instagram.8ff7ce92.svg",
+    "static/media/me.c776fe4f.jpg": "/diplom-mongol-bichig/static/media/me.c776fe4f.jpg",
+    "static/media/styles.min.css": "/diplom-mongol-bichig/static/media/mnglwritingotf.e04bac8d.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6336bb19.js",
+    "static/css/2.58cd9cd3.chunk.css",
+    "static/js/2.fa8d7d5c.chunk.js",
+    "static/css/main.fdd0dad9.chunk.css",
+    "static/js/main.c6408742.chunk.js"
+  ]
+}
