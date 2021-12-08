@@ -2,7 +2,7 @@
   "name": "mongol-bichig",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://enkh-er.github.io/diplom-mongol-bichig",
+  "homepage": "https://enkh-er.github.io/diplom-mongol-bichig",
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^30.0.0",
     "@ckeditor/ckeditor5-react": "^3.0.2",
