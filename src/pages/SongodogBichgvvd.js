@@ -13,32 +13,31 @@ const SongodogBichgvvd = () => {
   const [posts, setPosts] = useState([]);
   const [images, setImages] = useState([]);
   useEffect(() => {
+    const getData = async () => {
+      const bichgvvdMenus = await getMenusByCode("songodog_bichgvvd");
+      if (bichgvvdMenus && bichgvvdMenus.length !== 0) {
+        let datas = [];
+        let postimgs = [];
+        for (let i = 0; i < bichgvvdMenus.length; i++) {
+          const catId = await getCategoryByLink(bichgvvdMenus[i].link);
+          datas[i] = await getPostByCat(catId);
+          if (datas[i] && datas[i].length !== 0) {
+            let imgs = [];
+            for (let j = 0; j < datas[i].length; j++) {
+              if (datas[i][j].image !== "") {
+                imgs[j] = await getFileById(datas[i][j].image);
+              }
+            }
+            postimgs[i] = imgs;
+          }
+        }
+        setImages(postimgs);
+        setPosts(datas);
+      }
+      setMenus(bichgvvdMenus);
+    };
     getData();
   }, []);
-
-  const getData = async () => {
-    const bichgvvdMenus = await getMenusByCode("songodog_bichgvvd");
-    if (bichgvvdMenus && bichgvvdMenus.length !== 0) {
-      let datas = [];
-      let postimgs = [];
-      for (let i = 0; i < bichgvvdMenus.length; i++) {
-        const catId = await getCategoryByLink(bichgvvdMenus[i].link);
-        datas[i] = await getPostByCat(catId);
-        if (datas[i] && datas[i].length !== 0) {
-          let imgs = [];
-          for (let j = 0; j < datas[i].length; j++) {
-            if (datas[i][j].image !== "") {
-              imgs[j] = await getFileById(datas[i][j].image);
-            }
-          }
-          postimgs[i] = imgs;
-        }
-      }
-      setImages(postimgs);
-      setPosts(datas);
-    }
-    setMenus(bichgvvdMenus);
-  };
 
   return (
     <section className="pt-90 back-light-blue">

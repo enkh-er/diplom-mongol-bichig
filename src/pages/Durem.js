@@ -19,25 +19,25 @@ const Durem = () => {
   let location = useLocation();
 
   useEffect(() => {
+    const getData = async () => {
+      const dat = await getMenusByCode("durem");
+      const lastPath = location.pathname.split("/");
+      changePaths(lastPath[lastPath.length - 1]);
+      setSideMenus(dat);
+    };
+    const changePaths = async (path) => {
+      const cat = await getCategoryByLink(path);
+      if (cat !== "") {
+        const datas = await getPostByCat(cat);
+        const menuCat = await getCategory(cat);
+        setPosts(datas);
+        setCategory(menuCat);
+        setPathLast(path);
+      }
+    };
+
     getData();
   }, [location.pathname]);
-
-  const getData = async () => {
-    const dat = await getMenusByCode("durem");
-    const lastPath = location.pathname.split("/");
-    changePaths(lastPath[lastPath.length - 1]);
-    setSideMenus(dat);
-  };
-  const changePaths = async (path) => {
-    const cat = await getCategoryByLink(path);
-    if (cat !== "") {
-      const datas = await getPostByCat(cat);
-      const menuCat = await getCategory(cat);
-      setPosts(datas);
-      setCategory(menuCat);
-      setPathLast(path);
-    }
-  };
 
   return (
     <section className="pt-90 back-light-blue">

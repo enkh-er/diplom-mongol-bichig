@@ -3,15 +3,11 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { getCategories, getPostById, getCfByCategory } from "../../../restAPI";
 import { Input, Select, Space, DatePicker, Button } from "antd";
-// import UploadFile from "../general/UploadFile";
-// import { msg } from "../general/msg";
-// import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const { Option } = Select;
 
 const UpdatePost = (props) => {
-  let { id } = useParams();
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
@@ -22,25 +18,25 @@ const UpdatePost = (props) => {
   const [date, setDate] = useState("");
   const [author, setAuthor] = useState("");
   const [fields, setFields] = useState([]);
+  let { id } = useParams();
 
   useEffect(() => {
+    const getData = async () => {
+      const dat = await getCategories();
+      const post = await getPostById(id);
+      setUpdatePost(post);
+      setCategories(dat);
+      setTitle(post.title || "");
+      setContent(post.content || "");
+      setLink(post.link || "");
+      setChooseCats(post.categories || []);
+      setImage(post.image || "");
+      setDate(post.date || "");
+      setAuthor(post.author || "");
+      setFields(post.acf || []);
+    };
     getData();
-  }, []);
-
-  const getData = async () => {
-    const dat = await getCategories();
-    const post = await getPostById(id);
-    setUpdatePost(post);
-    setCategories(dat);
-    setTitle(post.title || "");
-    setContent(post.content || "");
-    setLink(post.link || "");
-    setChooseCats(post.categories || []);
-    setImage(post.image || "");
-    setDate(post.date || "");
-    setAuthor(post.author || "");
-    setFields(post.acf || []);
-  };
+  }, [id]);
 
   if (!updatePost) {
     return null;
@@ -145,7 +141,7 @@ const UpdatePost = (props) => {
           ))}
         </Select>
         <Button type="primary" onClick={onSubmit}>
-          // Хадгалах //{" "}
+          Хадгалах
         </Button>
       </Space>
     </div>

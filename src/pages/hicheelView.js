@@ -28,7 +28,7 @@ const HicheelView = () => {
     };
 
     getData();
-  }, []);
+  }, [location.state.categoryID]);
 
   const handleChangeHicheel = async (id) => {
     setLoadding(true);

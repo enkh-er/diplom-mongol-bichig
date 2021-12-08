@@ -20,35 +20,34 @@ const News = () => {
   let location = useLocation();
 
   useEffect(() => {
+    const getData = async () => {
+      const lastPath = location.pathname.split("/");
+      const path = lastPath[lastPath.length - 1];
+      const cat = await getCategoryByLink("medee-medeelel");
+      const datas = await getPostByCat(cat);
+      if (datas && datas.length !== 0) {
+        let pImages = [];
+        for (let i = 0; i < datas.length; i++) {
+          if (datas[i].image && datas[i].image !== "") {
+            const img = await getFileById(datas[i].image);
+            pImages.push(img);
+          }
+        }
+        setImages(pImages.reverse());
+      }
+      setPosts(datas.reverse());
+      if (path !== "medee-medeelel") {
+        const news = await getPostByLink(path);
+        if (Object.entries(news).length !== 0) {
+          const img = await getFileById(news.image);
+          setImage(img);
+        }
+        setPost(news);
+      }
+      setPathLast(path);
+    };
     getData();
   }, [location.pathname]);
-
-  const getData = async () => {
-    const lastPath = location.pathname.split("/");
-    const path = lastPath[lastPath.length - 1];
-    const cat = await getCategoryByLink("medee-medeelel");
-    const datas = await getPostByCat(cat);
-    if (datas && datas.length !== 0) {
-      let pImages = [];
-      for (let i = 0; i < datas.length; i++) {
-        if (datas[i].image && datas[i].image !== "") {
-          const img = await getFileById(datas[i].image);
-          pImages.push(img);
-        }
-      }
-      setImages(pImages.reverse());
-    }
-    setPosts(datas.reverse());
-    if (path !== "medee-medeelel") {
-      const news = await getPostByLink(path);
-      if (Object.entries(news).length !== 0) {
-        const img = await getFileById(news.image);
-        setImage(img);
-      }
-      setPost(news);
-    }
-    setPathLast(path);
-  };
 
   return (
     <section className="pt-90  back-light-blue">
