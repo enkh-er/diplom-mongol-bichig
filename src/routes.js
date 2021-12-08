@@ -65,8 +65,12 @@ const Routes = () => {
           layout={Layout}
           path="/surgalt-vzeh/:link"
         />
+        <RouteWithLayout
+          component={NotFound}
+          layout={Layout}
+          path="/not-found"
+        />
       </Switch>
-      <RouteWithLayout component={NotFound} layout={Layout} path="/not-found" />
     </BrowserRouter>
   );
 };
