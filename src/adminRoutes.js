@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 // import GlobalContext from "./Contexts/GlobalContext";
 import AdminLayout from "./components/admin/layout/adminLayout";
 import Category from "./components/admin/category";
@@ -112,7 +112,6 @@ const AdminRoutes = () => {
           layout={NoLayout}
           path="/admin"
         />
-        <Redirect to="/not-found" />
       </Switch>
     </BrowserRouter>
   );
