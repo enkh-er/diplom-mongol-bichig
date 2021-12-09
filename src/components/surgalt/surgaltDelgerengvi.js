@@ -13,9 +13,8 @@ const SurgaltDelgerengvi = (props) => {
   ) {
     return null;
   }
-  console.log(hicheelvvd);
   return (
-    <section className="p-2">
+    <section>
       <Row gutter={30}>
         <Col span={8}>
           <div className="surgalt-del">

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Col, Row } from "antd";
+import { Col, Row, Skeleton } from "antd";
 import { useLocation } from "react-router-dom";
 import {
   getCategoryByLink,
@@ -16,11 +16,12 @@ const News = () => {
   const [image, setImage] = useState(null);
   const [posts, setPosts] = useState([]);
   const [post, setPost] = useState({});
-
+  const [loading, setLoadding] = useState(false);
   let location = useLocation();
 
   useEffect(() => {
     const getData = async () => {
+      setLoadding(true);
       const lastPath = location.pathname.split("/");
       const path = lastPath[lastPath.length - 1];
       const cat = await getCategoryByLink("medee-medeelel");
@@ -45,6 +46,7 @@ const News = () => {
         setPost(news);
       }
       setPathLast(path);
+      setLoadding(false);
     };
     getData();
   }, [location.pathname]);
@@ -54,16 +56,18 @@ const News = () => {
       <div className="md-container">
         <Row justify="center">
           <Col span={20} className="back-white br-7">
-            {pathLast === "medee-medeelel" ? (
-              <AllNews posts={posts} images={images} />
-            ) : (
-              <SingleNews
-                posts={posts.slice(0, 5)}
-                post={post}
-                image={image}
-                images={images.slice(0, 5)}
-              />
-            )}
+            <Skeleton loading={loading}>
+              {pathLast === "medee-medeelel" ? (
+                <AllNews posts={posts} images={images} />
+              ) : (
+                <SingleNews
+                  posts={posts.slice(0, 5)}
+                  post={post}
+                  image={image}
+                  images={images.slice(0, 5)}
+                />
+              )}
+            </Skeleton>
           </Col>
         </Row>
       </div>

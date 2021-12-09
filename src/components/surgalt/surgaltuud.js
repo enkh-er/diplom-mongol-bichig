@@ -7,7 +7,7 @@ const Surgaltuud = (props) => {
   }
 
   return (
-    <section className="p-30">
+    <section>
       <h1 className="text-center mb-30 bg-title-blue">Бүх сургалт</h1>
       <div className="grid4 gap30 mb-30">
         {surgaltuud.map((el, i) => (

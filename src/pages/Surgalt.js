@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
-import { Col, Row } from "antd";
+import { Col, Row, Skeleton } from "antd";
 import {
   getCategoryByParent,
   getPostByCat,
@@ -20,11 +20,13 @@ const Surgalt = () => {
   const [postImg, setPostImg] = useState([]);
   const [hicheelvvd, setHicheelvvd] = useState([]);
   const [categoryID, setCategoryID] = useState("");
+  const [loading, setLoadding] = useState(false);
 
   let location = useLocation();
 
   useEffect(() => {
     const getData = async () => {
+      setLoadding(true);
       const lastPath = location.pathname.split("/");
       const path = lastPath[lastPath.length - 1];
       if (path === "surgalt") {
@@ -63,6 +65,7 @@ const Surgalt = () => {
         setPostDel(postsD[0]);
       }
       setPathLast(path);
+      setLoadding(false);
     };
     getData();
   }, [location.pathname]);
@@ -72,20 +75,24 @@ const Surgalt = () => {
       <div className="md-container">
         <Row justify="center">
           <Col span={20} className="back-white br-7">
-            {pathLast === "surgalt" ? (
-              <Surgaltuud
-                surgaltuud={childPosts}
-                images={images}
-                categories={childs}
-              />
-            ) : (
-              <SurgaltDelgerengvi
-                data={postDel}
-                images={postImg}
-                hicheelvvd={hicheelvvd}
-                categoryID={categoryID}
-              />
-            )}
+            <div className="p-2">
+              <Skeleton loading={loading}>
+                {pathLast === "surgalt" ? (
+                  <Surgaltuud
+                    surgaltuud={childPosts}
+                    images={images}
+                    categories={childs}
+                  />
+                ) : (
+                  <SurgaltDelgerengvi
+                    data={postDel}
+                    images={postImg}
+                    hicheelvvd={hicheelvvd}
+                    categoryID={categoryID}
+                  />
+                )}
+              </Skeleton>
+            </div>
           </Col>
         </Row>
       </div>

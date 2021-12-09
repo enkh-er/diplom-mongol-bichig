@@ -118,6 +118,10 @@ h6 {
   padding: 2rem;
 }
 
+.p-1-2 {
+  padding: 1rem 2rem;
+}
+
 /*----padding bottom----*/
 .pb-10 {
   padding-bottom: 0.625rem;
@@ -462,6 +466,10 @@ ul {
   width: 100%;
 }
 
+.home-skelton {
+  padding: 150px 10% 100px 10%;
+}
+
 .news-card {
   position: relative;
   height: 450px;
@@ -627,10 +635,6 @@ hr {
   padding-left: 50px;
 }
 
-.unshih-mat,
-.songodog {
-  padding: 0 2rem;
-}
 .unshih-mat .ant-tabs-nav-wrap,
 .songodog .ant-tabs-nav-wrap {
   justify-content: center;

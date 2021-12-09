@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Col, Row } from "antd";
+import { Col, Row, Skeleton } from "antd";
 import {
   getMenusByCode,
   getFileById,
@@ -12,8 +12,10 @@ const SongodogBichgvvd = () => {
   const [menus, setMenus] = useState([]);
   const [posts, setPosts] = useState([]);
   const [images, setImages] = useState([]);
+  const [loading, setLoadding] = useState(false);
   useEffect(() => {
     const getData = async () => {
+      setLoadding(true);
       const bichgvvdMenus = await getMenusByCode("songodog_bichgvvd");
       if (bichgvvdMenus && bichgvvdMenus.length !== 0) {
         let datas = [];
@@ -35,6 +37,7 @@ const SongodogBichgvvd = () => {
         setPosts(datas);
       }
       setMenus(bichgvvdMenus);
+      setLoadding(false);
     };
     getData();
   }, []);
@@ -44,9 +47,11 @@ const SongodogBichgvvd = () => {
       <div className="md-container">
         <Row justify="center">
           <Col span={20} className="back-white br-7">
-            <div className="sm-container">
+            <div className="p-1-2">
               <h1 className="text-center">Сонгодог бичгүүд</h1>
-              <Songodog menus={menus} datas={posts} images={images} />
+              <Skeleton loading={loading}>
+                <Songodog menus={menus} datas={posts} images={images} />
+              </Skeleton>
             </div>
           </Col>
         </Row>

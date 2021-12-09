@@ -112,7 +112,6 @@ const AdminRoutes = () => {
           layout={NoLayout}
           path="/admin"
         />
-
         <Redirect to="/not-found" />
       </Switch>
     </BrowserRouter>

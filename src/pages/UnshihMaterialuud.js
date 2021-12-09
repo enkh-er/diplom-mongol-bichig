@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Col, Row } from "antd";
+import { Col, Row, Skeleton } from "antd";
 import {
   getCategoryByLink,
   getFileById,
@@ -13,12 +13,14 @@ const UnshihMaterialuud = () => {
   const [unshihMaterials, setUnshihMaterials] = useState([]);
   const [images, setImages] = useState([]);
   const [pdfFiles, setPdfFiles] = useState([]);
+  const [loading, setLoadding] = useState(false);
 
   useEffect(() => {
     getData();
   }, []);
 
   const getData = async () => {
+    setLoadding(true);
     const unshihMenus = await getMenusByCode("unshih_materialuud");
     if (unshihMenus && unshihMenus.length !== 0) {
       let datas = [];
@@ -51,6 +53,7 @@ const UnshihMaterialuud = () => {
       setUnshihMaterials(datas);
     }
     setMenus(unshihMenus);
+    setLoadding(false);
   };
 
   return (
@@ -58,14 +61,16 @@ const UnshihMaterialuud = () => {
       <div className="md-container">
         <Row justify="center">
           <Col span={20} className="back-white br-7">
-            <div className="sm-container">
+            <div className="p-1-2">
               <h1 className="text-center">Унших материалууд</h1>
-              <UnshihMaterials
-                menus={menus}
-                datas={unshihMaterials}
-                images={images}
-                files={pdfFiles}
-              />
+              <Skeleton loading={loading}>
+                <UnshihMaterials
+                  menus={menus}
+                  datas={unshihMaterials}
+                  images={images}
+                  files={pdfFiles}
+                />
+              </Skeleton>
             </div>
           </Col>
         </Row>

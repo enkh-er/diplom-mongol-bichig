@@ -6,7 +6,7 @@ import {
   getCategoryByLink,
   getCategoryByParent,
 } from "../restAPI";
-import { Row, Col } from "antd";
+import { Row, Col, Skeleton } from "antd";
 import { Link } from "react-router-dom";
 import NewsComponent from "../components/news/newsComponent";
 import { getImage } from "../utils";
@@ -20,8 +20,14 @@ export const Home = () => {
   const [lastSurgaltuud, setLastSugaltuud] = useState([]);
   const [surgaltuudCats, setSugaltuudCats] = useState([]);
   const [surgaltiinZurguud, setSurgaltiinZurguud] = useState([]);
+  const [loadingNews, setLoaddingNews] = useState(false);
+  const [loadingSurgalt, setLoaddingSurgalt] = useState(false);
+  const [loading, setLoadding] = useState(false);
 
   const getData = async () => {
+    setLoadding(true);
+    setLoaddingNews(true);
+    setLoaddingSurgalt(true);
     const slider = await getPostByCat(await getCategoryByCode("home_slider"));
     const cat = await getCategoryByLink("medee-medeelel");
     const datas = await getPostByCat(cat);
@@ -35,6 +41,8 @@ export const Home = () => {
       }
       setSliderImages(images);
     }
+    setLoadding(false);
+
     if (datas && datas.length !== 0) {
       let pImages = [];
       for (let i = 0; i < datas.length; i++) {
@@ -45,8 +53,12 @@ export const Home = () => {
       }
       setImages(pImages.reverse());
     }
+    const reversed = datas.reverse();
+    setPosts(reversed.slice(0, 3));
+    setLoaddingNews(false);
 
     // surgaltiin medeelliig awj bui heseg
+
     const catSurgalt = await getCategoryByLink("surgalt");
     const surgaltChildCategories = await getCategoryByParent(catSurgalt);
     const surgaltCats = surgaltChildCategories.reverse();
@@ -68,9 +80,7 @@ export const Home = () => {
       setSurgaltiinZurguud(surImgs.slice(0, 4));
       setLastSugaltuud(surPosts.slice(0, 4));
     }
-
-    const reversed = datas.reverse();
-    setPosts(reversed.slice(0, 3));
+    setLoaddingSurgalt(false);
   };
   useEffect(() => {
     getData();
@@ -115,19 +125,20 @@ export const Home = () => {
   return (
     <section className="slider-main">
       <div className="slider-cont">
-        <img
-          src={sliderImages[0] && getImage(sliderImages[0])}
-          className="slider-img"
-          alt="slider img"
-        />
-        <div className="home-info">
-          <Slider {...settings}>
-            <div className="slider-info">
-              <div className="wrapper bg1">
-                <h2>Монгол бичгийн зөв бичих дүрмийг эндээс үзээрэй</h2>
-                <Link to="/durem">Дүрэм үзэх</Link>
-              </div>
-              {/* <div className="shvleg">
+        <Skeleton loading={loading} className="home-skelton">
+          <img
+            src={sliderImages[0] && getImage(sliderImages[0])}
+            className="slider-img"
+            alt="slider img"
+          />
+          <div className="home-info">
+            <Slider {...settings}>
+              <div className="slider-info">
+                <div className="wrapper bg1">
+                  <h2>Монгол бичгийн зөв бичих дүрмийг эндээс үзээрэй</h2>
+                  <Link to="/durem">Дүрэм үзэх</Link>
+                </div>
+                {/* <div className="shvleg">
                 <span className="bichigw">
                   ᠡᠪᠦᠭᠡ ᠳᠡᠭᠡᠳᠥᠰ ᠤᠨ ᠮᠢᠨᠢ ᠲᠡᠦᠬᠡ ᠢᠢ ᠪᠢᠴᠢᠭᠰᠡᠨ
                 </span>
@@ -139,66 +150,41 @@ export const Home = () => {
                 </span>
                 <span className="bichigw">ᠳᠡᠭᠡᠳᠥ ᠲᠡᠭᠷᠢ ᠢᠢᠨ ᠪᠢᠴᠢᠭ ᠮᠢᠨᠦ</span>
               </div> */}
-            </div>
-            <div className="slider-info">
-              <div className="wrapper bg2">
-                <h2>Сонгодог монгол бичгийн хичээлүүдийг эндээс үзээрэй</h2>
-                <Link to="/songodog-bichgvvd">Цааш үзэх</Link>
               </div>
-            </div>
-            <div className="slider-info">
-              <div className="wrapper bg1">
-                <h2>Монгол бичгийн дасгал хийж өөрийгөө сориорой</h2>
-                <Link to="/dasgal">Дасгал хийх</Link>
+              <div className="slider-info">
+                <div className="wrapper bg2">
+                  <h2>Сонгодог монгол бичгийн хичээлүүдийг эндээс үзээрэй</h2>
+                  <Link to="/songodog-bichgvvd">Цааш үзэх</Link>
+                </div>
               </div>
-            </div>
-            <div className="slider-info">
-              <div className="wrapper bg2">
-                <h2>Монгол бичгийн шинэ сургалтуудыг эндээс үзээрэй</h2>
-                <Link to="/surgalt">Сургалт үзэх</Link>
+              <div className="slider-info">
+                <div className="wrapper bg1">
+                  <h2>Монгол бичгийн дасгал хийж өөрийгөө сориорой</h2>
+                  <Link to="/dasgal">Дасгал хийх</Link>
+                </div>
               </div>
-            </div>
-          </Slider>
-        </div>
-        {/* <div className="search">
-          <div className="flip-cont mb-20">
-            Та монгол бичгийн
-            <div id="flip">
-              <div>
-                <div>Дүрэм</div>
+              <div className="slider-info">
+                <div className="wrapper bg2">
+                  <h2>Монгол бичгийн шинэ сургалтуудыг эндээс үзээрэй</h2>
+                  <Link to="/surgalt">Сургалт үзэх</Link>
+                </div>
               </div>
-              <div>
-                <div>Хичээл</div>
-              </div>
-              <div>
-                <div>Мэдээ мэдээлэл</div>
-              </div>
-            </div>
-            эндээс үзээрэй!
+            </Slider>
           </div>
-
-          <Select defaultValue="Дүрэм" style={{ width: 170 }}>
-            <Option value="Дүрэм">Дүрэм</Option>
-            <Option value="Сонгодог бичгүүд">Сонгодог бичгүүд</Option>
-            <Option value="Дасгал">Дасгал</Option>
-            <Option value="Сургалт">Сургалт</Option>
-          </Select>
-          <Search
-            style={{ width: 350 }}
-            placeholder="input search text"
-            onSearch={onSearch}
-            enterButton
-          />
-        </div> */}
+        </Skeleton>
       </div>
       <Row justify="center">
         <Col span={20}>
           <div className="md-container">
             <h2 className="pb-10 bg-title-blue font-20">Сүүлийн үеийн мэдээ</h2>
-            <div className="grid3 gap50">{getLatestNews()}</div>
+            <Skeleton loading={loadingNews}>
+              <div className="grid3 gap50">{getLatestNews()}</div>
+            </Skeleton>
             <hr className="mb-30" />
             <h2 className="pb-10 bg-title-blue font-20">Шинэ сургалтууд</h2>
-            <div className="grid4 gap30 mb-30"> {getLatestSurgalt()}</div>
+            <Skeleton loading={loadingSurgalt}>
+              <div className="grid4 gap30 mb-30">{getLatestSurgalt()}</div>
+            </Skeleton>
           </div>
         </Col>
       </Row>

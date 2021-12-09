@@ -24,7 +24,10 @@ const Songodog = (props) => {
                         __html: item.content,
                       }}
                     />
-                    <img src={getImage(images[i][j])} alt={item.title} />
+                    <img
+                      src={images[i][j] && getImage(images[i][j])}
+                      alt={item.title}
+                    />
                   </div>
                 ))}
             </TabPane>
