@@ -10,6 +10,7 @@ const Header = ({ subMenus, menus }) => {
   if (!menus) {
     return null;
   }
+  console.log(menus);
   const onSearch = (value) => console.log(value);
 
   const menu = (item) => {
