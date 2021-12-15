@@ -92,7 +92,6 @@ const DasgalHiih = (props) => {
         <button onClick={onFinish} className="btn-submit">
           Илгээх
         </button>
-        {onoogHaruulah && <button className="btn-refresh">Дахин хийх</button>}
       </div>
     </section>
   );

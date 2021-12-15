@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900");
 h1,
 h2,
@@ -699,10 +700,21 @@ hr {
   text-shadow: black 0.1em 0.1em 0.3em;
   line-height: 1.1;
 }
+.unshih-box p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  display: none;
+}
 
-.unshih-box:hover img {
+.file-u:hover img {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  filter: brightness(80%);
+  filter: brightness(55%);
+}
+.file-u:hover p {
+  display: block;
 }
 
 .notfound h1 {
@@ -757,6 +769,20 @@ hr {
 .send span svg {
   width: 2rem;
   height: 2rem;
+}
+
+.ant-image-mask-info {
+  visibility: hidden;
+}
+
+.ant-image-mask-info:after {
+  content: "Зураг";
+  visibility: visible;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .surgalt {
@@ -1044,6 +1070,36 @@ footer hr {
 .useful-links a:hover {
   text-decoration: underline;
   color: white;
+}
+
+.dataResult {
+  margin-top: 5px;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.dataResult::-webkit-scrollbar {
+  display: none;
+}
+
+.dataResult .dataItem {
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+.dataResult .dataItem a {
+  text-decoration: none;
+  text-transform: initial !important;
+}
+.dataResult .dataItem a:hover {
+  background-color: lightgrey;
 }
 
 .dasgal .ant-menu-root {

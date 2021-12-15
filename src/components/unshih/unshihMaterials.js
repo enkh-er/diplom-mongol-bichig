@@ -42,11 +42,13 @@ const UnshihMaterials = (props) => {
                             data.title
                           )
                         }
+                        className="file-u"
                       >
                         <img
                           src={images[i][j] && getImage(images[i][j])}
                           alt={el.name}
                         />
+                        <p>Файл</p>
                       </div>
                     ) : (
                       <Image
