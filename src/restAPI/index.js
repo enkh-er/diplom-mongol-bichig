@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  // baseURL: "http://localhost:7070",
-  baseURL: "https://mongol-bichig-api.herokuapp.com",
+  baseURL: "http://167.71.199.24:7070",
 });
 
 export async function getCategories() {

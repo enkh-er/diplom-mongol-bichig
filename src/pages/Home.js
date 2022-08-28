@@ -12,6 +12,9 @@ import NewsComponent from "../components/news/newsComponent";
 import { getImage } from "../utils";
 import Slider from "@ant-design/react-slick";
 import SurgaltComponent from "../components/surgalt/surgaltComponent";
+// import Search from "antd/lib/transfer/search";
+
+// const { Option } = Select;
 
 export const Home = () => {
   const [sliderImages, setSliderImages] = useState([]);
@@ -132,24 +135,25 @@ export const Home = () => {
             alt="slider img"
           />
           <div className="home-info">
+            {/* <Row justify="center">
+              <Col span={10}>
+                <Input placeholder="Дүрэм хайх" placement="bottomLeft" />
+                <Select default Value="lucy" style={{ width: 120 }}>
+                  <Option value="jack"></Option>
+                  <Option value="jack"></Option>
+                  <Option value="jack"></Option>
+                  <Option value="jack"></Option>
+                </Select>
+              </Col>
+              <Col span={10}></Col>
+            </Row> */}
+
             <Slider {...settings}>
               <div className="slider-info">
                 <div className="wrapper bg1">
                   <h2>Монгол бичгийн зөв бичих дүрмийг эндээс үзээрэй</h2>
                   <Link to="/durem">Дүрэм үзэх</Link>
                 </div>
-                {/* <div className="shvleg">
-                <span className="bichigw">
-                  ᠡᠪᠦᠭᠡ ᠳᠡᠭᠡᠳᠥᠰ ᠤᠨ ᠮᠢᠨᠢ ᠲᠡᠦᠬᠡ ᠢᠢ ᠪᠢᠴᠢᠭᠰᠡᠨ
-                </span>
-                <span className="bichigw">
-                  ᠥᠨᠳᠥᠷ ᠲᠥᠷᠥ ᠢᠢᠨ ᠬᠤᠢᠮᠥᠷ ᠲᠤ ᠵᠠᠯᠠᠷᠠᠭᠰᠠᠨ
-                </span>
-                <span className="bichigw">
-                  ᠳᠡᠯᠡᠭᠡᠢ ᠳᠤ ᠭᠠᠭᠴᠠᠬᠠᠨ ᠪᠤᠰᠤᠭ᠎ᠠ ᠵᠠᠶᠠᠭ᠎ᠠ ᠲᠠᠢ{" "}
-                </span>
-                <span className="bichigw">ᠳᠡᠭᠡᠳᠥ ᠲᠡᠭᠷᠢ ᠢᠢᠨ ᠪᠢᠴᠢᠭ ᠮᠢᠨᠦ</span>
-              </div> */}
               </div>
               <div className="slider-info">
                 <div className="wrapper bg2">
